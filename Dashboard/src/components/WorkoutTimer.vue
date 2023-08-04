@@ -23,21 +23,20 @@
             </div>
         </div>
         <div class="d-flex mb-6 mt-5 mr-10 flex-column flex-grow-0 justify-center">
-            <v-btn v-for="(workout, idx) in workoutRoutine" class="ma-2 pa-2" :class="{'text-red': idx == workoutExercise}" @click.stop="idxExercise(idx)">
-                <v-icon v-if="workout.exercise == true" icon="mdi-dumbbell"/>
-                <v-icon v-else icon="mdi-bed"/>
-                <div class="pl-2">
-                    {{ workout.name }}
-                </div>
-            </v-btn>
+            <v-card class="d-flex flex-column overflow-auto" style="height: 90vh;">
+                <v-btn v-for="(workout, idx) in workoutRoutine" :ref="'exercise_'+idx" :id="'exercise_'+idx" class="ma-2 pa-2" :class="{'text-red': idx == workoutExercise}" @click.stop="idxExercise(idx)">
+                    <v-icon v-if="workout.exercise == true" icon="mdi-dumbbell"/>
+                    <v-icon v-else icon="mdi-bed"/>
+                    <div class="pl-2">
+                        {{ workout.name }}
+                    </div>
+                </v-btn>
+            </v-card>
         </div>
     </div>
 </template>
 
 <script lang="ts">
-import { createPublicKey } from 'crypto';
-
-
 export default {
     data() {
         return {
@@ -100,6 +99,7 @@ export default {
             this.workoutExercise = 0;
             this.workoutName = this.workoutRoutine[this.workoutExercise].name;
             this.clearTimer();
+            document.getElementById("exercise_" + this.workoutExercise).scrollIntoView();
         },
         nextExercise(){
             let timerActive = this.timerActive;
@@ -113,6 +113,7 @@ export default {
                 this.workoutExercise = 0;
                 this.workoutName = this.workoutRoutine[this.workoutExercise].name;
             }
+            document.getElementById("exercise_" + this.workoutExercise).scrollIntoView();
         },
         prevExercise(){
             let timerActive = this.timerActive;
@@ -123,6 +124,7 @@ export default {
                 if(timerActive)
                     this.startTimer();
             }
+            document.getElementById("exercise_" + this.workoutExercise).scrollIntoView();
         },
         idxExercise(idx){
             let timerActive = this.timerActive;
@@ -135,3 +137,4 @@ export default {
     }
 }
 </script>
+
