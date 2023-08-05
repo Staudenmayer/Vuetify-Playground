@@ -1,6 +1,6 @@
 <template>
     <div class="d-flex justify-center mb-6 flex-wrap" style="height: 90vh">
-        <div class="d-flex justify-center flex-column flex-grow-1 pl-15">
+        <div class="d-flex justify-center flex-column flex-grow-1">
             <div style="font-size: 5vw;">
                 <div class="text-center pa-10">
                     <v-progress-circular :rotate="360" :size="window.width/3.5" :width="window.width/35" :model-value="percent" color="primary">
@@ -21,7 +21,7 @@
                 </div>
             </div>
         </div>
-        <div class="d-flex mb-6 mt-5 mr-10 flex-column flex-grow-0 justify-center">
+        <div v-if="window.width > 750" class="d-flex mb-6 mt-5 mr-10 flex-column flex-grow-0 justify-center"> <!-- Desktop mode-->
             <v-card class="d-flex flex-column overflow-auto" style="height: 90vh;">
                 <v-btn v-for="(workout, idx) in workoutRoutine" :id="'exercise_'+idx" class="ma-2 pa-2" :color="idx == workoutExercise ? 'primary' : ''" @click.stop="idxExercise(idx)">
                     <v-icon v-if="workout.exercise == true" icon="mdi-dumbbell" :color="idx == workoutExercise ? $vuetify.theme.themes.dark.colors.background : ''"/>
@@ -32,7 +32,19 @@
                 </v-btn>
             </v-card>
         </div>
+
     </div>
+    <div v-if="window.width <= 750">
+            <v-card class="d-flex flex-column overflow-auto ma-5" style="height: 90vh;"> <!-- Mobile mode-->
+                <v-btn v-for="(workout, idx) in workoutRoutine" :id="'exercise_'+idx" class="ma-2 pa-2" :color="idx == workoutExercise ? 'primary' : ''" @click.stop="idxExercise(idx)">
+                    <v-icon v-if="workout.exercise == true" icon="mdi-dumbbell" :color="idx == workoutExercise ? $vuetify.theme.themes.dark.colors.background : ''"/>
+                    <v-icon v-else icon="mdi-bed" :color="idx == workoutExercise ? $vuetify.theme.themes.dark.colors.background : ''"/>
+                    <div class="pl-2" :style="{color: idx == workoutExercise ? $vuetify.theme.themes.dark.colors.background : ''}">
+                        {{ workout.name }}
+                    </div>
+                </v-btn>
+            </v-card>
+        </div>
 </template>
 
 <script lang="ts">
