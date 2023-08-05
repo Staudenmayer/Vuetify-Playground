@@ -26,3 +26,5 @@ registerPlugins(app)
 
 app.mount('#app')
 app.use(VueApexCharts)
+
+//https://hevodata.com/learn/vue-js-mongodb/

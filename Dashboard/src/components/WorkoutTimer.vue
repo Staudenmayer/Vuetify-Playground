@@ -1,33 +1,32 @@
 <template>
-    <div class="d-flex justify-center mb-6">
-        <div class="d-flex align-center flex-column flex-grow-1 pl-15">
-            <div>
+    <div class="d-flex justify-center mb-6 flex-wrap" style="height: 90vh">
+        <div class="d-flex justify-center flex-column flex-grow-1 pl-15">
+            <div style="font-size: 5vw;">
                 <div class="text-center pa-10">
-                    <v-progress-circular :rotate="360" :size="500" :width="50" :model-value="percent" color="#F44336"
-                        style="font-size: 70px;">
-                        <div class="ma-2 pa-2 text-red">{{ (currTime / 100).toFixed(0) }}s</div>
+                    <v-progress-circular :rotate="360" :size="window.width/3.5" :width="window.width/35" :model-value="percent" color="primary">
+                        <div class="ma-2 pa-2 text-primary">{{ (currTime / 100).toFixed(0) }}s</div>
                     </v-progress-circular>
                 </div>
                 <div v-if="workoutLength" class="d-flex justify-center mb-6">
-                    <div class="ma-2 pa-2 text-red" style="font-size: 70px;">
+                    <div class="ma-2 pa-2 text-primary">
                         {{ workoutName }}
                     </div>
                 </div>
                 <div v-if="workoutLength" class="d-flex justify-center mb-6">
-                    <v-btn v-if="timerActive || currTime != 0" @click.stop="prevExercise" class="ma-2 pa-2"><v-icon icon="mdi-skip-previous"></v-icon></v-btn>
-                    <v-btn v-if="!timerActive" @click.stop="startTimer" class="ma-2 pa-2"><v-icon icon="mdi-play"></v-icon></v-btn>
-                    <v-btn v-if="timerActive" @click.stop="pauseTimer" class="ma-2 pa-2"><v-icon icon="mdi-pause"></v-icon></v-btn>
-                    <v-btn v-if="timerActive || currTime != 0" @click.stop="resetTimer" class="ma-2 pa-2"><v-icon icon="mdi-replay"></v-icon></v-btn>
-                    <v-btn v-if="timerActive || currTime != 0" @click.stop="nextExercise" class="ma-2 pa-2"><v-icon icon="mdi-skip-next"></v-icon></v-btn>
+                    <v-btn v-if="timerActive || currTime != 0" @click.stop="prevExercise" class="ma-2 pa-2"><v-icon icon="mdi-skip-previous" color="primary"></v-icon></v-btn>
+                    <v-btn v-if="!timerActive" @click.stop="startTimer" class="ma-2 pa-2"><v-icon icon="mdi-play" color="primary"></v-icon></v-btn>
+                    <v-btn v-if="timerActive" @click.stop="pauseTimer" class="ma-2 pa-2"><v-icon icon="mdi-pause" color="primary"></v-icon></v-btn>
+                    <v-btn v-if="timerActive || currTime != 0" @click.stop="resetTimer" class="ma-2 pa-2"><v-icon icon="mdi-replay" color="primary"></v-icon></v-btn>
+                    <v-btn v-if="timerActive || currTime != 0" @click.stop="nextExercise" class="ma-2 pa-2"><v-icon icon="mdi-skip-next" color="primary"></v-icon></v-btn>
                 </div>
             </div>
         </div>
         <div class="d-flex mb-6 mt-5 mr-10 flex-column flex-grow-0 justify-center">
             <v-card class="d-flex flex-column overflow-auto" style="height: 90vh;">
-                <v-btn v-for="(workout, idx) in workoutRoutine" :ref="'exercise_'+idx" :id="'exercise_'+idx" class="ma-2 pa-2" :class="{'text-red': idx == workoutExercise}" @click.stop="idxExercise(idx)">
-                    <v-icon v-if="workout.exercise == true" icon="mdi-dumbbell"/>
-                    <v-icon v-else icon="mdi-bed"/>
-                    <div class="pl-2">
+                <v-btn v-for="(workout, idx) in workoutRoutine" :id="'exercise_'+idx" class="ma-2 pa-2" :color="idx == workoutExercise ? 'primary' : ''" @click.stop="idxExercise(idx)">
+                    <v-icon v-if="workout.exercise == true" icon="mdi-dumbbell" :color="idx == workoutExercise ? $vuetify.theme.themes.dark.colors.background : ''"/>
+                    <v-icon v-else icon="mdi-bed" :color="idx == workoutExercise ? $vuetify.theme.themes.dark.colors.background : ''"/>
+                    <div class="pl-2" :style="{color: idx == workoutExercise ? $vuetify.theme.themes.dark.colors.background : ''}">
                         {{ workout.name }}
                     </div>
                 </v-btn>
@@ -49,18 +48,32 @@ export default {
             setTime: 45,
             currTime: 0,
             percent: 0,
+            window: {
+                width: 0,
+                height: 0
+            },
+            progressSize: 0
         }
     },
     props: {
         workoutRoutine: Array,
     },
-    beforeUnmount() {
-        //clearInterval(this.interval)
+    created() {
+        window.addEventListener('resize', this.handleResize);
+        this.handleResize();
+    },
+    destroyed() {
+        window.removeEventListener('resize', this.handleResize);
+        this.clearTimer();
     },
     async mounted() {
         await this.getWorkouts();
     },
     methods: {
+        handleResize() {
+            this.window.width = window.innerWidth;
+            this.window.height = window.innerHeight;
+        },
         async getWorkouts() {
             if(!this?.workoutRoutine || !this?.workoutRoutine?.length)
                 return;
