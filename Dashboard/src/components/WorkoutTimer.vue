@@ -1,13 +1,14 @@
 <template>
-    <div class="d-flex justify-center mb-6 flex-wrap" style="height: 90vh">
+    <WorkoutSelecter />
+    <div class="d-flex justify-center mb-6 flex-wrap" style="height: 60vh">
         <div class="d-flex justify-center flex-column flex-grow-1">
             <div style="font-size: 5vw;">
-                <div class="text-center pa-10">
-                    <v-progress-circular :rotate="360" :size="window.width/3.5" :width="window.width/35" :model-value="percent" color="primary">
+                <div class="text-center pa-5">
+                    <v-progress-circular :rotate="360" :size="window.width > 750 ? window.width/4 : window.width/2" :width="window.width > 750 ? window.width/40 : window.width/20" :model-value="percent" color="primary">
                         <div class="ma-2 pa-2 text-primary">{{ (currTime / 100).toFixed(0) }}s</div>
                     </v-progress-circular>
                 </div>
-                <div v-if="workoutLength" class="d-flex justify-center mb-6">
+                <div v-if="workoutLength" class="d-flex justify-center">
                     <div class="ma-2 pa-2 text-primary">
                         {{ workoutName }}
                     </div>
@@ -22,7 +23,7 @@
             </div>
         </div>
         <div v-if="window.width > 750" class="d-flex mb-6 mt-5 mr-10 flex-column flex-grow-0 justify-center"> <!-- Desktop mode-->
-            <v-card class="d-flex flex-column overflow-auto" style="height: 90vh;">
+            <v-card class="d-flex flex-column overflow-auto" style="height: 75vh;">
                 <v-btn v-for="(workout, idx) in workoutRoutine" :id="'exercise_'+idx" class="ma-2 pa-2" :color="idx == workoutExercise ? 'primary' : ''" @click.stop="idxExercise(idx)">
                     <v-icon v-if="workout.exercise == true" icon="mdi-dumbbell" :color="idx == workoutExercise ? $vuetify.theme.themes.dark.colors.background : ''"/>
                     <v-icon v-else icon="mdi-bed" :color="idx == workoutExercise ? $vuetify.theme.themes.dark.colors.background : ''"/>
@@ -32,10 +33,9 @@
                 </v-btn>
             </v-card>
         </div>
-
     </div>
     <div v-if="window.width <= 750">
-            <v-card class="d-flex flex-column overflow-auto ma-5" style="height: 90vh;"> <!-- Mobile mode-->
+            <v-card class="d-flex flex-column overflow-auto ma-5" style="height: 60vh;"> <!-- Mobile mode-->
                 <v-btn v-for="(workout, idx) in workoutRoutine" :id="'exercise_'+idx" class="ma-2 pa-2" :color="idx == workoutExercise ? 'primary' : ''" @click.stop="idxExercise(idx)">
                     <v-icon v-if="workout.exercise == true" icon="mdi-dumbbell" :color="idx == workoutExercise ? $vuetify.theme.themes.dark.colors.background : ''"/>
                     <v-icon v-else icon="mdi-bed" :color="idx == workoutExercise ? $vuetify.theme.themes.dark.colors.background : ''"/>
@@ -47,7 +47,12 @@
         </div>
 </template>
 
+<script lang="ts" setup>
+    import WorkoutSelecter from '@/components/WorkoutSelecter.vue'
+</script>
+
 <script lang="ts">
+
 export default {
     data() {
         return {
