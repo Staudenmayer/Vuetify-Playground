@@ -8,6 +8,7 @@
 
     <template v-slot:append>
       <v-btn icon="mdi-dots-vertical"></v-btn>
+      <v-btn icon="mdi-logout" @click="$keycloak.logout()"></v-btn>
     </template>
   </v-app-bar>
   <v-navigation-drawer
