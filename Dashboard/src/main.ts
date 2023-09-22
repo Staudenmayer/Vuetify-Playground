@@ -15,17 +15,16 @@ import { registerPlugins } from '@/plugins'
 
 import VueApexCharts from 'vue3-apexcharts'
 import axios from 'axios'
-import Keycloak from 'keycloak-js';
+import Keycloak from 'keycloak-js'
 
 const keycloakConfig = {
     url: 'http://localhost:8080',
-    realm: 'js',
-    clientId: 'js_client'
+    realm: 'Dashboard',
+    clientId: 'dashboard_ui'
 }
 const keycloak = new Keycloak(keycloakConfig);
 try {
     const auth = await keycloak.init({onLoad: 'login-required', checkLoginIframe: false})
-    let tik = Date.now();
     if(!auth) window.location.reload()
     else console.log("Authenticated")
 
@@ -48,6 +47,7 @@ const app = createApp(App)
 
 app.config.globalProperties.$axios = axios
 app.config.globalProperties.$keycloak = keycloak
+app.config.globalProperties.$user = await keycloak.loadUserProfile()
 
 registerPlugins(app)
 

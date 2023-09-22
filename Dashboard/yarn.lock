@@ -94,15 +94,20 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
+"@types/graylog2@^0.2.2":
+  version "0.2.2"
+  resolved "https://registry.npmjs.org/@types/graylog2/-/graylog2-0.2.2.tgz"
+  integrity sha512-OmKPAIwDpZN3Uzos345wuSLRPKzy6e57H+Tc7J/5DyUwGIQoDKhy9OjBGptX9PG5FGXHNXsKT7Utw8z7XI/hqg==
+
 "@types/json-schema@^7.0.9":
   version "7.0.12"
   resolved "https://registry.npmjs.org/@types/json-schema/-/json-schema-7.0.12.tgz"
   integrity sha512-Hr5Jfhc9eYOQNPYO5WLDq/n4jqijdHNlDXjuAQkkt+mWdQR+XJToOHrsD4cPaMXpn6KO7y2+wM8AZEs8VpBLVA==
 
-"@types/node@*", "@types/node@^18.11.9", "@types/node@>= 14":
-  version "18.16.19"
-  resolved "https://registry.npmjs.org/@types/node/-/node-18.16.19.tgz"
-  integrity sha512-IXl7o+R9iti9eBW4Wg2hx1xQDig183jj7YLn8F7udNceyfkbn1ZxmzZXuak20gR40D7pIkIY1kYGx5VIGbaHKA==
+"@types/node@*", "@types/node@^18.17.17", "@types/node@>= 14":
+  version "18.17.17"
+  resolved "https://registry.npmjs.org/@types/node/-/node-18.17.17.tgz"
+  integrity sha512-cOxcXsQ2sxiwkykdJqvyFS+MLQPLvIdwh5l6gNg8qF6s+C7XSkEWOZjK+XhUZd+mYvHV/180g2cnCcIl4l06Pw==
 
 "@types/semver@^7.3.12":
   version "7.5.0"
@@ -959,6 +964,11 @@ graphemer@^1.4.0:
   version "1.4.0"
   resolved "https://registry.npmjs.org/graphemer/-/graphemer-1.4.0.tgz"
   integrity sha512-EtKwoO6kxCL9WO5xipiHTZlSzBm7WLT627TqC/uVRd0HKmq8NXyebnNYxDoBi7wt8eTWrUrKXCOVaFq9x1kgag==
+
+graylog2@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.npmjs.org/graylog2/-/graylog2-0.2.1.tgz"
+  integrity sha512-vjysakwOhrAqMeIvSK0WZcmzKvkpxY6pCfT9QqtdSVAidPFIynuin7adqbdFp9MCCTbTE402WIxvg8cph5OWTA==
 
 has-flag@^4.0.0:
   version "4.0.0"

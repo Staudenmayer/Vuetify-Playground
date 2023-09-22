@@ -22,7 +22,7 @@ mongoose
 const server = new ApolloServer({ typeDefs, resolvers });
 
 startStandaloneServer(server, {
-  listen: { port: 4000 },
+  listen: { port: 19199 },
 }).then(({ url }) => {
   console.log(`Server ready at ${url}`);
 });
