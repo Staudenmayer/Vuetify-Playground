@@ -1,5 +1,4 @@
 <template>
-    <WorkoutSelecter />
     <div class="d-flex justify-center mb-6 flex-wrap" style="height: 60vh">
         <div class="d-flex justify-center flex-column flex-grow-1">
             <div style="font-size: 5vw;">
@@ -14,27 +13,16 @@
                     </div>
                 </div>
                 <div v-if="workoutLength" class="d-flex justify-center mb-6">
-                    <v-btn v-if="timerActive || currTime != 0" @click.stop="prevExercise" class="ma-2 pa-2"><v-icon icon="mdi-skip-previous" color="primary"></v-icon></v-btn>
-                    <v-btn v-if="!timerActive" @click.stop="startTimer" class="ma-2 pa-2"><v-icon icon="mdi-play" color="primary"></v-icon></v-btn>
-                    <v-btn v-if="timerActive" @click.stop="pauseTimer" class="ma-2 pa-2"><v-icon icon="mdi-pause" color="primary"></v-icon></v-btn>
-                    <v-btn v-if="timerActive || currTime != 0" @click.stop="resetTimer" class="ma-2 pa-2"><v-icon icon="mdi-replay" color="primary"></v-icon></v-btn>
-                    <v-btn v-if="timerActive || currTime != 0" @click.stop="nextExercise" class="ma-2 pa-2"><v-icon icon="mdi-skip-next" color="primary"></v-icon></v-btn>
+                    <v-btn width="100" height="50" v-if="timerActive || currTime != 0"  @click.stop="prevExercise"  class="ma-2 pa-2"><v-icon size="30" icon="mdi-skip-previous"  color="primary"></v-icon></v-btn>
+                    <v-btn width="100" height="50" v-if="!timerActive"                  @click.stop="startTimer"    class="ma-2 pa-2"><v-icon size="30" icon="mdi-play"           color="primary"></v-icon></v-btn>
+                    <v-btn width="100" height="50" v-if="timerActive"                   @click.stop="pauseTimer"    class="ma-2 pa-2"><v-icon size="30" icon="mdi-pause"          color="primary"></v-icon></v-btn>
+                    <v-btn width="100" height="50" v-if="timerActive || currTime != 0"  @click.stop="resetTimer"    class="ma-2 pa-2"><v-icon size="30" icon="mdi-replay"         color="primary"></v-icon></v-btn>
+                    <v-btn width="100" height="50" v-if="timerActive || currTime != 0"  @click.stop="nextExercise"  class="ma-2 pa-2"><v-icon size="30" icon="mdi-skip-next"      color="primary"></v-icon></v-btn>
                 </div>
             </div>
         </div>
-        <div v-if="window.width > 750" class="d-flex mb-6 mt-5 mr-10 flex-column flex-grow-0 justify-center"> <!-- Desktop mode-->
-            <v-card class="d-flex flex-column overflow-auto" style="height: 75vh;">
-                <v-btn v-for="(workout, idx) in workoutRoutine" :id="'exercise_'+idx" class="ma-2 pa-2" :color="idx == workoutExercise ? 'primary' : ''" @click.stop="idxExercise(idx)">
-                    <v-icon v-if="workout.exercise == true" icon="mdi-dumbbell" :color="idx == workoutExercise ? $vuetify.theme.themes.dark.colors.background : ''"/>
-                    <v-icon v-else icon="mdi-bed" :color="idx == workoutExercise ? $vuetify.theme.themes.dark.colors.background : ''"/>
-                    <div class="pl-2" :style="{color: idx == workoutExercise ? $vuetify.theme.themes.dark.colors.background : ''}">
-                        {{ workout.name }}
-                    </div>
-                </v-btn>
-            </v-card>
-        </div>
     </div>
-    <div v-if="window.width <= 750">
+    <div v-if="false">
             <v-card class="d-flex flex-column overflow-auto ma-5" style="height: 60vh;"> <!-- Mobile mode-->
                 <v-btn v-for="(workout, idx) in workoutRoutine" :id="'exercise_'+idx" class="ma-2 pa-2" :color="idx == workoutExercise ? 'primary' : ''" @click.stop="idxExercise(idx)">
                     <v-icon v-if="workout.exercise == true" icon="mdi-dumbbell" :color="idx == workoutExercise ? $vuetify.theme.themes.dark.colors.background : ''"/>
@@ -48,7 +36,6 @@
 </template>
 
 <script lang="ts" setup>
-    import WorkoutSelecter from '@/components/WorkoutSelecter.vue'
 </script>
 
 <script lang="ts">

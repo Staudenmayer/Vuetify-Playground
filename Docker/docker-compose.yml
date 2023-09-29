@@ -131,9 +131,9 @@ services:
       - KC_DB_PASSWORD=changeme
       - KC_HEALTH_ENABLED=true
       - KC_METRICS_ENABLED=true
-      - KC_LOG=gelf
+      - KC_LOG=gelf,file
       - KC_LOG_GELF_LEVEL=info
-      - KC_LOG_GELF_HOST=localhost
+      - KC_LOG_GELF_HOST=graylog
       - KC_LOG_GELF_PORT=12201
     volumes:
       - ./import:/opt/keycloak/data/import
