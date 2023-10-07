@@ -1,9 +1,4 @@
 const { Student } = require("./models/Student.js");
-const graylog2 = require('graylog2');
-const logger = new graylog2.graylog({
-  servers: [{ host: 'localhost', port: 12201 }], // Replace the "host" per your Graylog domain
-  facility: "GraphQL"
-});
 
 // GraphQL Resolvers
 const resolvers = {

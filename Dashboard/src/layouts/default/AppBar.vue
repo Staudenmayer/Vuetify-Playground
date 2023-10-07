@@ -12,8 +12,8 @@
           <v-btn v-bind="props" icon="mdi-account"></v-btn>
         </template>
         <template v-slot:default="{ isActive }">
-          <v-card title="Account" class="bg-secondary">
-              <v-list density="compact" nav class="bg-secondary">
+          <v-card title="Account" class="bg-secondary elevation-15">
+              <v-list density="compact" nav class="bg-secondary elevation-15">
                 <v-list-item class="d-flex justify-center">
                   <v-avatar size="150px">
                     <v-img src="">
@@ -40,7 +40,6 @@
           </v-card>
         </template>
       </v-menu>
-      <!--<v-btn icon="mdi-logout" @click="$keycloak.logout()"></v-btn>-->
     </template>
   </v-app-bar>
   <v-navigation-drawer theme="dark" v-model="drawer" temporary>

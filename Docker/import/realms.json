@@ -1,5 +1,5 @@
 [ {
-  "id" : "95d09fee-d15c-43f7-9464-efcd4991becd",
+  "id" : "4b687381-32f9-4f79-8872-676b12234832",
   "realm" : "master",
   "displayName" : "Keycloak",
   "displayNameHtml" : "<div class=\"kc-logo-text\"><span>Keycloak</span></div>",
@@ -47,7 +47,22 @@
   "failureFactor" : 30,
   "roles" : {
     "realm" : [ {
-      "id" : "9b2a0d7f-bcf9-4e33-a103-a34488d04695",
+      "id" : "3531db5b-5821-4340-ac43-2cc795f9413e",
+      "name" : "admin",
+      "description" : "${role_admin}",
+      "composite" : true,
+      "composites" : {
+        "realm" : [ "create-realm" ],
+        "client" : {
+          "master-realm" : [ "impersonation", "manage-realm", "query-users", "manage-users", "manage-authorization", "view-realm", "query-clients", "view-events", "view-users", "manage-clients", "view-authorization", "manage-identity-providers", "create-client", "query-groups", "manage-events", "view-clients", "view-identity-providers", "query-realms" ],
+          "App-realm" : [ "manage-events", "view-identity-providers", "query-users", "view-authorization", "query-realms", "query-clients", "view-users", "create-client", "manage-clients", "query-groups", "manage-realm", "manage-authorization", "view-events", "view-clients", "manage-users", "view-realm", "impersonation", "manage-identity-providers" ]
+        }
+      },
+      "clientRole" : false,
+      "containerId" : "4b687381-32f9-4f79-8872-676b12234832",
+      "attributes" : { }
+    }, {
+      "id" : "968c389f-66d3-4f78-9923-b72ca96bf70c",
       "name" : "default-roles-master",
       "description" : "${role_default-roles}",
       "composite" : true,
@@ -58,46 +73,31 @@
         }
       },
       "clientRole" : false,
-      "containerId" : "95d09fee-d15c-43f7-9464-efcd4991becd",
+      "containerId" : "4b687381-32f9-4f79-8872-676b12234832",
       "attributes" : { }
     }, {
-      "id" : "d2812c91-9f1d-4685-b860-53ad7fff31e7",
-      "name" : "uma_authorization",
-      "description" : "${role_uma_authorization}",
-      "composite" : false,
-      "clientRole" : false,
-      "containerId" : "95d09fee-d15c-43f7-9464-efcd4991becd",
-      "attributes" : { }
-    }, {
-      "id" : "3dfa5e0e-85aa-4a62-b680-27714c6b1f99",
-      "name" : "admin",
-      "description" : "${role_admin}",
-      "composite" : true,
-      "composites" : {
-        "realm" : [ "create-realm" ],
-        "client" : {
-          "master-realm" : [ "impersonation", "view-users", "manage-realm", "manage-users", "manage-authorization", "query-groups", "view-events", "view-identity-providers", "query-users", "view-authorization", "query-realms", "manage-clients", "manage-identity-providers", "view-clients", "manage-events", "create-client", "query-clients", "view-realm" ],
-          "App-realm" : [ "manage-realm", "query-users", "view-users", "view-authorization", "view-clients", "query-clients", "manage-identity-providers", "query-realms", "manage-authorization", "impersonation", "query-groups", "manage-clients", "manage-users", "view-events", "create-client", "view-realm", "manage-events", "view-identity-providers" ]
-        }
-      },
-      "clientRole" : false,
-      "containerId" : "95d09fee-d15c-43f7-9464-efcd4991becd",
-      "attributes" : { }
-    }, {
-      "id" : "50088e29-9410-42f0-8737-ad4044212288",
-      "name" : "create-realm",
-      "description" : "${role_create-realm}",
-      "composite" : false,
-      "clientRole" : false,
-      "containerId" : "95d09fee-d15c-43f7-9464-efcd4991becd",
-      "attributes" : { }
-    }, {
-      "id" : "86c0111e-d159-4a10-9fd7-ee8651f8d111",
+      "id" : "e4463f09-0694-4ee5-a1ba-77f98aa86962",
       "name" : "offline_access",
       "description" : "${role_offline-access}",
       "composite" : false,
       "clientRole" : false,
-      "containerId" : "95d09fee-d15c-43f7-9464-efcd4991becd",
+      "containerId" : "4b687381-32f9-4f79-8872-676b12234832",
+      "attributes" : { }
+    }, {
+      "id" : "5ec16dab-5ab1-44e2-b668-d6faa25bfe28",
+      "name" : "uma_authorization",
+      "description" : "${role_uma_authorization}",
+      "composite" : false,
+      "clientRole" : false,
+      "containerId" : "4b687381-32f9-4f79-8872-676b12234832",
+      "attributes" : { }
+    }, {
+      "id" : "d96c4a90-bb0a-45a5-b815-404f60bb7279",
+      "name" : "create-realm",
+      "description" : "${role_create-realm}",
+      "composite" : false,
+      "clientRole" : false,
+      "containerId" : "4b687381-32f9-4f79-8872-676b12234832",
       "attributes" : { }
     } ],
     "client" : {
@@ -105,77 +105,141 @@
       "admin-cli" : [ ],
       "account-console" : [ ],
       "broker" : [ {
-        "id" : "8c1ee868-efc8-4441-98c2-e7d45c59defb",
+        "id" : "1b04e3fb-6e62-4534-87ca-cb688e7df0e5",
         "name" : "read-token",
         "description" : "${role_read-token}",
         "composite" : false,
         "clientRole" : true,
-        "containerId" : "17d7119a-2aeb-4f39-9e24-f88e96bd020b",
+        "containerId" : "006d1dc8-7b8f-4ead-a582-1bbea28d5666",
         "attributes" : { }
       } ],
       "master-realm" : [ {
-        "id" : "3ce70090-4a39-4194-8721-1084349fa9be",
+        "id" : "d60e6551-3be4-4d25-a93a-3181f5ca2587",
+        "name" : "manage-authorization",
+        "description" : "${role_manage-authorization}",
+        "composite" : false,
+        "clientRole" : true,
+        "containerId" : "5543b1f7-47d8-4063-93e9-cb94526d570e",
+        "attributes" : { }
+      }, {
+        "id" : "21b09ddb-09da-4b0a-81e6-f9bde663a087",
         "name" : "impersonation",
         "description" : "${role_impersonation}",
         "composite" : false,
         "clientRole" : true,
-        "containerId" : "acc7e20d-bd31-4403-8914-e9e6286575c3",
+        "containerId" : "5543b1f7-47d8-4063-93e9-cb94526d570e",
         "attributes" : { }
       }, {
-        "id" : "212b34c4-18c4-4f12-bc0a-4e954cb94a63",
+        "id" : "0941fa87-b3d3-4123-a7ad-a21620a8a30f",
+        "name" : "view-realm",
+        "description" : "${role_view-realm}",
+        "composite" : false,
+        "clientRole" : true,
+        "containerId" : "5543b1f7-47d8-4063-93e9-cb94526d570e",
+        "attributes" : { }
+      }, {
+        "id" : "5f1d3912-40d7-412d-90f4-3e85d5fae8a3",
+        "name" : "query-clients",
+        "description" : "${role_query-clients}",
+        "composite" : false,
+        "clientRole" : true,
+        "containerId" : "5543b1f7-47d8-4063-93e9-cb94526d570e",
+        "attributes" : { }
+      }, {
+        "id" : "3f48077b-3fde-4a9e-88d6-259ffb89487b",
+        "name" : "view-events",
+        "description" : "${role_view-events}",
+        "composite" : false,
+        "clientRole" : true,
+        "containerId" : "5543b1f7-47d8-4063-93e9-cb94526d570e",
+        "attributes" : { }
+      }, {
+        "id" : "61a582dd-48ce-4561-959a-856e591bb7fc",
         "name" : "view-users",
         "description" : "${role_view-users}",
         "composite" : true,
         "composites" : {
           "client" : {
-            "master-realm" : [ "query-users", "query-groups" ]
+            "master-realm" : [ "query-groups", "query-users" ]
           }
         },
         "clientRole" : true,
-        "containerId" : "acc7e20d-bd31-4403-8914-e9e6286575c3",
+        "containerId" : "5543b1f7-47d8-4063-93e9-cb94526d570e",
         "attributes" : { }
       }, {
-        "id" : "7dde6c04-5fb6-410f-a730-aa6f505d640e",
-        "name" : "manage-realm",
-        "description" : "${role_manage-realm}",
-        "composite" : false,
-        "clientRole" : true,
-        "containerId" : "acc7e20d-bd31-4403-8914-e9e6286575c3",
-        "attributes" : { }
-      }, {
-        "id" : "2b1db6a8-32a9-4a39-a9b0-3568775d5045",
-        "name" : "manage-users",
-        "description" : "${role_manage-users}",
-        "composite" : false,
-        "clientRole" : true,
-        "containerId" : "acc7e20d-bd31-4403-8914-e9e6286575c3",
-        "attributes" : { }
-      }, {
-        "id" : "6cbaec18-893f-4b16-851d-dcfa56aad6ab",
-        "name" : "manage-authorization",
-        "description" : "${role_manage-authorization}",
-        "composite" : false,
-        "clientRole" : true,
-        "containerId" : "acc7e20d-bd31-4403-8914-e9e6286575c3",
-        "attributes" : { }
-      }, {
-        "id" : "523653a6-d186-470c-afc5-112374687523",
+        "id" : "93d44567-89e0-4904-be5e-9bc650d7df65",
         "name" : "manage-clients",
         "description" : "${role_manage-clients}",
         "composite" : false,
         "clientRole" : true,
-        "containerId" : "acc7e20d-bd31-4403-8914-e9e6286575c3",
+        "containerId" : "5543b1f7-47d8-4063-93e9-cb94526d570e",
         "attributes" : { }
       }, {
-        "id" : "4cf4fbf3-bbe3-4930-9015-86871d74e51f",
+        "id" : "2e9da2a3-76e7-40b3-9100-ba50d09e707a",
+        "name" : "view-authorization",
+        "description" : "${role_view-authorization}",
+        "composite" : false,
+        "clientRole" : true,
+        "containerId" : "5543b1f7-47d8-4063-93e9-cb94526d570e",
+        "attributes" : { }
+      }, {
+        "id" : "0133da1a-9fa4-4149-aff2-e7af8163eb1a",
         "name" : "manage-identity-providers",
         "description" : "${role_manage-identity-providers}",
         "composite" : false,
         "clientRole" : true,
-        "containerId" : "acc7e20d-bd31-4403-8914-e9e6286575c3",
+        "containerId" : "5543b1f7-47d8-4063-93e9-cb94526d570e",
         "attributes" : { }
       }, {
-        "id" : "85b2b5e0-65f3-457d-8b2e-f8006b80fd7e",
+        "id" : "d3f47226-7bca-4ea8-aac3-8c7174e75fdb",
+        "name" : "create-client",
+        "description" : "${role_create-client}",
+        "composite" : false,
+        "clientRole" : true,
+        "containerId" : "5543b1f7-47d8-4063-93e9-cb94526d570e",
+        "attributes" : { }
+      }, {
+        "id" : "df130a37-c47c-4600-be1d-f162dc01621f",
+        "name" : "query-groups",
+        "description" : "${role_query-groups}",
+        "composite" : false,
+        "clientRole" : true,
+        "containerId" : "5543b1f7-47d8-4063-93e9-cb94526d570e",
+        "attributes" : { }
+      }, {
+        "id" : "7b86eb1d-0df3-41a6-9309-b48b13666388",
+        "name" : "manage-realm",
+        "description" : "${role_manage-realm}",
+        "composite" : false,
+        "clientRole" : true,
+        "containerId" : "5543b1f7-47d8-4063-93e9-cb94526d570e",
+        "attributes" : { }
+      }, {
+        "id" : "e8ab91a8-d2b8-4e6e-a948-40b6c02b28ed",
+        "name" : "query-users",
+        "description" : "${role_query-users}",
+        "composite" : false,
+        "clientRole" : true,
+        "containerId" : "5543b1f7-47d8-4063-93e9-cb94526d570e",
+        "attributes" : { }
+      }, {
+        "id" : "f2072ad3-dd79-4efd-9288-4c36fe8d0491",
+        "name" : "manage-users",
+        "description" : "${role_manage-users}",
+        "composite" : false,
+        "clientRole" : true,
+        "containerId" : "5543b1f7-47d8-4063-93e9-cb94526d570e",
+        "attributes" : { }
+      }, {
+        "id" : "bf3598d1-90b4-4b31-91d8-0ab7a32deaf7",
+        "name" : "manage-events",
+        "description" : "${role_manage-events}",
+        "composite" : false,
+        "clientRole" : true,
+        "containerId" : "5543b1f7-47d8-4063-93e9-cb94526d570e",
+        "attributes" : { }
+      }, {
+        "id" : "3830f68a-67db-4eb2-b084-9eb68833be65",
         "name" : "view-clients",
         "description" : "${role_view-clients}",
         "composite" : true,
@@ -185,112 +249,27 @@
           }
         },
         "clientRole" : true,
-        "containerId" : "acc7e20d-bd31-4403-8914-e9e6286575c3",
+        "containerId" : "5543b1f7-47d8-4063-93e9-cb94526d570e",
         "attributes" : { }
       }, {
-        "id" : "c48922c1-ad9a-4bb5-a607-529c0f862127",
-        "name" : "query-groups",
-        "description" : "${role_query-groups}",
-        "composite" : false,
-        "clientRole" : true,
-        "containerId" : "acc7e20d-bd31-4403-8914-e9e6286575c3",
-        "attributes" : { }
-      }, {
-        "id" : "f9ab7a43-74fc-47c9-a603-42105ae1cc5d",
-        "name" : "view-events",
-        "description" : "${role_view-events}",
-        "composite" : false,
-        "clientRole" : true,
-        "containerId" : "acc7e20d-bd31-4403-8914-e9e6286575c3",
-        "attributes" : { }
-      }, {
-        "id" : "0910656e-a956-4d10-af29-a29b0806dbe1",
-        "name" : "manage-events",
-        "description" : "${role_manage-events}",
-        "composite" : false,
-        "clientRole" : true,
-        "containerId" : "acc7e20d-bd31-4403-8914-e9e6286575c3",
-        "attributes" : { }
-      }, {
-        "id" : "3cbfe3ee-bdf1-4bf9-b7e8-b03432d1a793",
+        "id" : "22aa8f42-757e-4e43-9211-a626323056c8",
         "name" : "view-identity-providers",
         "description" : "${role_view-identity-providers}",
         "composite" : false,
         "clientRole" : true,
-        "containerId" : "acc7e20d-bd31-4403-8914-e9e6286575c3",
+        "containerId" : "5543b1f7-47d8-4063-93e9-cb94526d570e",
         "attributes" : { }
       }, {
-        "id" : "de3afc62-aac8-4e8b-9e15-d489326ee32c",
-        "name" : "create-client",
-        "description" : "${role_create-client}",
-        "composite" : false,
-        "clientRole" : true,
-        "containerId" : "acc7e20d-bd31-4403-8914-e9e6286575c3",
-        "attributes" : { }
-      }, {
-        "id" : "c5c90a94-b38d-4b09-81c0-557d2ed53b96",
-        "name" : "query-users",
-        "description" : "${role_query-users}",
-        "composite" : false,
-        "clientRole" : true,
-        "containerId" : "acc7e20d-bd31-4403-8914-e9e6286575c3",
-        "attributes" : { }
-      }, {
-        "id" : "facea29e-1d68-49bd-b273-6efa12d70152",
-        "name" : "query-clients",
-        "description" : "${role_query-clients}",
-        "composite" : false,
-        "clientRole" : true,
-        "containerId" : "acc7e20d-bd31-4403-8914-e9e6286575c3",
-        "attributes" : { }
-      }, {
-        "id" : "453470a0-4817-431d-a33b-78396fa29109",
-        "name" : "view-authorization",
-        "description" : "${role_view-authorization}",
-        "composite" : false,
-        "clientRole" : true,
-        "containerId" : "acc7e20d-bd31-4403-8914-e9e6286575c3",
-        "attributes" : { }
-      }, {
-        "id" : "075e570d-2e01-4c79-977d-a44175b1285a",
-        "name" : "view-realm",
-        "description" : "${role_view-realm}",
-        "composite" : false,
-        "clientRole" : true,
-        "containerId" : "acc7e20d-bd31-4403-8914-e9e6286575c3",
-        "attributes" : { }
-      }, {
-        "id" : "50f5f63b-2a07-40ff-a905-0dad2aa1336d",
+        "id" : "7b965bcf-97db-4206-a302-c5e9e3316a8b",
         "name" : "query-realms",
         "description" : "${role_query-realms}",
         "composite" : false,
         "clientRole" : true,
-        "containerId" : "acc7e20d-bd31-4403-8914-e9e6286575c3",
+        "containerId" : "5543b1f7-47d8-4063-93e9-cb94526d570e",
         "attributes" : { }
       } ],
       "account" : [ {
-        "id" : "8dd4744b-81c5-42dd-b694-636ea046335a",
-        "name" : "manage-account-links",
-        "description" : "${role_manage-account-links}",
-        "composite" : false,
-        "clientRole" : true,
-        "containerId" : "56022339-2c9c-4524-82f0-eb1969c2c8bf",
-        "attributes" : { }
-      }, {
-        "id" : "caf281de-a843-4963-8cf6-7b1043856d41",
-        "name" : "manage-consent",
-        "description" : "${role_manage-consent}",
-        "composite" : true,
-        "composites" : {
-          "client" : {
-            "account" : [ "view-consent" ]
-          }
-        },
-        "clientRole" : true,
-        "containerId" : "56022339-2c9c-4524-82f0-eb1969c2c8bf",
-        "attributes" : { }
-      }, {
-        "id" : "e93a5001-d45f-4120-b531-38b7118e03f2",
+        "id" : "b9a72f15-0164-4a2a-8fec-ba5d9146203d",
         "name" : "manage-account",
         "description" : "${role_manage-account}",
         "composite" : true,
@@ -300,112 +279,157 @@
           }
         },
         "clientRole" : true,
-        "containerId" : "56022339-2c9c-4524-82f0-eb1969c2c8bf",
+        "containerId" : "b0a5a2fb-a06f-49fb-b2c3-31a88f39a409",
         "attributes" : { }
       }, {
-        "id" : "3307be08-809b-4fe8-9a45-8676ab1fbb8a",
-        "name" : "delete-account",
-        "description" : "${role_delete-account}",
-        "composite" : false,
-        "clientRole" : true,
-        "containerId" : "56022339-2c9c-4524-82f0-eb1969c2c8bf",
-        "attributes" : { }
-      }, {
-        "id" : "290f7524-2ef4-445c-bf6f-2d79fcf3587e",
-        "name" : "view-profile",
-        "description" : "${role_view-profile}",
-        "composite" : false,
-        "clientRole" : true,
-        "containerId" : "56022339-2c9c-4524-82f0-eb1969c2c8bf",
-        "attributes" : { }
-      }, {
-        "id" : "cca56901-25a0-4b0f-8522-82da75ea9c86",
-        "name" : "view-consent",
-        "description" : "${role_view-consent}",
-        "composite" : false,
-        "clientRole" : true,
-        "containerId" : "56022339-2c9c-4524-82f0-eb1969c2c8bf",
-        "attributes" : { }
-      }, {
-        "id" : "e3f019a7-efd6-44f2-884b-77d696217ef8",
-        "name" : "view-applications",
-        "description" : "${role_view-applications}",
-        "composite" : false,
-        "clientRole" : true,
-        "containerId" : "56022339-2c9c-4524-82f0-eb1969c2c8bf",
-        "attributes" : { }
-      }, {
-        "id" : "7443c49c-3438-43fc-bf17-0a2fbbddb943",
+        "id" : "2ed014d7-d184-4a57-a040-52171f91e79a",
         "name" : "view-groups",
         "description" : "${role_view-groups}",
         "composite" : false,
         "clientRole" : true,
-        "containerId" : "56022339-2c9c-4524-82f0-eb1969c2c8bf",
+        "containerId" : "b0a5a2fb-a06f-49fb-b2c3-31a88f39a409",
+        "attributes" : { }
+      }, {
+        "id" : "62fe43a7-0081-4147-a9ba-62c3428d9a75",
+        "name" : "delete-account",
+        "description" : "${role_delete-account}",
+        "composite" : false,
+        "clientRole" : true,
+        "containerId" : "b0a5a2fb-a06f-49fb-b2c3-31a88f39a409",
+        "attributes" : { }
+      }, {
+        "id" : "54094a38-3c50-4bb9-a536-f41df71c2423",
+        "name" : "manage-consent",
+        "description" : "${role_manage-consent}",
+        "composite" : true,
+        "composites" : {
+          "client" : {
+            "account" : [ "view-consent" ]
+          }
+        },
+        "clientRole" : true,
+        "containerId" : "b0a5a2fb-a06f-49fb-b2c3-31a88f39a409",
+        "attributes" : { }
+      }, {
+        "id" : "2ea75fa4-c091-4bd0-9311-729aa9d362ea",
+        "name" : "view-profile",
+        "description" : "${role_view-profile}",
+        "composite" : false,
+        "clientRole" : true,
+        "containerId" : "b0a5a2fb-a06f-49fb-b2c3-31a88f39a409",
+        "attributes" : { }
+      }, {
+        "id" : "1054ab47-d330-44c7-899a-0d164e77ff46",
+        "name" : "view-applications",
+        "description" : "${role_view-applications}",
+        "composite" : false,
+        "clientRole" : true,
+        "containerId" : "b0a5a2fb-a06f-49fb-b2c3-31a88f39a409",
+        "attributes" : { }
+      }, {
+        "id" : "a79201d7-a8e1-4dd1-bcaf-ed653cf42793",
+        "name" : "manage-account-links",
+        "description" : "${role_manage-account-links}",
+        "composite" : false,
+        "clientRole" : true,
+        "containerId" : "b0a5a2fb-a06f-49fb-b2c3-31a88f39a409",
+        "attributes" : { }
+      }, {
+        "id" : "c1cee4cf-24cb-4fa7-9974-92827b210224",
+        "name" : "view-consent",
+        "description" : "${role_view-consent}",
+        "composite" : false,
+        "clientRole" : true,
+        "containerId" : "b0a5a2fb-a06f-49fb-b2c3-31a88f39a409",
         "attributes" : { }
       } ],
       "App-realm" : [ {
-        "id" : "4f63d3ad-95bf-4e27-99cc-cf4d87a311b4",
-        "name" : "manage-users",
-        "description" : "${role_manage-users}",
-        "composite" : false,
-        "clientRole" : true,
-        "containerId" : "24907dfd-4a12-4863-ae4f-75944f404302",
-        "attributes" : { }
-      }, {
-        "id" : "cdc93c72-cc69-4bb3-acdb-1ea35be0ce0c",
-        "name" : "manage-realm",
-        "description" : "${role_manage-realm}",
-        "composite" : false,
-        "clientRole" : true,
-        "containerId" : "24907dfd-4a12-4863-ae4f-75944f404302",
-        "attributes" : { }
-      }, {
-        "id" : "2c82e2a9-14c1-4839-97d2-61a7d6b79a06",
-        "name" : "view-events",
-        "description" : "${role_view-events}",
-        "composite" : false,
-        "clientRole" : true,
-        "containerId" : "24907dfd-4a12-4863-ae4f-75944f404302",
-        "attributes" : { }
-      }, {
-        "id" : "4ba530c6-b734-4fba-a42e-cf0afed59f0f",
-        "name" : "query-users",
-        "description" : "${role_query-users}",
-        "composite" : false,
-        "clientRole" : true,
-        "containerId" : "24907dfd-4a12-4863-ae4f-75944f404302",
-        "attributes" : { }
-      }, {
-        "id" : "f4fe91d8-0ab2-4225-9b70-b538e66f0aea",
-        "name" : "create-client",
-        "description" : "${role_create-client}",
-        "composite" : false,
-        "clientRole" : true,
-        "containerId" : "24907dfd-4a12-4863-ae4f-75944f404302",
-        "attributes" : { }
-      }, {
-        "id" : "2ffcb27c-4145-4b9d-8811-0f32e5973bca",
+        "id" : "ebdb57f5-bae8-485a-b7e0-f599cd67b547",
         "name" : "view-users",
         "description" : "${role_view-users}",
         "composite" : true,
         "composites" : {
           "client" : {
-            "App-realm" : [ "query-users", "query-groups" ]
+            "App-realm" : [ "query-groups", "query-users" ]
           }
         },
         "clientRole" : true,
-        "containerId" : "24907dfd-4a12-4863-ae4f-75944f404302",
+        "containerId" : "3912d4f1-1817-4cb0-884c-c87e3c86b8e0",
         "attributes" : { }
       }, {
-        "id" : "8d36c1da-bc3c-4ffd-9351-a6390a9704cb",
-        "name" : "view-authorization",
-        "description" : "${role_view-authorization}",
+        "id" : "4c034590-b565-4acd-8e5f-122294cc84fc",
+        "name" : "create-client",
+        "description" : "${role_create-client}",
         "composite" : false,
         "clientRole" : true,
-        "containerId" : "24907dfd-4a12-4863-ae4f-75944f404302",
+        "containerId" : "3912d4f1-1817-4cb0-884c-c87e3c86b8e0",
         "attributes" : { }
       }, {
-        "id" : "aef923bd-418a-4192-929c-8ac67b798816",
+        "id" : "8c75dfb7-20bc-4265-a16a-a5a859cf7653",
+        "name" : "manage-clients",
+        "description" : "${role_manage-clients}",
+        "composite" : false,
+        "clientRole" : true,
+        "containerId" : "3912d4f1-1817-4cb0-884c-c87e3c86b8e0",
+        "attributes" : { }
+      }, {
+        "id" : "5e7dd6ab-0ffd-4304-b043-ffb9fe0ab950",
+        "name" : "manage-events",
+        "description" : "${role_manage-events}",
+        "composite" : false,
+        "clientRole" : true,
+        "containerId" : "3912d4f1-1817-4cb0-884c-c87e3c86b8e0",
+        "attributes" : { }
+      }, {
+        "id" : "44019a71-ae70-41da-991b-a51c9002ea2e",
+        "name" : "query-groups",
+        "description" : "${role_query-groups}",
+        "composite" : false,
+        "clientRole" : true,
+        "containerId" : "3912d4f1-1817-4cb0-884c-c87e3c86b8e0",
+        "attributes" : { }
+      }, {
+        "id" : "7a65537d-40a5-4eab-a9a4-4c8bd64079cc",
+        "name" : "manage-realm",
+        "description" : "${role_manage-realm}",
+        "composite" : false,
+        "clientRole" : true,
+        "containerId" : "3912d4f1-1817-4cb0-884c-c87e3c86b8e0",
+        "attributes" : { }
+      }, {
+        "id" : "c3998ce6-0c9d-4f3a-8847-9e99c3bd3b94",
+        "name" : "view-identity-providers",
+        "description" : "${role_view-identity-providers}",
+        "composite" : false,
+        "clientRole" : true,
+        "containerId" : "3912d4f1-1817-4cb0-884c-c87e3c86b8e0",
+        "attributes" : { }
+      }, {
+        "id" : "02a1c684-5515-4188-b82a-830b97fed7fe",
+        "name" : "manage-authorization",
+        "description" : "${role_manage-authorization}",
+        "composite" : false,
+        "clientRole" : true,
+        "containerId" : "3912d4f1-1817-4cb0-884c-c87e3c86b8e0",
+        "attributes" : { }
+      }, {
+        "id" : "347a288b-2908-44b8-84c4-9e05e985e9ee",
+        "name" : "query-users",
+        "description" : "${role_query-users}",
+        "composite" : false,
+        "clientRole" : true,
+        "containerId" : "3912d4f1-1817-4cb0-884c-c87e3c86b8e0",
+        "attributes" : { }
+      }, {
+        "id" : "9361e57a-c193-4590-9877-ea1e8919d33e",
+        "name" : "view-events",
+        "description" : "${role_view-events}",
+        "composite" : false,
+        "clientRole" : true,
+        "containerId" : "3912d4f1-1817-4cb0-884c-c87e3c86b8e0",
+        "attributes" : { }
+      }, {
+        "id" : "550a9d9c-6e06-409a-94b4-e2a323ab64a9",
         "name" : "view-clients",
         "description" : "${role_view-clients}",
         "composite" : true,
@@ -415,99 +439,75 @@
           }
         },
         "clientRole" : true,
-        "containerId" : "24907dfd-4a12-4863-ae4f-75944f404302",
+        "containerId" : "3912d4f1-1817-4cb0-884c-c87e3c86b8e0",
         "attributes" : { }
       }, {
-        "id" : "4e29ccba-31c0-40eb-b75c-b3cd3844a0c9",
-        "name" : "query-clients",
-        "description" : "${role_query-clients}",
+        "id" : "d7054a14-d8a7-48a6-886e-cfaa46183ec7",
+        "name" : "manage-users",
+        "description" : "${role_manage-users}",
         "composite" : false,
         "clientRole" : true,
-        "containerId" : "24907dfd-4a12-4863-ae4f-75944f404302",
+        "containerId" : "3912d4f1-1817-4cb0-884c-c87e3c86b8e0",
         "attributes" : { }
       }, {
-        "id" : "b2be95de-2f97-4ee4-8d78-96ce70752812",
-        "name" : "manage-identity-providers",
-        "description" : "${role_manage-identity-providers}",
+        "id" : "a9f33d12-82b2-4393-9118-23c0cf96618f",
+        "name" : "view-authorization",
+        "description" : "${role_view-authorization}",
         "composite" : false,
         "clientRole" : true,
-        "containerId" : "24907dfd-4a12-4863-ae4f-75944f404302",
+        "containerId" : "3912d4f1-1817-4cb0-884c-c87e3c86b8e0",
         "attributes" : { }
       }, {
-        "id" : "2435b464-f54b-463c-a705-db556f50e468",
-        "name" : "query-realms",
-        "description" : "${role_query-realms}",
-        "composite" : false,
-        "clientRole" : true,
-        "containerId" : "24907dfd-4a12-4863-ae4f-75944f404302",
-        "attributes" : { }
-      }, {
-        "id" : "1174248f-b0f9-45e6-ac3d-e7d0631b728a",
-        "name" : "manage-authorization",
-        "description" : "${role_manage-authorization}",
-        "composite" : false,
-        "clientRole" : true,
-        "containerId" : "24907dfd-4a12-4863-ae4f-75944f404302",
-        "attributes" : { }
-      }, {
-        "id" : "202f5094-666d-4374-b5e4-d50c75940961",
+        "id" : "9e81db04-0fb9-4c3f-bf2a-fab41ca3cd7d",
         "name" : "view-realm",
         "description" : "${role_view-realm}",
         "composite" : false,
         "clientRole" : true,
-        "containerId" : "24907dfd-4a12-4863-ae4f-75944f404302",
+        "containerId" : "3912d4f1-1817-4cb0-884c-c87e3c86b8e0",
         "attributes" : { }
       }, {
-        "id" : "5b604fa6-338d-43c8-8032-0a7e29ffda1b",
+        "id" : "692c2c34-32a5-4cb3-9d48-65c5f5a3a80b",
         "name" : "impersonation",
         "description" : "${role_impersonation}",
         "composite" : false,
         "clientRole" : true,
-        "containerId" : "24907dfd-4a12-4863-ae4f-75944f404302",
+        "containerId" : "3912d4f1-1817-4cb0-884c-c87e3c86b8e0",
         "attributes" : { }
       }, {
-        "id" : "718e40f9-b548-4cc9-8be4-85d84787e8c1",
-        "name" : "manage-events",
-        "description" : "${role_manage-events}",
+        "id" : "be66548f-e90d-47ce-875c-0987b4451bee",
+        "name" : "query-realms",
+        "description" : "${role_query-realms}",
         "composite" : false,
         "clientRole" : true,
-        "containerId" : "24907dfd-4a12-4863-ae4f-75944f404302",
+        "containerId" : "3912d4f1-1817-4cb0-884c-c87e3c86b8e0",
         "attributes" : { }
       }, {
-        "id" : "c8ec3341-fb73-49ca-afe0-d2b69e1bb550",
-        "name" : "query-groups",
-        "description" : "${role_query-groups}",
+        "id" : "f0c76024-b0dd-4e29-ac15-cb2e42fad689",
+        "name" : "manage-identity-providers",
+        "description" : "${role_manage-identity-providers}",
         "composite" : false,
         "clientRole" : true,
-        "containerId" : "24907dfd-4a12-4863-ae4f-75944f404302",
+        "containerId" : "3912d4f1-1817-4cb0-884c-c87e3c86b8e0",
         "attributes" : { }
       }, {
-        "id" : "04775cd9-eea5-4f51-9a9e-9636b0610e5f",
-        "name" : "manage-clients",
-        "description" : "${role_manage-clients}",
+        "id" : "506baa69-16f7-45a2-bd5d-d0f905b7d025",
+        "name" : "query-clients",
+        "description" : "${role_query-clients}",
         "composite" : false,
         "clientRole" : true,
-        "containerId" : "24907dfd-4a12-4863-ae4f-75944f404302",
-        "attributes" : { }
-      }, {
-        "id" : "1bfe944a-d217-4ddf-a2f3-02487d68c746",
-        "name" : "view-identity-providers",
-        "description" : "${role_view-identity-providers}",
-        "composite" : false,
-        "clientRole" : true,
-        "containerId" : "24907dfd-4a12-4863-ae4f-75944f404302",
+        "containerId" : "3912d4f1-1817-4cb0-884c-c87e3c86b8e0",
         "attributes" : { }
       } ]
     }
   },
   "groups" : [ ],
   "defaultRole" : {
-    "id" : "9b2a0d7f-bcf9-4e33-a103-a34488d04695",
+    "id" : "968c389f-66d3-4f78-9923-b72ca96bf70c",
     "name" : "default-roles-master",
     "description" : "${role_default-roles}",
     "composite" : true,
     "clientRole" : false,
-    "containerId" : "95d09fee-d15c-43f7-9464-efcd4991becd"
+    "containerId" : "4b687381-32f9-4f79-8872-676b12234832"
   },
   "requiredCredentials" : [ "password" ],
   "otpPolicyType" : "totp",
@@ -517,7 +517,7 @@
   "otpPolicyLookAheadWindow" : 1,
   "otpPolicyPeriod" : 30,
   "otpPolicyCodeReusable" : false,
-  "otpSupportedApplications" : [ "totpAppGoogleName", "totpAppFreeOTPName", "totpAppMicrosoftAuthenticatorName" ],
+  "otpSupportedApplications" : [ "totpAppFreeOTPName", "totpAppGoogleName", "totpAppMicrosoftAuthenticatorName" ],
   "webAuthnPolicyRpEntityName" : "keycloak",
   "webAuthnPolicySignatureAlgorithms" : [ "ES256" ],
   "webAuthnPolicyRpId" : "",
@@ -539,24 +539,24 @@
   "webAuthnPolicyPasswordlessAvoidSameAuthenticatorRegister" : false,
   "webAuthnPolicyPasswordlessAcceptableAaguids" : [ ],
   "users" : [ {
-    "id" : "5620195e-e47d-4bf5-bbf8-929ea5d72495",
-    "createdTimestamp" : 1695389822420,
+    "id" : "96507796-27ac-44b2-ae18-78d306835e11",
+    "createdTimestamp" : 1696147167338,
     "username" : "admin",
     "enabled" : true,
     "totp" : false,
     "emailVerified" : false,
     "credentials" : [ {
-      "id" : "6b1fe47a-17b5-4e5e-8ade-fe42de1c55d5",
+      "id" : "3bd00f48-8582-468d-a491-77aaa3eaff16",
       "type" : "password",
-      "createdDate" : 1695389822648,
-      "secretData" : "{\"value\":\"0K3kWIA43JHeru/+Ib4OrjZwl44l46l9XtHezu7O85U=\",\"salt\":\"kGXu4G3bexdLhCSqWilvdA==\",\"additionalParameters\":{}}",
+      "createdDate" : 1696147167464,
+      "secretData" : "{\"value\":\"65BfU4mUL4vTxkhyBfzl5fguuWmkfZH+7/5AySmtSYc=\",\"salt\":\"yh9uSuM8zQZDxNw31iyQyQ==\",\"additionalParameters\":{}}",
       "credentialData" : "{\"hashIterations\":27500,\"algorithm\":\"pbkdf2-sha256\",\"additionalParameters\":{}}"
     } ],
     "disableableCredentialTypes" : [ ],
     "requiredActions" : [ ],
     "realmRoles" : [ "admin", "default-roles-master" ],
     "clientRoles" : {
-      "App-realm" : [ "manage-users", "manage-realm", "view-events", "query-users", "create-client", "view-users", "view-authorization", "view-clients", "query-clients", "manage-identity-providers", "query-realms", "view-realm", "manage-authorization", "manage-events", "query-groups", "manage-clients", "view-identity-providers" ]
+      "App-realm" : [ "view-users", "create-client", "manage-clients", "manage-events", "query-groups", "view-identity-providers", "manage-realm", "manage-authorization", "query-users", "view-events", "view-clients", "view-authorization", "manage-users", "view-realm", "query-realms", "manage-identity-providers", "query-clients" ]
     },
     "notBefore" : 0,
     "groups" : [ ]
@@ -572,7 +572,7 @@
     } ]
   },
   "clients" : [ {
-    "id" : "56022339-2c9c-4524-82f0-eb1969c2c8bf",
+    "id" : "b0a5a2fb-a06f-49fb-b2c3-31a88f39a409",
     "clientId" : "account",
     "name" : "${client_account}",
     "rootUrl" : "${authBaseUrl}",
@@ -602,7 +602,7 @@
     "defaultClientScopes" : [ "web-origins", "acr", "profile", "roles", "email" ],
     "optionalClientScopes" : [ "address", "phone", "offline_access", "microprofile-jwt" ]
   }, {
-    "id" : "cdfb6dab-f933-4642-b417-607634efcf5d",
+    "id" : "97fdf0cc-61a4-41dc-bfa3-2867fee538bc",
     "clientId" : "account-console",
     "name" : "${client_account-console}",
     "rootUrl" : "${authBaseUrl}",
@@ -631,7 +631,7 @@
     "fullScopeAllowed" : false,
     "nodeReRegistrationTimeout" : 0,
     "protocolMappers" : [ {
-      "id" : "c7737c8b-69fd-43c1-85bc-3a418b5f1d43",
+      "id" : "bcf9e24c-beca-4287-91c6-bb5a2965da6c",
       "name" : "audience resolve",
       "protocol" : "openid-connect",
       "protocolMapper" : "oidc-audience-resolve-mapper",
@@ -641,7 +641,7 @@
     "defaultClientScopes" : [ "web-origins", "acr", "profile", "roles", "email" ],
     "optionalClientScopes" : [ "address", "phone", "offline_access", "microprofile-jwt" ]
   }, {
-    "id" : "a11af35f-0f7f-4b1f-9b9a-6a1f1b634205",
+    "id" : "b6e08b11-ae86-4a28-9ce5-5d81ee03643d",
     "clientId" : "admin-cli",
     "name" : "${client_admin-cli}",
     "surrogateAuthRequired" : false,
@@ -660,18 +660,16 @@
     "publicClient" : true,
     "frontchannelLogout" : false,
     "protocol" : "openid-connect",
-    "attributes" : {
-      "post.logout.redirect.uris" : "+"
-    },
+    "attributes" : { },
     "authenticationFlowBindingOverrides" : { },
     "fullScopeAllowed" : false,
     "nodeReRegistrationTimeout" : 0,
     "defaultClientScopes" : [ "web-origins", "acr", "profile", "roles", "email" ],
     "optionalClientScopes" : [ "address", "phone", "offline_access", "microprofile-jwt" ]
   }, {
-    "id" : "24907dfd-4a12-4863-ae4f-75944f404302",
+    "id" : "3912d4f1-1817-4cb0-884c-c87e3c86b8e0",
     "clientId" : "App-realm",
-    "name" : "ui Realm",
+    "name" : "App Realm",
     "surrogateAuthRequired" : false,
     "enabled" : true,
     "alwaysDisplayInConsole" : false,
@@ -687,17 +685,14 @@
     "serviceAccountsEnabled" : false,
     "publicClient" : false,
     "frontchannelLogout" : false,
-    "protocol" : "openid-connect",
-    "attributes" : {
-      "post.logout.redirect.uris" : "+"
-    },
+    "attributes" : { },
     "authenticationFlowBindingOverrides" : { },
     "fullScopeAllowed" : false,
     "nodeReRegistrationTimeout" : 0,
     "defaultClientScopes" : [ ],
     "optionalClientScopes" : [ ]
   }, {
-    "id" : "17d7119a-2aeb-4f39-9e24-f88e96bd020b",
+    "id" : "006d1dc8-7b8f-4ead-a582-1bbea28d5666",
     "clientId" : "broker",
     "name" : "${client_broker}",
     "surrogateAuthRequired" : false,
@@ -716,16 +711,14 @@
     "publicClient" : false,
     "frontchannelLogout" : false,
     "protocol" : "openid-connect",
-    "attributes" : {
-      "post.logout.redirect.uris" : "+"
-    },
+    "attributes" : { },
     "authenticationFlowBindingOverrides" : { },
     "fullScopeAllowed" : false,
     "nodeReRegistrationTimeout" : 0,
     "defaultClientScopes" : [ "web-origins", "acr", "profile", "roles", "email" ],
     "optionalClientScopes" : [ "address", "phone", "offline_access", "microprofile-jwt" ]
   }, {
-    "id" : "acc7e20d-bd31-4403-8914-e9e6286575c3",
+    "id" : "5543b1f7-47d8-4063-93e9-cb94526d570e",
     "clientId" : "master-realm",
     "name" : "master Realm",
     "surrogateAuthRequired" : false,
@@ -743,17 +736,14 @@
     "serviceAccountsEnabled" : false,
     "publicClient" : false,
     "frontchannelLogout" : false,
-    "protocol" : "openid-connect",
-    "attributes" : {
-      "post.logout.redirect.uris" : "+"
-    },
+    "attributes" : { },
     "authenticationFlowBindingOverrides" : { },
     "fullScopeAllowed" : false,
     "nodeReRegistrationTimeout" : 0,
     "defaultClientScopes" : [ "web-origins", "acr", "profile", "roles", "email" ],
     "optionalClientScopes" : [ "address", "phone", "offline_access", "microprofile-jwt" ]
   }, {
-    "id" : "859ddad5-9d30-454f-99fb-d236e185e4c1",
+    "id" : "706d5b9e-519c-47d6-a631-8c6d3b620d13",
     "clientId" : "security-admin-console",
     "name" : "${client_security-admin-console}",
     "rootUrl" : "${authAdminUrl}",
@@ -782,7 +772,7 @@
     "fullScopeAllowed" : false,
     "nodeReRegistrationTimeout" : 0,
     "protocolMappers" : [ {
-      "id" : "206c060b-705b-41b8-bef8-577557968a85",
+      "id" : "3323ec48-8c3a-4112-8382-820f27fdcc0b",
       "name" : "locale",
       "protocol" : "openid-connect",
       "protocolMapper" : "oidc-usermodel-attribute-mapper",
@@ -800,37 +790,46 @@
     "optionalClientScopes" : [ "address", "phone", "offline_access", "microprofile-jwt" ]
   } ],
   "clientScopes" : [ {
-    "id" : "173d0e39-62b5-45d5-818b-4d3ec9e32ded",
-    "name" : "role_list",
-    "description" : "SAML role list",
-    "protocol" : "saml",
+    "id" : "8af680d8-fb18-467d-86f3-f4838a9a3f33",
+    "name" : "phone",
+    "description" : "OpenID Connect built-in scope: phone",
+    "protocol" : "openid-connect",
     "attributes" : {
-      "consent.screen.text" : "${samlRoleListScopeConsentText}",
-      "display.on.consent.screen" : "true"
+      "include.in.token.scope" : "true",
+      "display.on.consent.screen" : "true",
+      "consent.screen.text" : "${phoneScopeConsentText}"
     },
     "protocolMappers" : [ {
-      "id" : "267b70c5-807f-4645-8a40-9439c07d081b",
-      "name" : "role list",
-      "protocol" : "saml",
-      "protocolMapper" : "saml-role-list-mapper",
+      "id" : "b3029899-9e14-42df-a316-47f923bdf771",
+      "name" : "phone number",
+      "protocol" : "openid-connect",
+      "protocolMapper" : "oidc-usermodel-attribute-mapper",
       "consentRequired" : false,
       "config" : {
-        "single" : "false",
-        "attribute.nameformat" : "Basic",
-        "attribute.name" : "Role"
+        "userinfo.token.claim" : "true",
+        "user.attribute" : "phoneNumber",
+        "id.token.claim" : "true",
+        "access.token.claim" : "true",
+        "claim.name" : "phone_number",
+        "jsonType.label" : "String"
+      }
+    }, {
+      "id" : "e61f6837-65c3-4238-8459-e2866e4b1eea",
+      "name" : "phone number verified",
+      "protocol" : "openid-connect",
+      "protocolMapper" : "oidc-usermodel-attribute-mapper",
+      "consentRequired" : false,
+      "config" : {
+        "userinfo.token.claim" : "true",
+        "user.attribute" : "phoneNumberVerified",
+        "id.token.claim" : "true",
+        "access.token.claim" : "true",
+        "claim.name" : "phone_number_verified",
+        "jsonType.label" : "boolean"
       }
     } ]
   }, {
-    "id" : "028892bb-2135-46ad-afad-d00173a7afdd",
-    "name" : "offline_access",
-    "description" : "OpenID Connect built-in scope: offline_access",
-    "protocol" : "openid-connect",
-    "attributes" : {
-      "consent.screen.text" : "${offlineAccessScopeConsentText}",
-      "display.on.consent.screen" : "true"
-    }
-  }, {
-    "id" : "956d1db2-9677-4087-8dfd-c72f13489137",
+    "id" : "28677188-dedc-4186-95a1-f4b24c3ff8b1",
     "name" : "profile",
     "description" : "OpenID Connect built-in scope: profile",
     "protocol" : "openid-connect",
@@ -840,63 +839,7 @@
       "consent.screen.text" : "${profileScopeConsentText}"
     },
     "protocolMappers" : [ {
-      "id" : "24e22041-2047-4a5d-be7f-2adec81aa730",
-      "name" : "locale",
-      "protocol" : "openid-connect",
-      "protocolMapper" : "oidc-usermodel-attribute-mapper",
-      "consentRequired" : false,
-      "config" : {
-        "userinfo.token.claim" : "true",
-        "user.attribute" : "locale",
-        "id.token.claim" : "true",
-        "access.token.claim" : "true",
-        "claim.name" : "locale",
-        "jsonType.label" : "String"
-      }
-    }, {
-      "id" : "7c6e5254-4113-411b-94fe-b0f1075fb337",
-      "name" : "family name",
-      "protocol" : "openid-connect",
-      "protocolMapper" : "oidc-usermodel-attribute-mapper",
-      "consentRequired" : false,
-      "config" : {
-        "userinfo.token.claim" : "true",
-        "user.attribute" : "lastName",
-        "id.token.claim" : "true",
-        "access.token.claim" : "true",
-        "claim.name" : "family_name",
-        "jsonType.label" : "String"
-      }
-    }, {
-      "id" : "892a10b4-6544-4771-848b-9b612f088587",
-      "name" : "zoneinfo",
-      "protocol" : "openid-connect",
-      "protocolMapper" : "oidc-usermodel-attribute-mapper",
-      "consentRequired" : false,
-      "config" : {
-        "userinfo.token.claim" : "true",
-        "user.attribute" : "zoneinfo",
-        "id.token.claim" : "true",
-        "access.token.claim" : "true",
-        "claim.name" : "zoneinfo",
-        "jsonType.label" : "String"
-      }
-    }, {
-      "id" : "1f7598c7-424c-459c-96ce-fcc77ea796e1",
-      "name" : "picture",
-      "protocol" : "openid-connect",
-      "protocolMapper" : "oidc-usermodel-attribute-mapper",
-      "consentRequired" : false,
-      "config" : {
-        "userinfo.token.claim" : "true",
-        "user.attribute" : "picture",
-        "id.token.claim" : "true",
-        "access.token.claim" : "true",
-        "claim.name" : "picture",
-        "jsonType.label" : "String"
-      }
-    }, {
-      "id" : "ec826a41-ef5d-42f7-854e-15972a8cd3a2",
+      "id" : "6eb97452-c664-4cdb-9f22-3910aaeb9a02",
       "name" : "gender",
       "protocol" : "openid-connect",
       "protocolMapper" : "oidc-usermodel-attribute-mapper",
@@ -910,35 +853,7 @@
         "jsonType.label" : "String"
       }
     }, {
-      "id" : "3d0457b6-d35e-465f-b784-87d038b7a917",
-      "name" : "profile",
-      "protocol" : "openid-connect",
-      "protocolMapper" : "oidc-usermodel-attribute-mapper",
-      "consentRequired" : false,
-      "config" : {
-        "userinfo.token.claim" : "true",
-        "user.attribute" : "profile",
-        "id.token.claim" : "true",
-        "access.token.claim" : "true",
-        "claim.name" : "profile",
-        "jsonType.label" : "String"
-      }
-    }, {
-      "id" : "10751329-2b3e-4efe-b905-04efb476b87a",
-      "name" : "updated at",
-      "protocol" : "openid-connect",
-      "protocolMapper" : "oidc-usermodel-attribute-mapper",
-      "consentRequired" : false,
-      "config" : {
-        "userinfo.token.claim" : "true",
-        "user.attribute" : "updatedAt",
-        "id.token.claim" : "true",
-        "access.token.claim" : "true",
-        "claim.name" : "updated_at",
-        "jsonType.label" : "long"
-      }
-    }, {
-      "id" : "68721cd1-ec95-4ed2-97b4-4639647fc385",
+      "id" : "3f2a136f-aa65-4d0b-85cd-f44696434b27",
       "name" : "middle name",
       "protocol" : "openid-connect",
       "protocolMapper" : "oidc-usermodel-attribute-mapper",
@@ -952,46 +867,21 @@
         "jsonType.label" : "String"
       }
     }, {
-      "id" : "b9c25527-f8ff-4795-8bbc-5e65de2f2278",
-      "name" : "full name",
-      "protocol" : "openid-connect",
-      "protocolMapper" : "oidc-full-name-mapper",
-      "consentRequired" : false,
-      "config" : {
-        "id.token.claim" : "true",
-        "access.token.claim" : "true",
-        "userinfo.token.claim" : "true"
-      }
-    }, {
-      "id" : "8bba7e5a-89bd-4cd7-9dad-1b79dcfd8e95",
-      "name" : "username",
+      "id" : "0f7ba79d-9ae4-4b06-9cf9-39f6130497ca",
+      "name" : "birthdate",
       "protocol" : "openid-connect",
       "protocolMapper" : "oidc-usermodel-attribute-mapper",
       "consentRequired" : false,
       "config" : {
         "userinfo.token.claim" : "true",
-        "user.attribute" : "username",
+        "user.attribute" : "birthdate",
         "id.token.claim" : "true",
         "access.token.claim" : "true",
-        "claim.name" : "preferred_username",
+        "claim.name" : "birthdate",
         "jsonType.label" : "String"
       }
     }, {
-      "id" : "dc13e668-e3f1-4644-8795-552b2da8d7d9",
-      "name" : "nickname",
-      "protocol" : "openid-connect",
-      "protocolMapper" : "oidc-usermodel-attribute-mapper",
-      "consentRequired" : false,
-      "config" : {
-        "userinfo.token.claim" : "true",
-        "user.attribute" : "nickname",
-        "id.token.claim" : "true",
-        "access.token.claim" : "true",
-        "claim.name" : "nickname",
-        "jsonType.label" : "String"
-      }
-    }, {
-      "id" : "0c7708b0-f504-4ac6-8517-e79b1311ab41",
+      "id" : "4b889299-6a51-4de5-a663-2c948faff584",
       "name" : "website",
       "protocol" : "openid-connect",
       "protocolMapper" : "oidc-usermodel-attribute-mapper",
@@ -1005,7 +895,102 @@
         "jsonType.label" : "String"
       }
     }, {
-      "id" : "da00bb44-2abb-4dda-bb5b-792ca33b2b7d",
+      "id" : "ae031ea1-a35b-4cb7-a089-18b1c2589ce0",
+      "name" : "picture",
+      "protocol" : "openid-connect",
+      "protocolMapper" : "oidc-usermodel-attribute-mapper",
+      "consentRequired" : false,
+      "config" : {
+        "userinfo.token.claim" : "true",
+        "user.attribute" : "picture",
+        "id.token.claim" : "true",
+        "access.token.claim" : "true",
+        "claim.name" : "picture",
+        "jsonType.label" : "String"
+      }
+    }, {
+      "id" : "a8d403f2-0b58-4699-8c8a-2927a5f5ce2e",
+      "name" : "profile",
+      "protocol" : "openid-connect",
+      "protocolMapper" : "oidc-usermodel-attribute-mapper",
+      "consentRequired" : false,
+      "config" : {
+        "userinfo.token.claim" : "true",
+        "user.attribute" : "profile",
+        "id.token.claim" : "true",
+        "access.token.claim" : "true",
+        "claim.name" : "profile",
+        "jsonType.label" : "String"
+      }
+    }, {
+      "id" : "4566d468-7d0b-4acf-af56-128a42d20129",
+      "name" : "full name",
+      "protocol" : "openid-connect",
+      "protocolMapper" : "oidc-full-name-mapper",
+      "consentRequired" : false,
+      "config" : {
+        "id.token.claim" : "true",
+        "access.token.claim" : "true",
+        "userinfo.token.claim" : "true"
+      }
+    }, {
+      "id" : "6128e19e-5a4b-463e-a19f-99b0be5b0122",
+      "name" : "nickname",
+      "protocol" : "openid-connect",
+      "protocolMapper" : "oidc-usermodel-attribute-mapper",
+      "consentRequired" : false,
+      "config" : {
+        "userinfo.token.claim" : "true",
+        "user.attribute" : "nickname",
+        "id.token.claim" : "true",
+        "access.token.claim" : "true",
+        "claim.name" : "nickname",
+        "jsonType.label" : "String"
+      }
+    }, {
+      "id" : "46f52ed8-2efa-4604-9fdc-aef367c24503",
+      "name" : "family name",
+      "protocol" : "openid-connect",
+      "protocolMapper" : "oidc-usermodel-attribute-mapper",
+      "consentRequired" : false,
+      "config" : {
+        "userinfo.token.claim" : "true",
+        "user.attribute" : "lastName",
+        "id.token.claim" : "true",
+        "access.token.claim" : "true",
+        "claim.name" : "family_name",
+        "jsonType.label" : "String"
+      }
+    }, {
+      "id" : "6f5c1cb6-9d68-4503-a7cb-6914cd4353dc",
+      "name" : "locale",
+      "protocol" : "openid-connect",
+      "protocolMapper" : "oidc-usermodel-attribute-mapper",
+      "consentRequired" : false,
+      "config" : {
+        "userinfo.token.claim" : "true",
+        "user.attribute" : "locale",
+        "id.token.claim" : "true",
+        "access.token.claim" : "true",
+        "claim.name" : "locale",
+        "jsonType.label" : "String"
+      }
+    }, {
+      "id" : "cb015818-eb2b-434b-8594-85e37c29be2d",
+      "name" : "username",
+      "protocol" : "openid-connect",
+      "protocolMapper" : "oidc-usermodel-attribute-mapper",
+      "consentRequired" : false,
+      "config" : {
+        "userinfo.token.claim" : "true",
+        "user.attribute" : "username",
+        "id.token.claim" : "true",
+        "access.token.claim" : "true",
+        "claim.name" : "preferred_username",
+        "jsonType.label" : "String"
+      }
+    }, {
+      "id" : "410423ef-b177-4a86-a182-85936cf00491",
       "name" : "given name",
       "protocol" : "openid-connect",
       "protocolMapper" : "oidc-usermodel-attribute-mapper",
@@ -1019,82 +1004,74 @@
         "jsonType.label" : "String"
       }
     }, {
-      "id" : "d91527a4-362d-4d09-9ab3-c811d29b9176",
-      "name" : "birthdate",
+      "id" : "d1138cf0-dbae-4ecb-9eed-0ccd6a1a4b12",
+      "name" : "zoneinfo",
       "protocol" : "openid-connect",
       "protocolMapper" : "oidc-usermodel-attribute-mapper",
       "consentRequired" : false,
       "config" : {
         "userinfo.token.claim" : "true",
-        "user.attribute" : "birthdate",
+        "user.attribute" : "zoneinfo",
         "id.token.claim" : "true",
         "access.token.claim" : "true",
-        "claim.name" : "birthdate",
+        "claim.name" : "zoneinfo",
         "jsonType.label" : "String"
       }
-    } ]
-  }, {
-    "id" : "306c6bdc-e804-4734-9f92-4a701a731f4a",
-    "name" : "acr",
-    "description" : "OpenID Connect scope for add acr (authentication context class reference) to the token",
-    "protocol" : "openid-connect",
-    "attributes" : {
-      "include.in.token.scope" : "false",
-      "display.on.consent.screen" : "false"
-    },
-    "protocolMappers" : [ {
-      "id" : "1dae1f4f-82c2-484a-9569-508d13d125ff",
-      "name" : "acr loa level",
+    }, {
+      "id" : "e871ff68-e635-474a-814c-26199e88f6af",
+      "name" : "updated at",
       "protocol" : "openid-connect",
-      "protocolMapper" : "oidc-acr-mapper",
+      "protocolMapper" : "oidc-usermodel-attribute-mapper",
       "consentRequired" : false,
       "config" : {
+        "userinfo.token.claim" : "true",
+        "user.attribute" : "updatedAt",
         "id.token.claim" : "true",
         "access.token.claim" : "true",
-        "userinfo.token.claim" : "true"
+        "claim.name" : "updated_at",
+        "jsonType.label" : "long"
       }
     } ]
   }, {
-    "id" : "d41d1009-e5e9-4d63-b821-7a5f62b920af",
-    "name" : "phone",
-    "description" : "OpenID Connect built-in scope: phone",
+    "id" : "11b587b4-d761-4eaf-8cdd-5730abdfffe9",
+    "name" : "microprofile-jwt",
+    "description" : "Microprofile - JWT built-in scope",
     "protocol" : "openid-connect",
     "attributes" : {
       "include.in.token.scope" : "true",
-      "display.on.consent.screen" : "true",
-      "consent.screen.text" : "${phoneScopeConsentText}"
+      "display.on.consent.screen" : "false"
     },
     "protocolMappers" : [ {
-      "id" : "fe17199e-78f0-4d51-a144-a6b4ab18b06a",
-      "name" : "phone number verified",
+      "id" : "67ebd0c4-d08d-486c-b105-8f75554015ae",
+      "name" : "groups",
       "protocol" : "openid-connect",
-      "protocolMapper" : "oidc-usermodel-attribute-mapper",
+      "protocolMapper" : "oidc-usermodel-realm-role-mapper",
       "consentRequired" : false,
       "config" : {
-        "userinfo.token.claim" : "true",
-        "user.attribute" : "phoneNumberVerified",
+        "multivalued" : "true",
+        "user.attribute" : "foo",
         "id.token.claim" : "true",
         "access.token.claim" : "true",
-        "claim.name" : "phone_number_verified",
-        "jsonType.label" : "boolean"
+        "claim.name" : "groups",
+        "jsonType.label" : "String"
       }
     }, {
-      "id" : "b7ccf9bf-21d5-4123-9fec-d58c9853aa8d",
-      "name" : "phone number",
+      "id" : "17e7ebf1-c5d1-4174-a074-2313303f28f3",
+      "name" : "upn",
       "protocol" : "openid-connect",
       "protocolMapper" : "oidc-usermodel-attribute-mapper",
       "consentRequired" : false,
       "config" : {
         "userinfo.token.claim" : "true",
-        "user.attribute" : "phoneNumber",
+        "user.attribute" : "username",
         "id.token.claim" : "true",
         "access.token.claim" : "true",
-        "claim.name" : "phone_number",
+        "claim.name" : "upn",
         "jsonType.label" : "String"
       }
     } ]
   }, {
-    "id" : "d4158c7f-6926-4e92-ae59-3fe7c0cd80d4",
+    "id" : "7e27b2ab-926a-43f0-9b74-d4070f159ac8",
     "name" : "roles",
     "description" : "OpenID Connect scope for add user roles to the access token",
     "protocol" : "openid-connect",
@@ -1104,7 +1081,7 @@
       "consent.screen.text" : "${rolesScopeConsentText}"
     },
     "protocolMappers" : [ {
-      "id" : "aafd5578-5999-4ad4-a903-4ec720596b09",
+      "id" : "e143408b-5f67-4893-a672-965155cfb88b",
       "name" : "client roles",
       "protocol" : "openid-connect",
       "protocolMapper" : "oidc-usermodel-client-role-mapper",
@@ -1117,14 +1094,14 @@
         "multivalued" : "true"
       }
     }, {
-      "id" : "25ab0ff5-30f3-4fc3-ab7b-4550cdbe9f53",
+      "id" : "6afde04b-9f80-4591-a37e-f16d9db3d2b8",
       "name" : "audience resolve",
       "protocol" : "openid-connect",
       "protocolMapper" : "oidc-audience-resolve-mapper",
       "consentRequired" : false,
       "config" : { }
     }, {
-      "id" : "d5ae28ee-1e08-427a-b3b3-7fbccc8f6051",
+      "id" : "ecf73da8-2f73-4fd9-b366-146f69a4172a",
       "name" : "realm roles",
       "protocol" : "openid-connect",
       "protocolMapper" : "oidc-usermodel-realm-role-mapper",
@@ -1138,25 +1115,16 @@
       }
     } ]
   }, {
-    "id" : "c5ec587e-cc3e-493a-a18d-213e80ccc158",
-    "name" : "web-origins",
-    "description" : "OpenID Connect scope for add allowed web origins to the access token",
+    "id" : "e63a9470-b3b1-47e2-8c47-eb5ca8104665",
+    "name" : "offline_access",
+    "description" : "OpenID Connect built-in scope: offline_access",
     "protocol" : "openid-connect",
     "attributes" : {
-      "include.in.token.scope" : "false",
-      "display.on.consent.screen" : "false",
-      "consent.screen.text" : ""
-    },
-    "protocolMappers" : [ {
-      "id" : "749707a4-2cb0-4f3d-a719-6347528f49cc",
-      "name" : "allowed web origins",
-      "protocol" : "openid-connect",
-      "protocolMapper" : "oidc-allowed-origins-mapper",
-      "consentRequired" : false,
-      "config" : { }
-    } ]
+      "consent.screen.text" : "${offlineAccessScopeConsentText}",
+      "display.on.consent.screen" : "true"
+    }
   }, {
-    "id" : "16f02674-c24c-46b4-90b2-2b455ba2986f",
+    "id" : "57489e65-0ca8-41a0-9143-d81907810fd3",
     "name" : "email",
     "description" : "OpenID Connect built-in scope: email",
     "protocol" : "openid-connect",
@@ -1166,7 +1134,7 @@
       "consent.screen.text" : "${emailScopeConsentText}"
     },
     "protocolMappers" : [ {
-      "id" : "8626222b-21da-4ca2-b655-8455923f35b8",
+      "id" : "bd94e55e-dbe4-40f8-88a9-eff86cac8838",
       "name" : "email verified",
       "protocol" : "openid-connect",
       "protocolMapper" : "oidc-usermodel-property-mapper",
@@ -1180,7 +1148,7 @@
         "jsonType.label" : "boolean"
       }
     }, {
-      "id" : "6f3348ac-09c2-486d-8c0c-9ff2a464ca7a",
+      "id" : "340c4871-d0b0-4ed2-b565-548aebd94de8",
       "name" : "email",
       "protocol" : "openid-connect",
       "protocolMapper" : "oidc-usermodel-attribute-mapper",
@@ -1195,7 +1163,66 @@
       }
     } ]
   }, {
-    "id" : "244598bb-b4c4-4bbb-a4f9-ec6ad6b12590",
+    "id" : "95d6b7e9-f1c8-479e-b8e0-01edae37dd39",
+    "name" : "web-origins",
+    "description" : "OpenID Connect scope for add allowed web origins to the access token",
+    "protocol" : "openid-connect",
+    "attributes" : {
+      "include.in.token.scope" : "false",
+      "display.on.consent.screen" : "false",
+      "consent.screen.text" : ""
+    },
+    "protocolMappers" : [ {
+      "id" : "3321d14b-393e-4663-862e-4f4c56bdb852",
+      "name" : "allowed web origins",
+      "protocol" : "openid-connect",
+      "protocolMapper" : "oidc-allowed-origins-mapper",
+      "consentRequired" : false,
+      "config" : { }
+    } ]
+  }, {
+    "id" : "e078f55c-d853-4403-ae0c-f2d8e5d9f6d1",
+    "name" : "acr",
+    "description" : "OpenID Connect scope for add acr (authentication context class reference) to the token",
+    "protocol" : "openid-connect",
+    "attributes" : {
+      "include.in.token.scope" : "false",
+      "display.on.consent.screen" : "false"
+    },
+    "protocolMappers" : [ {
+      "id" : "db6ac94c-8539-4dc1-85b0-c48d54797e98",
+      "name" : "acr loa level",
+      "protocol" : "openid-connect",
+      "protocolMapper" : "oidc-acr-mapper",
+      "consentRequired" : false,
+      "config" : {
+        "id.token.claim" : "true",
+        "access.token.claim" : "true"
+      }
+    } ]
+  }, {
+    "id" : "ea786c27-4543-4c0f-9f49-b7eb3e8aa514",
+    "name" : "role_list",
+    "description" : "SAML role list",
+    "protocol" : "saml",
+    "attributes" : {
+      "consent.screen.text" : "${samlRoleListScopeConsentText}",
+      "display.on.consent.screen" : "true"
+    },
+    "protocolMappers" : [ {
+      "id" : "1b4aa9cc-804b-45b8-a2f5-5b87119eff36",
+      "name" : "role list",
+      "protocol" : "saml",
+      "protocolMapper" : "saml-role-list-mapper",
+      "consentRequired" : false,
+      "config" : {
+        "single" : "false",
+        "attribute.nameformat" : "Basic",
+        "attribute.name" : "Role"
+      }
+    } ]
+  }, {
+    "id" : "51283be0-2a16-4e76-b499-ce795b3c2702",
     "name" : "address",
     "description" : "OpenID Connect built-in scope: address",
     "protocol" : "openid-connect",
@@ -1205,7 +1232,7 @@
       "consent.screen.text" : "${addressScopeConsentText}"
     },
     "protocolMappers" : [ {
-      "id" : "0cfadfe3-3968-4fa3-aed2-f65ad04103d6",
+      "id" : "0e32708b-4e9d-4c43-8c8b-56958c7d7d00",
       "name" : "address",
       "protocol" : "openid-connect",
       "protocolMapper" : "oidc-address-mapper",
@@ -1222,45 +1249,6 @@
         "user.attribute.locality" : "locality"
       }
     } ]
-  }, {
-    "id" : "284d983c-bf4c-46b1-b978-df4fe39ee81f",
-    "name" : "microprofile-jwt",
-    "description" : "Microprofile - JWT built-in scope",
-    "protocol" : "openid-connect",
-    "attributes" : {
-      "include.in.token.scope" : "true",
-      "display.on.consent.screen" : "false"
-    },
-    "protocolMappers" : [ {
-      "id" : "eed5c636-d7d3-4386-ac36-4c7bcba61669",
-      "name" : "upn",
-      "protocol" : "openid-connect",
-      "protocolMapper" : "oidc-usermodel-attribute-mapper",
-      "consentRequired" : false,
-      "config" : {
-        "userinfo.token.claim" : "true",
-        "user.attribute" : "username",
-        "id.token.claim" : "true",
-        "access.token.claim" : "true",
-        "claim.name" : "upn",
-        "jsonType.label" : "String"
-      }
-    }, {
-      "id" : "a8c3e79f-4d0d-40e3-94e1-261f67581ea7",
-      "name" : "groups",
-      "protocol" : "openid-connect",
-      "protocolMapper" : "oidc-usermodel-realm-role-mapper",
-      "consentRequired" : false,
-      "config" : {
-        "multivalued" : "true",
-        "userinfo.token.claim" : "true",
-        "user.attribute" : "foo",
-        "id.token.claim" : "true",
-        "access.token.claim" : "true",
-        "claim.name" : "groups",
-        "jsonType.label" : "String"
-      }
-    } ]
   } ],
   "defaultDefaultClientScopes" : [ "role_list", "profile", "email", "roles", "web-origins", "acr" ],
   "defaultOptionalClientScopes" : [ "offline_access", "address", "phone", "microprofile-jwt" ],
@@ -1270,8 +1258,8 @@
     "referrerPolicy" : "no-referrer",
     "xRobotsTag" : "none",
     "xFrameOptions" : "SAMEORIGIN",
-    "contentSecurityPolicy" : "frame-src 'self'; frame-ancestors 'self'; object-src 'none';",
     "xXSSProtection" : "1; mode=block",
+    "contentSecurityPolicy" : "frame-src 'self'; frame-ancestors 'self'; object-src 'none';",
     "strictTransportSecurity" : "max-age=31536000; includeSubDomains"
   },
   "smtpServer" : { },
@@ -1284,14 +1272,57 @@
   "identityProviderMappers" : [ ],
   "components" : {
     "org.keycloak.services.clientregistration.policy.ClientRegistrationPolicy" : [ {
-      "id" : "dfad2011-1230-48d3-92b2-269d80ccc2a2",
+      "id" : "8ee03ff0-9cd6-48b1-bac7-0bea18b8b677",
+      "name" : "Max Clients Limit",
+      "providerId" : "max-clients",
+      "subType" : "anonymous",
+      "subComponents" : { },
+      "config" : {
+        "max-clients" : [ "200" ]
+      }
+    }, {
+      "id" : "87178182-2b4d-48e3-a33c-25d737777c07",
+      "name" : "Allowed Protocol Mapper Types",
+      "providerId" : "allowed-protocol-mappers",
+      "subType" : "authenticated",
+      "subComponents" : { },
+      "config" : {
+        "allowed-protocol-mapper-types" : [ "saml-user-attribute-mapper", "oidc-sha256-pairwise-sub-mapper", "saml-role-list-mapper", "oidc-usermodel-attribute-mapper", "saml-user-property-mapper", "oidc-address-mapper", "oidc-usermodel-property-mapper", "oidc-full-name-mapper" ]
+      }
+    }, {
+      "id" : "0fc73ea5-87c5-4cfa-b0e7-7bb6fba39ad8",
+      "name" : "Allowed Protocol Mapper Types",
+      "providerId" : "allowed-protocol-mappers",
+      "subType" : "anonymous",
+      "subComponents" : { },
+      "config" : {
+        "allowed-protocol-mapper-types" : [ "saml-role-list-mapper", "oidc-sha256-pairwise-sub-mapper", "oidc-full-name-mapper", "oidc-address-mapper", "saml-user-attribute-mapper", "oidc-usermodel-attribute-mapper", "saml-user-property-mapper", "oidc-usermodel-property-mapper" ]
+      }
+    }, {
+      "id" : "e1a48b41-6e57-4a2f-9da6-b530b821a399",
+      "name" : "Allowed Client Scopes",
+      "providerId" : "allowed-client-templates",
+      "subType" : "anonymous",
+      "subComponents" : { },
+      "config" : {
+        "allow-default-scopes" : [ "true" ]
+      }
+    }, {
+      "id" : "c840518e-6c06-4871-acca-a081f434710c",
       "name" : "Consent Required",
       "providerId" : "consent-required",
       "subType" : "anonymous",
       "subComponents" : { },
       "config" : { }
     }, {
-      "id" : "983794e6-f0b1-46f6-a76e-38ee95784c75",
+      "id" : "843b0e50-7442-465d-a7c5-45d376122de8",
+      "name" : "Full Scope Disabled",
+      "providerId" : "scope",
+      "subType" : "anonymous",
+      "subComponents" : { },
+      "config" : { }
+    }, {
+      "id" : "3944b0fc-55b8-4974-b43a-311e841022f6",
       "name" : "Trusted Hosts",
       "providerId" : "trusted-hosts",
       "subType" : "anonymous",
@@ -1301,50 +1332,7 @@
         "client-uris-must-match" : [ "true" ]
       }
     }, {
-      "id" : "f2420926-f950-40ce-9465-3d0cf4667515",
-      "name" : "Allowed Protocol Mapper Types",
-      "providerId" : "allowed-protocol-mappers",
-      "subType" : "anonymous",
-      "subComponents" : { },
-      "config" : {
-        "allowed-protocol-mapper-types" : [ "oidc-usermodel-property-mapper", "oidc-address-mapper", "oidc-full-name-mapper", "oidc-sha256-pairwise-sub-mapper", "saml-user-attribute-mapper", "saml-user-property-mapper", "oidc-usermodel-attribute-mapper", "saml-role-list-mapper" ]
-      }
-    }, {
-      "id" : "2c660934-c5bb-41c8-bbf8-f4702ed1fbe0",
-      "name" : "Max Clients Limit",
-      "providerId" : "max-clients",
-      "subType" : "anonymous",
-      "subComponents" : { },
-      "config" : {
-        "max-clients" : [ "200" ]
-      }
-    }, {
-      "id" : "87af28c2-da12-4cce-a6f1-b8162ee835b4",
-      "name" : "Full Scope Disabled",
-      "providerId" : "scope",
-      "subType" : "anonymous",
-      "subComponents" : { },
-      "config" : { }
-    }, {
-      "id" : "d59f565f-582d-4582-927c-79b79a9fef8e",
-      "name" : "Allowed Client Scopes",
-      "providerId" : "allowed-client-templates",
-      "subType" : "anonymous",
-      "subComponents" : { },
-      "config" : {
-        "allow-default-scopes" : [ "true" ]
-      }
-    }, {
-      "id" : "1c3ab6d0-534a-4c03-af9a-c1a201ae4e61",
-      "name" : "Allowed Protocol Mapper Types",
-      "providerId" : "allowed-protocol-mappers",
-      "subType" : "authenticated",
-      "subComponents" : { },
-      "config" : {
-        "allowed-protocol-mapper-types" : [ "oidc-usermodel-attribute-mapper", "saml-user-attribute-mapper", "saml-role-list-mapper", "oidc-usermodel-property-mapper", "oidc-full-name-mapper", "oidc-address-mapper", "oidc-sha256-pairwise-sub-mapper", "saml-user-property-mapper" ]
-      }
-    }, {
-      "id" : "ed463163-934a-4d00-897c-eae9952992a7",
+      "id" : "12724940-2e66-47ae-9fb4-f28e411553f1",
       "name" : "Allowed Client Scopes",
       "providerId" : "allowed-client-templates",
       "subType" : "authenticated",
@@ -1354,46 +1342,46 @@
       }
     } ],
     "org.keycloak.keys.KeyProvider" : [ {
-      "id" : "ee5c5824-d5be-48a4-8d34-e444fde0734a",
+      "id" : "21824132-c8ba-4c6a-ac35-2a120adf02b1",
       "name" : "rsa-enc-generated",
       "providerId" : "rsa-enc-generated",
       "subComponents" : { },
       "config" : {
-        "privateKey" : [ "MIIEpAIBAAKCAQEAkAjABrnj0CCAmWgAT1fSAYiyyfBiOZ1SQTCmdClQt1ispg9PLeCcUwqUq2Ouq1jrRExAw+YJAfo+EXl9tstNOTOpBJqi16wzSj8w4k52oPAOVMRUFJWejcUvXU5FDvnga2QjlbDoOUuC8NpteATu3Vp2DYoYwD1l65+b6/mKvkiSuceb+g8/eC9ruQ69j/ZxZSSS5O+xJx4Sl+ykRynxiBRrjPQRshITyGUNLU+96TcbgRTBtNO9a6Fyw0Mx4hQn9tuLBStyaqf7Ma0kBGYtFv35UcQ5D1qh3FxIA7VvT0OanvINAvSzorIPmGx6cZYWVyyRGBOD4GwaxuN/aKHCRQIDAQABAoIBABtqmvi8yhUsFqZ8wjBYKFiT52pieCP84vMXOlv6oEtiFO0AFYOHUWJKLY3pKc6iXJgRxrMzVowakNV9MXWJwb+NapL+h1gzxkiP+jNdmZ2dTDEM9O89IqLcQZ2KYEFPRY1TkKV1+OItEjXb8gHqOHiId1ew7XCsTzn4VfLnO2ZoO1Mm1zVlBIOmLE6Hgg8BB+5ok7hFTgp83rx3J/dKWZzHnrZubvAUfbPBvgoE+awQPp44nhARmwK+iwKgwerci1DT8y16wIDIdFA/IbrlzvldjM5OFoAum+rAXpYFagaxoE4aK30lUKZNPPWk6LU4K86oK8zMXdPcGr0l+qO220ECgYEAyzwKdt11a4RR5HFgT3t0LJhN+n6CpVrkISnHALfwYV2pl9kODXXlvdjkPSrFBCp6HWumqLrJ61/82PdmhFZem8rbq3C5YeB9p9cZhO4dRqjFyYtxLa8JXjqweATLYz+sDeWo3rqr87P44VW300zkOoL3n0X/mjy/Dwwgvx6wmcECgYEAtW329489Rd5v5gs+jjTJioSVAZC+7jhoMZ/vLSbbROFMui7pTstaUteM9yYz59cw9z2SARifRC8Kl6C4blOzp+tkfBvTuK/IM0ZQFfecClBZmi/Bav2LoVsaLNEIjSDc4FbAq5MilDLrH+NAuaFql5/Q5KV/I8mR+dr0VdcQIYUCgYBctZ7wakXOLiZNV4rftylfznqD8oIWfEfk+PHW2hHF2LwskM9gRI/w8qfrXz9Qjy/1i84S2mKSBM+LChCx/dRarUdYBawLgiTQE8eIZDbmrMbNEdcnR9m2Kn+lwEonlDwgest2DyGxoj++SyP4N/NE3cmn1n6rFVryuk2V4aIeAQKBgQCKYbSEgGGo4A+TdDIjf0nV+Gg6yG+I/ccjSqzAUKngMMQ4Ij3b1qkvFK+1dxMSG4WCnxi081XPSN4YZwMlS3x1cMq1CviDHrhhu5isGK+RAlZFj3VEqN0OlpExa8LM+irehezxMQmn5eqG6OveaqsFuWU4cK632jAYVhQVQTNRjQKBgQDIu6gQPfgN4LtzNQWMvYUcD11qmYKEIenmnc8NvvD59BQoX9+byqWEmQ23DyIuKsHTdGanV+DNetNs3MhDHlU69jKuO0TeVg4gAGKKReZOnbj3sAhxzpc8UtGrhDaVOBD4MfwUJaAScrKUWXEayTGYl8U5wKxf80/bN3KtpB4D7Q==" ],
+        "privateKey" : [ "MIIEowIBAAKCAQEA0Gk/maWVVR4mBNZ5RQpNobxdBhgp2UbcIB7wK9OKm/Rsyul+v3bVlpQH644PKn+BaWvYQpYVDGP7jXF60HdjP+nss860SVMdvFqzbLNTGgNNtw12c9oe/qvUoKQknJfwiX7pfluMy5n0ZOKCj3Tg6xWhf2aKt+SaeIPDl62G/muTMKu5jNmMroIwUBdO/S5+2N5Jl+88G71XtS2vdYMH6sju6jpDdLX1IWpgFjXZzfZ43yXsuw+tdTfYSoq2EVm2KcHpCrqux0Hij4dxnshua4XyM4pG0PfbwxPKn2gteCwQEWPopmtMfR4+Lo81TZMLTxo+9M8/rSQB9LfK0FKrsQIDAQABAoIBABDc7z04oWZfd96M1wefz4u+YL2BP4OZ4O5FapP1PCIlyxa5AV0vGZWjOSfVWQNMiVVVGUy79YyI234EmFYdTt3JSPJ8j2hebgnDQgDR2q/AZC2jTHoPxFHBaAUuetrjzV3ms7BaaoA/3v85t6wxXhCPcb+L9b3u5JPLP4x6iTF1L/HTxduhHz9VRyKt0QFXO8LMA5rel1y4pe9lqNnEPPp9PY6iL3krekQUdyZR9L4FDjmYlVllSQPnhXR95rfBbRbCymtZ2Nr2Ojyi2HMh6sQSMPuo07Ia1jYdOTdeKAV7aGyXEgw6d+DL4echppCD+BXJvtx7Z0w2f5r74nt7DLUCgYEA7Ncs4SRHddYdEQDXMgjo5hbmFveNsXZscC0mtwowp4d1Nz8zt7j3HO+zglYhteapBemAeXJXDapL0ml7j0IdakrVgqlsbuSzzYaz0nMH5Dkh8krkGsuJu0QQlRfOdU0vNTKFzqXwZw5aPBemPdW5sE/NmUXz2BAeWgnwwIVYau0CgYEA4UVRPSq9tpuKdDHEhw8gW7jka8q474RnHcSoin8WPGL6f+b/cainhJBZknwo/ioOFgHbheVTI3Vl1QvmVeJJLoWCK4xFcO5wbjuGged1eWi9hsPoVI2Lj3/AfJOjvgCzW6Ytw4YMmkbpoV2926otEAj5mpSX/yxB2pWhNHHvd1UCgYEAnqMOC4uaVeJhu7bdbUUsgpmJ6o5MGTbiMUz85pNrvXrs12F9Ca1Zz8b6bO22TLnAMxaRGEeu6ZdMjBZdTbqSK1UOqCNFXw3PJXX5Upf8DDD8fOcO3KfCjG1t0f+NKWLWoQJDQARD/zNM231Xu4lBhEgfxW9mgi1htxt7Z+ipLY0CgYBGd92a6cTg27Uq9eqJaUTxDFyAD7FcU6nCGSOz919oUnoUCpm730tP36v1c9uK7nLrlXcrYnpobDAHvio2kYvc/qyinMWYNy56fSptdo88BHTNNHl4AbM3l3oKPlEJfcSdldVZBZTpqecpsF5U2d4w1u3l2jfV/e03yHjeJAoJ5QKBgAX9zyH2KQMXXPJOHvWvBsZG1lfbX96HZ/eyZMnSjo2kHzfjcdz6j3u9R8oW6RRbwAzwQnwzGalt7nAC1T3aIGtAS72t5y8sf+Pzzd/b/4LvV13Uwpo6dqZABfEdnYMZb6LUFDjvP/SEkaYXQV6QmqFkGFaLCfSnfersumJ344fp" ],
         "keyUse" : [ "ENC" ],
-        "certificate" : [ "MIICmzCCAYMCBgGKvRurIzANBgkqhkiG9w0BAQsFADARMQ8wDQYDVQQDDAZtYXN0ZXIwHhcNMjMwOTIyMTMzNTIxWhcNMzMwOTIyMTMzNzAxWjARMQ8wDQYDVQQDDAZtYXN0ZXIwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCQCMAGuePQIICZaABPV9IBiLLJ8GI5nVJBMKZ0KVC3WKymD08t4JxTCpSrY66rWOtETEDD5gkB+j4ReX22y005M6kEmqLXrDNKPzDiTnag8A5UxFQUlZ6NxS9dTkUO+eBrZCOVsOg5S4Lw2m14BO7dWnYNihjAPWXrn5vr+Yq+SJK5x5v6Dz94L2u5Dr2P9nFlJJLk77EnHhKX7KRHKfGIFGuM9BGyEhPIZQ0tT73pNxuBFMG0071roXLDQzHiFCf224sFK3Jqp/sxrSQEZi0W/flRxDkPWqHcXEgDtW9PQ5qe8g0C9LOisg+YbHpxlhZXLJEYE4PgbBrG439oocJFAgMBAAEwDQYJKoZIhvcNAQELBQADggEBAIjd6fP9hBHokXxsx3Z90kAd5dfsQh4GMKk5VqTPklXUNO6PFx1gyUi5y/ecvsMBzTEGu0ka41jSscNLO4UJLxJHQxnJULeTTWyg+uuUTrG6ffOzyCazhGBlxqGLhzKkJOQtHhAG3280YpUrD7IQnRt3k1yIMKn4S54QKJoZvZqE2tqCSj9BcEsw08NFaILrhNFZH+QboX8hLc10SRrnwKyaw8BjrmJRkGui2zwKqC1bM9r5IDZ0WLcFIXBTFvRvSaHheqyEs27V4RE+RMYUN7eDOKvPzBsNdvd/iU8lEINUEcb/7wmHuCbxeyQA4KfdslRxX2EFBV/qptNd/HfO7m8=" ],
+        "certificate" : [ "MIICmzCCAYMCBgGK6j/InTANBgkqhkiG9w0BAQsFADARMQ8wDQYDVQQDDAZtYXN0ZXIwHhcNMjMxMDAxMDc1NzQzWhcNMzMxMDAxMDc1OTIzWjARMQ8wDQYDVQQDDAZtYXN0ZXIwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDQaT+ZpZVVHiYE1nlFCk2hvF0GGCnZRtwgHvAr04qb9GzK6X6/dtWWlAfrjg8qf4Fpa9hClhUMY/uNcXrQd2M/6eyzzrRJUx28WrNss1MaA023DXZz2h7+q9SgpCScl/CJful+W4zLmfRk4oKPdODrFaF/Zoq35Jp4g8OXrYb+a5Mwq7mM2YyugjBQF079Ln7Y3kmX7zwbvVe1La91gwfqyO7qOkN0tfUhamAWNdnN9njfJey7D611N9hKirYRWbYpwekKuq7HQeKPh3GeyG5rhfIzikbQ99vDE8qfaC14LBARY+ima0x9Hj4ujzVNkwtPGj70zz+tJAH0t8rQUquxAgMBAAEwDQYJKoZIhvcNAQELBQADggEBAHwfpzSXWcr9E6ZV25hzwzh6irBN4bC0UYX84lelQquRhSGESmURr/bu0qGd8kTdDmgIturKAjayFRVZgTJV2MXybvOjq+YyDgp2xRd/XkHjrx3cpcsQTk3Oe/e/8HiBJYWNsH8MPDkX3bNGtAwfCZCFZbcaj6kMJiRQssto02VXJ7uNKXPXWXXgpCzF2tXnZlg8O6s2b9GayzB7Dgn17IAv0QkFMZbn4z9R6S/EJ+SpNtWYW/7fFzVdm1ci9/s1Bv/TibV4dED5ujR5mAIKQW+WIrs9IhmTZb8L87h9kkWQPEQ8jepye88rpO1kuycmMqCEeP2qOl59O6AuOQLmvxc=" ],
         "priority" : [ "100" ],
         "algorithm" : [ "RSA-OAEP" ]
       }
     }, {
-      "id" : "c60d015f-9e2b-4023-90db-af158e44a04c",
+      "id" : "4ad99153-f755-4ec4-b883-307c36a8717f",
       "name" : "rsa-generated",
       "providerId" : "rsa-generated",
       "subComponents" : { },
       "config" : {
-        "privateKey" : [ "MIIEpAIBAAKCAQEArscm1TYfXBzG0qqz0jp+xVJAelmGfY+A9eKkmHkF/Fy26axCdu9qB4+DJHOBBDpalHuTKJm7GQkYwmc+DsdzWwAjSlosHK67xxlcINPRHhp/FGK5GQjthsS1S4eaRTkly/0zs/HOCob8STgq3RC8LpTkK/66744UJuTfen5o4M7y/SDs7r4aAFJXnP2YO8GIxrEd5K7yHNzhoLldmT3ZaLF2qCkolrQ0xQN2PP4lN6KLfFunpaLq4Fx0IWzr5s57P+vs/CEnw0IOThqELqujNk2RpQ7aBs4vDFyXkeNDvhGN9usV5sOSk15pXOQJs4rHzLaYEkMe/ae6Lny9R6AVVwIDAQABAoIBAFF4SbS3PtT8IP3QTnQfijpGhgHCO3vJ6c40MI9WUqD5QtYX0v+HyD/v+KyEHs6uuMxf8g/J4TnhUKZF49qVxELWBJ1C/S79kFBVlOlEc0T6CuSgxDFURQw+I1gqxJGh+ulkhLZLb8TeeTlUMj7L7zwzcUzEt7S04NXkd/uscwzfBBUG+DvrsdNNq6gGPruyVN3848ieY5iI9CfsNEYWrIhq5pPS5U634ls6Z52qVyhLLvUGG9jPOEUUF8W9hEW/vAZxp1dMWtjrbaQxE5BeUHY0oIhGWlx0J4vKZe5xV49VYQVM7XJhCZ7Pl2j6orxTjvxIhScIyig4JPCCzwqXSNECgYEA72CgsIb8Bq5CCxyY3Ucxt1iqgPHFiPh3ENgZHPLCA494ss5gY5NlsWKtPG0J42qRPDEbCfd2k9uElJzpOHObCoZDazvIeFto1WoCUzYLEX8Ag9xGAvPJlcHatRH76AqvC4b/k8R38f/E42tIxv02HzUzJcsPWWbmcdUUGdnQBfkCgYEAuuomPb0Xj9BFN/+PfKrb/MSztjxCoWw57qSBWHSU1gPuTPMSMaEKnA/uGxuESyof2vP1JZzZ6e0EFCl9Gxdjy3IFPdLaGremFTh5kZaxAPbaoJ6AB4/+Hv58EkZ06a1Tm2DyA2jKyPpLaVz+2+pTdSYCwoDfrVh0qcLSlxlBic8CgYEAqxfLgqDYXgYLGloUQIR0WnG7XHJyF9ZPc/Cg8nnohhbz1AmCB2oA02qOG5Rr7unqaLVIeDUxwbiy6G3GnBy1Ai643VpbjPr40SD2DHeiLZ0yxwyX1eBdgvaN1cHG5TFNr9WLsxhICuYe2dWCrQequV+S8T5T+Dh+GXqM5XUzJDECgYA1bK+5fc66QGFIfDda/ssaGG71a4vv76svVr3RtqDD+yOlwuQ0Yz9RFAyOmvLZORUZ1BkBwy9V+XTs/l7P24Oeptxwq0/DyzIhZp74ygWVrPkYZ7VYdAPCgCKeZp0MHYqEItWJu+4aO9BKMVZ3LSblmRO43HUSavINg64FmiZtaQKBgQDRbp4bUuJjhFE61wuAOO1BjricA0J2CE5BmkDq7KXbE988AfTI/StCMrflyE38WxI8an/6HBfkCYwyI9J7r7ABCrBA4qIn79vephLClyGI5qwff6xNXcYDuXrPiTMnPcOO+JeQ/+V4B8JEhsXWwE9VrivJeklqF/6bkikYk4g1Ng==" ],
+        "privateKey" : [ "MIIEpAIBAAKCAQEAwRVu8ZcuAxBTKUB/7kQSsNannoCUsi7ieOUmaMcoqkAFgl7eZyJ1TrLibufgi/yP6XfVL7z/B12QrTfXiaAr6FQwfMCfMOK2jrAzzb/vnL02FQOHfCiqm5l8s6qBv1eK7oCfA/2i0N5rtgTxKzXgB6W/IRBD3HUwKZYhgsRFsZmLpdes/38U6RXMssWxiN/EPAmPW41K8uxOhVpi7Dhjzh4GU1H5R9GMz8lhBOWDY/g6EDuRSMfZtUpJRo1cYON8IUYDAKKsuyTFdeFXgaP38DmZdh8jm37IUVvySHCohV7Quwrxa5QyFxKXi7f4C3fqNK92Bp3qQZ6lmwf6NCiA4QIDAQABAoIBAD7r6iymtKLg9gjScR5HZsPkH9miU1LBvqHhIyQwCst4c5MpsVZwv0O3Pd0giWd1FbzihUG6WG2hCx23vfCmlshubyKobvgyWYWkXC1nqAEvE+nDLarDYd21JhMytHeTYr4Ygjl9tUpVwUoe0CzhsLEtTVzL/SFhuyFCQIdpyMB4FUSMdvgeDtmqDKCE6wk19EmZTmMB11iqpbYRQK7NMHLw7gvnalg8cqvXJ51bzKbKSLtnGq+KtNASWZ+JMznTLf9u2UDvn4kMuadHdV7mYGevWTBMYwNaUW1Ljo1HN1+NFK0482Q7CnnIqZYpuAzyxfIYeDYR9Y1u+qKvYhYAzYUCgYEA4SSYIzYDhZ/YpcYQxTso8ayI3NONvWTuV/PIS1VXwOU1mPe9rWIynp4VlqxX/qAx02tSllvA09dQKuiFLmTUBm6tDG2ubKeJbk24QMZNKHEOv5H+PSP5YixBdgz3hLimw/ggiLq3+w/U0o911mXfY1zbVKJ41xPrVIRXLX6XwlMCgYEA24wA47de0/YTiu9TRdGXixCzRPsjyNW1ZCFpWjLl3x4QfKSMfXpm+kX2QFAY40v7DWIJyWas/5/rf53mMz8Y3xbhToLVXe1p/qi0XdIUtlLta7m/pf5X8rSk+DBUDqJK5W3sI8DPMF2jyKraXChuylFbWUdZyPPAF///5AG68XsCgYACuIZ+JnD0dHIRzsr1Fznvcb5VrNjRqR6YQYHyJx3gXuS+7H+GUOF7uT1ZjMujcBwqCen9ly5FYRy+6AB0BxPo3/2HYOvytDOc+aN4ZO0ZyAP9nK4N3xlsbkx8OLvlBrY9OApsnJUMm6xevw0VgjWo5b5gz3XWY488fjzvd9AtsQKBgQCsDewkiXAnbJGkMCpybO72bQAQ7z/8BH9DGWwW5AyB7m29QLdZHrPVLz7s59iZSNJWip5g17Z8HjfQq03cm3ZCXwvzG1VbZtPKXyv62sigmhy2b7thuxHxguBGIJm/XjCT3LFS06eLn9bbTAoUbxtkMp4EOYaDlYLVTCqd5T08QQKBgQC1FNYsSQ4om0NsbibiyMosRVQ/xbpS2+Pey1Ds63LlV8wFyXqTw0hO2CyZcWSM1S/1S1vCxQZGJkA3ZekenIb2gkmmsOanPbYVWHjnCvSGJ5jFStJkFqbK6WFf2XyJS0CdvTgANqle51HJ+QIYVU3+30TwxrwGf2uuWj1/NlInzQ==" ],
         "keyUse" : [ "SIG" ],
-        "certificate" : [ "MIICmzCCAYMCBgGKvRup+DANBgkqhkiG9w0BAQsFADARMQ8wDQYDVQQDDAZtYXN0ZXIwHhcNMjMwOTIyMTMzNTIxWhcNMzMwOTIyMTMzNzAxWjARMQ8wDQYDVQQDDAZtYXN0ZXIwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCuxybVNh9cHMbSqrPSOn7FUkB6WYZ9j4D14qSYeQX8XLbprEJ272oHj4Mkc4EEOlqUe5MombsZCRjCZz4Ox3NbACNKWiwcrrvHGVwg09EeGn8UYrkZCO2GxLVLh5pFOSXL/TOz8c4KhvxJOCrdELwulOQr/rrvjhQm5N96fmjgzvL9IOzuvhoAUlec/Zg7wYjGsR3krvIc3OGguV2ZPdlosXaoKSiWtDTFA3Y8/iU3oot8W6elourgXHQhbOvmzns/6+z8ISfDQg5OGoQuq6M2TZGlDtoGzi8MXJeR40O+EY326xXmw5KTXmlc5AmzisfMtpgSQx79p7oufL1HoBVXAgMBAAEwDQYJKoZIhvcNAQELBQADggEBABLucL6ioSN2ng9f20nv7CaCenNbLGOB+A0Sj4QPi/Bip+9RCl72yZkC8QfUw7x204c1Y/IRfs/hNm118Z2RKJ7CQ0ioQAFg75pXacu+bxiOVkSY3DetRtL666Q6nlKpy1iK9Jbm+ccwLmS6mJcDukMEOmeIwUQGROSPQNcaswsZ6y+RjD0arLIgQJ+R6azdmPTVAllBkfhr+liC2G0KIPTnp9JPsZTr90udgfUNRk5SuvxzZQ19FvHS2vgl8a5nvulHzo/pCCcpd/GpdL9t1Ef1xrYcJQXIxS10sOBKjzcjMn6CW8Sl1OmDGdNnQbAst04r9RmR5hLUGMgL1NecxU4=" ],
+        "certificate" : [ "MIICmzCCAYMCBgGK6j/HvDANBgkqhkiG9w0BAQsFADARMQ8wDQYDVQQDDAZtYXN0ZXIwHhcNMjMxMDAxMDc1NzQzWhcNMzMxMDAxMDc1OTIzWjARMQ8wDQYDVQQDDAZtYXN0ZXIwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDBFW7xly4DEFMpQH/uRBKw1qeegJSyLuJ45SZoxyiqQAWCXt5nInVOsuJu5+CL/I/pd9UvvP8HXZCtN9eJoCvoVDB8wJ8w4raOsDPNv++cvTYVA4d8KKqbmXyzqoG/V4rugJ8D/aLQ3mu2BPErNeAHpb8hEEPcdTApliGCxEWxmYul16z/fxTpFcyyxbGI38Q8CY9bjUry7E6FWmLsOGPOHgZTUflH0YzPyWEE5YNj+DoQO5FIx9m1SklGjVxg43whRgMAoqy7JMV14VeBo/fwOZl2HyObfshRW/JIcKiFXtC7CvFrlDIXEpeLt/gLd+o0r3YGnepBnqWbB/o0KIDhAgMBAAEwDQYJKoZIhvcNAQELBQADggEBAL8kRbhGe0gKIE3adL6Gx5j1gP03/yB/bTOxokaJ4gB0NwlOyck8kZTImBI6KBRJ5byIlNAqTQusMKyFZNG3GxYaxUVT2ZFGoIyFTEkDoVKePl5Yj+cARQgogjr0XkINe5jaWdS+VOMi5NdO/z4ZvGZDNoZjeV4Jvd1XV8/UxwE74QeXRboEKN/2TVw+/7ifFqdazxWyj2uFNJOJgsjJMfl9W6PjXaRshWfPnOIBwnZPMh8CI5kGP/LXqYNwKwW950xxyqHp9PJY8PcZOBs12uBXQnlw0oy8/Ou3EjWihpt9DYyykBSEMKMrJ/9zEg36DfTU03QgZzhkLcpkJqn6oTQ=" ],
         "priority" : [ "100" ]
       }
     }, {
-      "id" : "9f480f52-e49e-41fc-9dfc-e7ba0a82fabe",
+      "id" : "ea4f3226-af9e-4025-947e-72bb579be62e",
       "name" : "aes-generated",
       "providerId" : "aes-generated",
       "subComponents" : { },
       "config" : {
-        "kid" : [ "866e2e52-d097-4cc7-a928-c4b10d9ea9a2" ],
-        "secret" : [ "Rgevc8OjKk_ccSSwXtSdHw" ],
+        "kid" : [ "ba17bfda-6d97-4359-9c3b-73b5ab119009" ],
+        "secret" : [ "6K6Cng22NbktDTs1JSeUAg" ],
         "priority" : [ "100" ]
       }
     }, {
-      "id" : "9f1c2d87-2559-488d-8a64-a45ad31a7614",
+      "id" : "28345876-b278-4a16-b319-0a887925704b",
       "name" : "hmac-generated",
       "providerId" : "hmac-generated",
       "subComponents" : { },
       "config" : {
-        "kid" : [ "7393ed01-a866-4a7e-b731-a7244fd3f4cf" ],
-        "secret" : [ "65NcuOtXNvedojHIs1L5Z7wE9heqUm7FPmOOp_-CELJ07UGIJb271mhLt2nYcGPF0y46Pgu6vV0h3p-ERkS3xA" ],
+        "kid" : [ "d7c6e6fe-c3dd-4e81-b82b-60214602a2a4" ],
+        "secret" : [ "jN9rclZuNgwFY7_jL6CayLVb4yBJaR69hy6u-4VedBf2AgzUQRuWO7_Wmby1TmahXyXrU8Z2l0CBcUd_MntpxA" ],
         "priority" : [ "100" ],
         "algorithm" : [ "HS256" ]
       }
@@ -1402,7 +1390,7 @@
   "internationalizationEnabled" : false,
   "supportedLocales" : [ ],
   "authenticationFlows" : [ {
-    "id" : "62b89ea5-d3c0-42e7-9de8-28d96e589a7f",
+    "id" : "d43f12c9-b4b4-4252-8502-2bff28d64c3d",
     "alias" : "Account verification options",
     "description" : "Method with which to verity the existing account",
     "providerId" : "basic-flow",
@@ -1424,7 +1412,7 @@
       "userSetupAllowed" : false
     } ]
   }, {
-    "id" : "784ab11e-8b25-42e5-be7e-0c8b020a49bc",
+    "id" : "2bc94439-c4a0-4f60-bbd0-115b94141444",
     "alias" : "Browser - Conditional OTP",
     "description" : "Flow to determine if the OTP is required for the authentication",
     "providerId" : "basic-flow",
@@ -1446,7 +1434,7 @@
       "userSetupAllowed" : false
     } ]
   }, {
-    "id" : "b4406a77-2379-4385-aa2c-83a200bacc0c",
+    "id" : "489de089-38f0-4383-971b-0ebbcda5d85b",
     "alias" : "Direct Grant - Conditional OTP",
     "description" : "Flow to determine if the OTP is required for the authentication",
     "providerId" : "basic-flow",
@@ -1468,7 +1456,7 @@
       "userSetupAllowed" : false
     } ]
   }, {
-    "id" : "1c823fd1-eabc-4d9f-bd90-6af9d5c46045",
+    "id" : "8348f214-8356-4fe2-8337-e156d60189d8",
     "alias" : "First broker login - Conditional OTP",
     "description" : "Flow to determine if the OTP is required for the authentication",
     "providerId" : "basic-flow",
@@ -1490,7 +1478,7 @@
       "userSetupAllowed" : false
     } ]
   }, {
-    "id" : "3abfc599-3514-4cf4-b7d6-6d14f30d4cd3",
+    "id" : "47b250b5-0114-4cb8-956c-fe501258aead",
     "alias" : "Handle Existing Account",
     "description" : "Handle what to do if there is existing account with same email/username like authenticated identity provider",
     "providerId" : "basic-flow",
@@ -1512,7 +1500,7 @@
       "userSetupAllowed" : false
     } ]
   }, {
-    "id" : "0e0c3848-967b-4438-9a30-5be58683fd7c",
+    "id" : "132eb080-33db-48d0-8b41-2ff42e5f5ec8",
     "alias" : "Reset - Conditional OTP",
     "description" : "Flow to determine if the OTP should be reset or not. Set to REQUIRED to force.",
     "providerId" : "basic-flow",
@@ -1534,7 +1522,7 @@
       "userSetupAllowed" : false
     } ]
   }, {
-    "id" : "91900ba9-162b-4d76-bf5c-324406771e42",
+    "id" : "052da600-9d0b-40b3-a852-7195df0ed98d",
     "alias" : "User creation or linking",
     "description" : "Flow for the existing/non-existing user alternatives",
     "providerId" : "basic-flow",
@@ -1557,7 +1545,7 @@
       "userSetupAllowed" : false
     } ]
   }, {
-    "id" : "bae500c7-db16-41d9-b71d-8ce91a039da9",
+    "id" : "c88d3078-53fc-4513-a162-ecf8a71039d6",
     "alias" : "Verify Existing Account by Re-authentication",
     "description" : "Reauthentication of existing account",
     "providerId" : "basic-flow",
@@ -1579,7 +1567,7 @@
       "userSetupAllowed" : false
     } ]
   }, {
-    "id" : "0786bd8b-b5ba-4445-9c51-b482ead8e462",
+    "id" : "add3543a-31d5-4292-9552-dd09d6567c27",
     "alias" : "browser",
     "description" : "browser based authentication",
     "providerId" : "basic-flow",
@@ -1615,7 +1603,7 @@
       "userSetupAllowed" : false
     } ]
   }, {
-    "id" : "1a3d1e4f-341d-47ba-a46b-46689d93da16",
+    "id" : "4bf2a977-53ba-450b-ac45-a5627c11ff23",
     "alias" : "clients",
     "description" : "Base authentication for clients",
     "providerId" : "client-flow",
@@ -1651,7 +1639,7 @@
       "userSetupAllowed" : false
     } ]
   }, {
-    "id" : "0296cf70-fd78-4c79-80a3-19232a050877",
+    "id" : "f80402e8-40ca-4ca0-a234-459fc6005814",
     "alias" : "direct grant",
     "description" : "OpenID Connect Resource Owner Grant",
     "providerId" : "basic-flow",
@@ -1680,7 +1668,7 @@
       "userSetupAllowed" : false
     } ]
   }, {
-    "id" : "b54e31b1-83e6-4d52-817a-3d2bd60ed7cd",
+    "id" : "a2eb8bc9-dc55-4fe2-8a16-5cc7c7023ba4",
     "alias" : "docker auth",
     "description" : "Used by Docker clients to authenticate against the IDP",
     "providerId" : "basic-flow",
@@ -1695,7 +1683,7 @@
       "userSetupAllowed" : false
     } ]
   }, {
-    "id" : "4bb6d00b-8f3b-47a1-8934-311d6d66c957",
+    "id" : "049e4542-68e2-4ca0-8d6d-9ae4c6521694",
     "alias" : "first broker login",
     "description" : "Actions taken after first broker login with identity provider account, which is not yet linked to any Keycloak account",
     "providerId" : "basic-flow",
@@ -1718,7 +1706,7 @@
       "userSetupAllowed" : false
     } ]
   }, {
-    "id" : "7361c470-4efc-4de5-8235-fcc586fb4106",
+    "id" : "6b3206b9-b65b-4221-84bd-3a97249b572c",
     "alias" : "forms",
     "description" : "Username, password, otp and other auth forms.",
     "providerId" : "basic-flow",
@@ -1740,7 +1728,7 @@
       "userSetupAllowed" : false
     } ]
   }, {
-    "id" : "63204c8a-a367-46b7-a3f7-6de81605e548",
+    "id" : "e33a30b0-1ff7-4d6e-a524-42f8fe6c4887",
     "alias" : "registration",
     "description" : "registration flow",
     "providerId" : "basic-flow",
@@ -1756,7 +1744,7 @@
       "userSetupAllowed" : false
     } ]
   }, {
-    "id" : "062b2028-c17b-4ee3-a749-d6e077f1f4d7",
+    "id" : "6a1941de-9f05-4cf3-bd6e-29e9657faac5",
     "alias" : "registration form",
     "description" : "registration form",
     "providerId" : "form-flow",
@@ -1799,7 +1787,7 @@
       "userSetupAllowed" : false
     } ]
   }, {
-    "id" : "e6733690-76ca-4d69-9913-73a621230a24",
+    "id" : "18e60fbf-d732-4726-b5b3-6fb5f3d1a644",
     "alias" : "reset credentials",
     "description" : "Reset credentials for a user if they forgot their password or something",
     "providerId" : "basic-flow",
@@ -1835,7 +1823,7 @@
       "userSetupAllowed" : false
     } ]
   }, {
-    "id" : "637ef766-bafe-4003-9662-63fb09a1a1f6",
+    "id" : "abadc85a-9e52-4afa-97d4-a6d6acb5e3da",
     "alias" : "saml ecp",
     "description" : "SAML ECP Profile Authentication Flow",
     "providerId" : "basic-flow",
@@ -1851,13 +1839,13 @@
     } ]
   } ],
   "authenticatorConfig" : [ {
-    "id" : "395a035e-0b79-4278-a2cd-ed6bda123a5c",
+    "id" : "1415b8f8-b828-46f0-8729-d965486b4b36",
     "alias" : "create unique user config",
     "config" : {
       "require.password.update.after.registration" : "false"
     }
   }, {
-    "id" : "136984cd-0b84-4bb4-8956-49306fe0df5f",
+    "id" : "313ffb85-ef9e-430b-aedd-6e4c4e98a4ac",
     "alias" : "review profile config",
     "config" : {
       "update.profile.on.first.login" : "missing"
@@ -1946,13 +1934,7 @@
     "cibaBackchannelTokenDeliveryMode" : "poll",
     "cibaExpiresIn" : "120",
     "cibaAuthRequestedUserHint" : "login_hint",
-    "oauth2DeviceCodeLifespan" : "600",
-    "clientOfflineSessionMaxLifespan" : "0",
-    "oauth2DevicePollingInterval" : "5",
-    "clientSessionIdleTimeout" : "0",
     "parRequestUriLifespan" : "60",
-    "clientSessionMaxLifespan" : "0",
-    "clientOfflineSessionIdleTimeout" : "0",
     "cibaInterval" : "5",
     "realmReusableOtpCode" : "false"
   },
@@ -1965,10 +1947,8 @@
     "policies" : [ ]
   }
 }, {
-  "id" : "625db426-f791-4023-8763-0f9b754fa67b",
+  "id" : "cdb0711e-66d9-4d79-b00d-ad37435527bf",
   "realm" : "App",
-  "displayName" : "",
-  "displayNameHtml" : "",
   "notBefore" : 0,
   "defaultSignatureAlgorithm" : "RS256",
   "revokeRefreshToken" : false,
@@ -2013,145 +1993,161 @@
   "failureFactor" : 30,
   "roles" : {
     "realm" : [ {
-      "id" : "c75f0d32-7d69-4cfb-b738-847e142efe6e",
-      "name" : "uma_authorization",
-      "description" : "${role_uma_authorization}",
-      "composite" : false,
-      "clientRole" : false,
-      "containerId" : "625db426-f791-4023-8763-0f9b754fa67b",
-      "attributes" : { }
-    }, {
-      "id" : "b1bf57d3-68a4-49b0-8e4d-2f78310aef7d",
-      "name" : "default-roles-ui",
+      "id" : "da00083d-a79c-44d3-b787-fcfe0965b128",
+      "name" : "default-roles-app",
       "description" : "${role_default-roles}",
       "composite" : true,
       "composites" : {
         "realm" : [ "offline_access", "uma_authorization" ],
         "client" : {
-          "account" : [ "view-profile", "manage-account" ]
+          "account" : [ "manage-account", "view-profile" ]
         }
       },
       "clientRole" : false,
-      "containerId" : "625db426-f791-4023-8763-0f9b754fa67b",
+      "containerId" : "cdb0711e-66d9-4d79-b00d-ad37435527bf",
       "attributes" : { }
     }, {
-      "id" : "c6b84768-54e2-478f-9614-b8b1b1b96771",
+      "id" : "f0019749-be4d-4105-9acf-c1e095f06cfe",
       "name" : "offline_access",
       "description" : "${role_offline-access}",
       "composite" : false,
       "clientRole" : false,
-      "containerId" : "625db426-f791-4023-8763-0f9b754fa67b",
+      "containerId" : "cdb0711e-66d9-4d79-b00d-ad37435527bf",
+      "attributes" : { }
+    }, {
+      "id" : "e3250706-7b45-4ee0-829b-c07b2735559a",
+      "name" : "uma_authorization",
+      "description" : "${role_uma_authorization}",
+      "composite" : false,
+      "clientRole" : false,
+      "containerId" : "cdb0711e-66d9-4d79-b00d-ad37435527bf",
       "attributes" : { }
     } ],
     "client" : {
       "realm-management" : [ {
-        "id" : "1a268c2d-ccdc-4acb-a1aa-fdb604050460",
-        "name" : "manage-users",
-        "description" : "${role_manage-users}",
+        "id" : "cf8b20fa-14c3-496f-bd27-df1801010375",
+        "name" : "manage-clients",
+        "description" : "${role_manage-clients}",
         "composite" : false,
         "clientRole" : true,
-        "containerId" : "7d8e99ad-1f4a-4b26-804a-ef493aaf3302",
+        "containerId" : "544a2324-af1a-483c-aac6-f9ba001873d1",
         "attributes" : { }
       }, {
-        "id" : "e997ed79-882e-4d80-b77e-4249961e6b2b",
-        "name" : "create-client",
-        "description" : "${role_create-client}",
-        "composite" : false,
-        "clientRole" : true,
-        "containerId" : "7d8e99ad-1f4a-4b26-804a-ef493aaf3302",
-        "attributes" : { }
-      }, {
-        "id" : "f1cf67a2-c0eb-4ee8-a1ee-6bc848405b39",
-        "name" : "realm-admin",
-        "description" : "${role_realm-admin}",
-        "composite" : true,
-        "composites" : {
-          "client" : {
-            "realm-management" : [ "manage-users", "create-client", "impersonation", "view-identity-providers", "view-users", "manage-events", "query-clients", "view-authorization", "manage-clients", "manage-authorization", "query-groups", "view-clients", "manage-realm", "view-events", "query-realms", "view-realm", "manage-identity-providers", "query-users" ]
-          }
-        },
-        "clientRole" : true,
-        "containerId" : "7d8e99ad-1f4a-4b26-804a-ef493aaf3302",
-        "attributes" : { }
-      }, {
-        "id" : "0c35a85e-7bdd-4f2c-98a0-168c4bd784f0",
-        "name" : "impersonation",
-        "description" : "${role_impersonation}",
-        "composite" : false,
-        "clientRole" : true,
-        "containerId" : "7d8e99ad-1f4a-4b26-804a-ef493aaf3302",
-        "attributes" : { }
-      }, {
-        "id" : "a3682d85-d19d-45d5-94b5-caffc707e3ba",
-        "name" : "view-identity-providers",
-        "description" : "${role_view-identity-providers}",
-        "composite" : false,
-        "clientRole" : true,
-        "containerId" : "7d8e99ad-1f4a-4b26-804a-ef493aaf3302",
-        "attributes" : { }
-      }, {
-        "id" : "4294a916-21e0-40e5-af5a-b1b27048fc97",
+        "id" : "14a7aa80-2a63-43b8-a47a-2d370e35da74",
         "name" : "view-users",
         "description" : "${role_view-users}",
         "composite" : true,
         "composites" : {
           "client" : {
-            "realm-management" : [ "query-groups", "query-users" ]
+            "realm-management" : [ "query-users", "query-groups" ]
           }
         },
         "clientRole" : true,
-        "containerId" : "7d8e99ad-1f4a-4b26-804a-ef493aaf3302",
+        "containerId" : "544a2324-af1a-483c-aac6-f9ba001873d1",
         "attributes" : { }
       }, {
-        "id" : "19361fe5-4615-4e01-b641-bec69e91e0f2",
-        "name" : "manage-events",
-        "description" : "${role_manage-events}",
+        "id" : "d854eaf4-a026-46c7-b798-50be698b5473",
+        "name" : "manage-users",
+        "description" : "${role_manage-users}",
         "composite" : false,
         "clientRole" : true,
-        "containerId" : "7d8e99ad-1f4a-4b26-804a-ef493aaf3302",
+        "containerId" : "544a2324-af1a-483c-aac6-f9ba001873d1",
         "attributes" : { }
       }, {
-        "id" : "ee8077d5-6f14-47a8-ab90-7c782d4a9f18",
-        "name" : "query-clients",
-        "description" : "${role_query-clients}",
+        "id" : "aee5c5dc-b84f-46bd-9009-89f7cfc1868e",
+        "name" : "view-realm",
+        "description" : "${role_view-realm}",
         "composite" : false,
         "clientRole" : true,
-        "containerId" : "7d8e99ad-1f4a-4b26-804a-ef493aaf3302",
+        "containerId" : "544a2324-af1a-483c-aac6-f9ba001873d1",
         "attributes" : { }
       }, {
-        "id" : "b2c3c419-0f47-4d81-a406-dab1e84f5c2f",
-        "name" : "view-authorization",
-        "description" : "${role_view-authorization}",
-        "composite" : false,
-        "clientRole" : true,
-        "containerId" : "7d8e99ad-1f4a-4b26-804a-ef493aaf3302",
-        "attributes" : { }
-      }, {
-        "id" : "84a5e3e6-8f1d-4569-830f-c2c881184b20",
-        "name" : "manage-clients",
-        "description" : "${role_manage-clients}",
-        "composite" : false,
-        "clientRole" : true,
-        "containerId" : "7d8e99ad-1f4a-4b26-804a-ef493aaf3302",
-        "attributes" : { }
-      }, {
-        "id" : "c05473bd-5a91-4b1a-b115-e3251a28675a",
-        "name" : "manage-authorization",
-        "description" : "${role_manage-authorization}",
-        "composite" : false,
-        "clientRole" : true,
-        "containerId" : "7d8e99ad-1f4a-4b26-804a-ef493aaf3302",
-        "attributes" : { }
-      }, {
-        "id" : "095e849e-177c-42f4-a113-d2e9e9395d04",
+        "id" : "4689b7c0-a147-4027-a528-cda49b0aa7c6",
         "name" : "query-groups",
         "description" : "${role_query-groups}",
         "composite" : false,
         "clientRole" : true,
-        "containerId" : "7d8e99ad-1f4a-4b26-804a-ef493aaf3302",
+        "containerId" : "544a2324-af1a-483c-aac6-f9ba001873d1",
         "attributes" : { }
       }, {
-        "id" : "6fa9893f-3925-4147-bc6a-fda7905872d7",
+        "id" : "7fec30fa-9399-4cc5-b796-f70bce912505",
+        "name" : "view-authorization",
+        "description" : "${role_view-authorization}",
+        "composite" : false,
+        "clientRole" : true,
+        "containerId" : "544a2324-af1a-483c-aac6-f9ba001873d1",
+        "attributes" : { }
+      }, {
+        "id" : "642b9c76-30bf-48a1-88a8-797e58f8aa33",
+        "name" : "realm-admin",
+        "description" : "${role_realm-admin}",
+        "composite" : true,
+        "composites" : {
+          "client" : {
+            "realm-management" : [ "view-users", "manage-clients", "view-realm", "manage-users", "query-groups", "view-authorization", "view-events", "query-clients", "view-identity-providers", "manage-identity-providers", "query-users", "view-clients", "manage-events", "impersonation", "create-client", "manage-realm", "query-realms", "manage-authorization" ]
+          }
+        },
+        "clientRole" : true,
+        "containerId" : "544a2324-af1a-483c-aac6-f9ba001873d1",
+        "attributes" : { }
+      }, {
+        "id" : "d3095b0c-6885-44b4-9e8b-87d9494141ed",
+        "name" : "view-events",
+        "description" : "${role_view-events}",
+        "composite" : false,
+        "clientRole" : true,
+        "containerId" : "544a2324-af1a-483c-aac6-f9ba001873d1",
+        "attributes" : { }
+      }, {
+        "id" : "e095114d-bb61-4bcc-963e-7729b49acff5",
+        "name" : "query-clients",
+        "description" : "${role_query-clients}",
+        "composite" : false,
+        "clientRole" : true,
+        "containerId" : "544a2324-af1a-483c-aac6-f9ba001873d1",
+        "attributes" : { }
+      }, {
+        "id" : "c64c696b-8bd2-462a-9ddd-c2bcde3d22b6",
+        "name" : "view-identity-providers",
+        "description" : "${role_view-identity-providers}",
+        "composite" : false,
+        "clientRole" : true,
+        "containerId" : "544a2324-af1a-483c-aac6-f9ba001873d1",
+        "attributes" : { }
+      }, {
+        "id" : "e2817fe3-212f-42df-af3a-811335026075",
+        "name" : "manage-identity-providers",
+        "description" : "${role_manage-identity-providers}",
+        "composite" : false,
+        "clientRole" : true,
+        "containerId" : "544a2324-af1a-483c-aac6-f9ba001873d1",
+        "attributes" : { }
+      }, {
+        "id" : "005d0a55-22c2-44b3-8802-15817f60040a",
+        "name" : "query-users",
+        "description" : "${role_query-users}",
+        "composite" : false,
+        "clientRole" : true,
+        "containerId" : "544a2324-af1a-483c-aac6-f9ba001873d1",
+        "attributes" : { }
+      }, {
+        "id" : "862111e1-0f63-4b48-8a3d-f9e7ccc7750d",
+        "name" : "impersonation",
+        "description" : "${role_impersonation}",
+        "composite" : false,
+        "clientRole" : true,
+        "containerId" : "544a2324-af1a-483c-aac6-f9ba001873d1",
+        "attributes" : { }
+      }, {
+        "id" : "b9ba7f37-086e-4f4d-b2d8-aae8e64d09d3",
+        "name" : "manage-events",
+        "description" : "${role_manage-events}",
+        "composite" : false,
+        "clientRole" : true,
+        "containerId" : "544a2324-af1a-483c-aac6-f9ba001873d1",
+        "attributes" : { }
+      }, {
+        "id" : "b7b6ba36-9ee9-48e0-bec1-b04de5ab3086",
         "name" : "view-clients",
         "description" : "${role_view-clients}",
         "composite" : true,
@@ -2161,55 +2157,39 @@
           }
         },
         "clientRole" : true,
-        "containerId" : "7d8e99ad-1f4a-4b26-804a-ef493aaf3302",
+        "containerId" : "544a2324-af1a-483c-aac6-f9ba001873d1",
         "attributes" : { }
       }, {
-        "id" : "b988a6fb-4f33-4fed-9fe2-d6a64b4ffd16",
+        "id" : "7c2b3079-e668-4acd-9001-6ddbb5764c89",
+        "name" : "create-client",
+        "description" : "${role_create-client}",
+        "composite" : false,
+        "clientRole" : true,
+        "containerId" : "544a2324-af1a-483c-aac6-f9ba001873d1",
+        "attributes" : { }
+      }, {
+        "id" : "cc1137ef-27e6-4301-8365-9fa565002fc8",
         "name" : "manage-realm",
         "description" : "${role_manage-realm}",
         "composite" : false,
         "clientRole" : true,
-        "containerId" : "7d8e99ad-1f4a-4b26-804a-ef493aaf3302",
+        "containerId" : "544a2324-af1a-483c-aac6-f9ba001873d1",
         "attributes" : { }
       }, {
-        "id" : "33f57564-fd00-4087-aa72-1d44e36d80af",
-        "name" : "view-events",
-        "description" : "${role_view-events}",
-        "composite" : false,
-        "clientRole" : true,
-        "containerId" : "7d8e99ad-1f4a-4b26-804a-ef493aaf3302",
-        "attributes" : { }
-      }, {
-        "id" : "ee885c4c-992d-48ad-9c36-2f9b80a79378",
+        "id" : "d1d35586-2101-4f3b-bab1-775c2fc2da95",
         "name" : "query-realms",
         "description" : "${role_query-realms}",
         "composite" : false,
         "clientRole" : true,
-        "containerId" : "7d8e99ad-1f4a-4b26-804a-ef493aaf3302",
+        "containerId" : "544a2324-af1a-483c-aac6-f9ba001873d1",
         "attributes" : { }
       }, {
-        "id" : "6c5c21c9-c70f-47b2-8412-2ea547473d35",
-        "name" : "view-realm",
-        "description" : "${role_view-realm}",
+        "id" : "3cec36ec-274e-450f-9186-c2779beb964f",
+        "name" : "manage-authorization",
+        "description" : "${role_manage-authorization}",
         "composite" : false,
         "clientRole" : true,
-        "containerId" : "7d8e99ad-1f4a-4b26-804a-ef493aaf3302",
-        "attributes" : { }
-      }, {
-        "id" : "8321e555-f4bd-4f4b-9ad7-42d561a653cd",
-        "name" : "manage-identity-providers",
-        "description" : "${role_manage-identity-providers}",
-        "composite" : false,
-        "clientRole" : true,
-        "containerId" : "7d8e99ad-1f4a-4b26-804a-ef493aaf3302",
-        "attributes" : { }
-      }, {
-        "id" : "e9be6408-5803-41fd-8077-a67c8bc50541",
-        "name" : "query-users",
-        "description" : "${role_query-users}",
-        "composite" : false,
-        "clientRole" : true,
-        "containerId" : "7d8e99ad-1f4a-4b26-804a-ef493aaf3302",
+        "containerId" : "544a2324-af1a-483c-aac6-f9ba001873d1",
         "attributes" : { }
       } ],
       "UI" : [ ],
@@ -2217,32 +2197,16 @@
       "admin-cli" : [ ],
       "account-console" : [ ],
       "broker" : [ {
-        "id" : "8f440d8e-c512-44b1-bd6d-2014b882dd46",
+        "id" : "6092665e-5dec-4854-bd5b-fd5ff2984bba",
         "name" : "read-token",
         "description" : "${role_read-token}",
         "composite" : false,
         "clientRole" : true,
-        "containerId" : "dd955227-b7f9-4782-9992-8075e8531983",
+        "containerId" : "45f28962-fd00-4bfb-b3ce-2bce02449a6b",
         "attributes" : { }
       } ],
       "account" : [ {
-        "id" : "b71156cc-f435-41f3-b5e8-8d056b722a11",
-        "name" : "delete-account",
-        "description" : "${role_delete-account}",
-        "composite" : false,
-        "clientRole" : true,
-        "containerId" : "40d92875-6483-40cb-8f22-7a7fb7817df0",
-        "attributes" : { }
-      }, {
-        "id" : "77417de6-5cab-49bf-bb63-7f34b5dde890",
-        "name" : "view-groups",
-        "description" : "${role_view-groups}",
-        "composite" : false,
-        "clientRole" : true,
-        "containerId" : "40d92875-6483-40cb-8f22-7a7fb7817df0",
-        "attributes" : { }
-      }, {
-        "id" : "7e3671b7-fb6d-4744-9565-a38e282ad445",
+        "id" : "64b34019-b642-42d0-a3a1-b89eff1fa0c2",
         "name" : "manage-consent",
         "description" : "${role_manage-consent}",
         "composite" : true,
@@ -2252,42 +2216,10 @@
           }
         },
         "clientRole" : true,
-        "containerId" : "40d92875-6483-40cb-8f22-7a7fb7817df0",
+        "containerId" : "e44224d7-d02f-4633-863c-36602b0c0cf9",
         "attributes" : { }
       }, {
-        "id" : "0ad4c35d-c709-44ce-8ca7-c6d2d3a9cfd6",
-        "name" : "view-profile",
-        "description" : "${role_view-profile}",
-        "composite" : false,
-        "clientRole" : true,
-        "containerId" : "40d92875-6483-40cb-8f22-7a7fb7817df0",
-        "attributes" : { }
-      }, {
-        "id" : "928f8cbb-4c08-405c-9f8c-ebaaec3aa6f4",
-        "name" : "view-applications",
-        "description" : "${role_view-applications}",
-        "composite" : false,
-        "clientRole" : true,
-        "containerId" : "40d92875-6483-40cb-8f22-7a7fb7817df0",
-        "attributes" : { }
-      }, {
-        "id" : "61a64d57-9725-488b-8321-194ca47b3500",
-        "name" : "manage-account-links",
-        "description" : "${role_manage-account-links}",
-        "composite" : false,
-        "clientRole" : true,
-        "containerId" : "40d92875-6483-40cb-8f22-7a7fb7817df0",
-        "attributes" : { }
-      }, {
-        "id" : "4ed931c9-2877-4152-a1c0-bb68a8ad6fed",
-        "name" : "view-consent",
-        "description" : "${role_view-consent}",
-        "composite" : false,
-        "clientRole" : true,
-        "containerId" : "40d92875-6483-40cb-8f22-7a7fb7817df0",
-        "attributes" : { }
-      }, {
-        "id" : "19e7b77d-b7db-4279-a775-d68e306e2a42",
+        "id" : "c13dd310-aee1-4303-9670-426a0179e37a",
         "name" : "manage-account",
         "description" : "${role_manage-account}",
         "composite" : true,
@@ -2297,19 +2229,67 @@
           }
         },
         "clientRole" : true,
-        "containerId" : "40d92875-6483-40cb-8f22-7a7fb7817df0",
+        "containerId" : "e44224d7-d02f-4633-863c-36602b0c0cf9",
+        "attributes" : { }
+      }, {
+        "id" : "73a979fd-087a-410f-ad07-f983edab12aa",
+        "name" : "view-applications",
+        "description" : "${role_view-applications}",
+        "composite" : false,
+        "clientRole" : true,
+        "containerId" : "e44224d7-d02f-4633-863c-36602b0c0cf9",
+        "attributes" : { }
+      }, {
+        "id" : "d8f1e63f-99b2-4283-bc47-409471004d90",
+        "name" : "view-groups",
+        "description" : "${role_view-groups}",
+        "composite" : false,
+        "clientRole" : true,
+        "containerId" : "e44224d7-d02f-4633-863c-36602b0c0cf9",
+        "attributes" : { }
+      }, {
+        "id" : "893caa6a-2da4-4077-85c7-8b4db7047b1f",
+        "name" : "delete-account",
+        "description" : "${role_delete-account}",
+        "composite" : false,
+        "clientRole" : true,
+        "containerId" : "e44224d7-d02f-4633-863c-36602b0c0cf9",
+        "attributes" : { }
+      }, {
+        "id" : "29d579e2-03ce-4a27-95bb-4a3e9a541c18",
+        "name" : "view-profile",
+        "description" : "${role_view-profile}",
+        "composite" : false,
+        "clientRole" : true,
+        "containerId" : "e44224d7-d02f-4633-863c-36602b0c0cf9",
+        "attributes" : { }
+      }, {
+        "id" : "610caac5-6b57-46a8-afeb-a11971c1cfab",
+        "name" : "manage-account-links",
+        "description" : "${role_manage-account-links}",
+        "composite" : false,
+        "clientRole" : true,
+        "containerId" : "e44224d7-d02f-4633-863c-36602b0c0cf9",
+        "attributes" : { }
+      }, {
+        "id" : "07378689-51dc-464c-a669-71a02378080a",
+        "name" : "view-consent",
+        "description" : "${role_view-consent}",
+        "composite" : false,
+        "clientRole" : true,
+        "containerId" : "e44224d7-d02f-4633-863c-36602b0c0cf9",
         "attributes" : { }
       } ]
     }
   },
   "groups" : [ ],
   "defaultRole" : {
-    "id" : "b1bf57d3-68a4-49b0-8e4d-2f78310aef7d",
-    "name" : "default-roles-ui",
+    "id" : "da00083d-a79c-44d3-b787-fcfe0965b128",
+    "name" : "default-roles-app",
     "description" : "${role_default-roles}",
     "composite" : true,
     "clientRole" : false,
-    "containerId" : "625db426-f791-4023-8763-0f9b754fa67b"
+    "containerId" : "cdb0711e-66d9-4d79-b00d-ad37435527bf"
   },
   "requiredCredentials" : [ "password" ],
   "otpPolicyType" : "totp",
@@ -2319,7 +2299,7 @@
   "otpPolicyLookAheadWindow" : 1,
   "otpPolicyPeriod" : 30,
   "otpPolicyCodeReusable" : false,
-  "otpSupportedApplications" : [ "totpAppGoogleName", "totpAppFreeOTPName", "totpAppMicrosoftAuthenticatorName" ],
+  "otpSupportedApplications" : [ "totpAppFreeOTPName", "totpAppGoogleName", "totpAppMicrosoftAuthenticatorName" ],
   "webAuthnPolicyRpEntityName" : "keycloak",
   "webAuthnPolicySignatureAlgorithms" : [ "ES256" ],
   "webAuthnPolicyRpId" : "",
@@ -2351,7 +2331,7 @@
     } ]
   },
   "clients" : [ {
-    "id" : "40d92875-6483-40cb-8f22-7a7fb7817df0",
+    "id" : "e44224d7-d02f-4633-863c-36602b0c0cf9",
     "clientId" : "account",
     "name" : "${client_account}",
     "rootUrl" : "${authBaseUrl}",
@@ -2381,16 +2361,16 @@
     "defaultClientScopes" : [ "web-origins", "acr", "profile", "roles", "email" ],
     "optionalClientScopes" : [ "address", "phone", "offline_access", "microprofile-jwt" ]
   }, {
-    "id" : "669e1216-1102-4afc-b550-756bad3cf2f5",
+    "id" : "06244e29-f9e3-4722-afc5-2708b3e0c355",
     "clientId" : "account-console",
     "name" : "${client_account-console}",
     "rootUrl" : "${authBaseUrl}",
-    "baseUrl" : "/realms/ui/account/",
+    "baseUrl" : "/realms/App/account/",
     "surrogateAuthRequired" : false,
     "enabled" : true,
     "alwaysDisplayInConsole" : false,
     "clientAuthenticatorType" : "client-secret",
-    "redirectUris" : [ "/realms/ui/account/*" ],
+    "redirectUris" : [ "/realms/App/account/*" ],
     "webOrigins" : [ ],
     "notBefore" : 0,
     "bearerOnly" : false,
@@ -2410,7 +2390,7 @@
     "fullScopeAllowed" : false,
     "nodeReRegistrationTimeout" : 0,
     "protocolMappers" : [ {
-      "id" : "a2dc5ca3-732d-42c3-96fc-d50b2c537b27",
+      "id" : "fae9016e-bfd3-4c6b-9cdf-bb32375a1837",
       "name" : "audience resolve",
       "protocol" : "openid-connect",
       "protocolMapper" : "oidc-audience-resolve-mapper",
@@ -2420,7 +2400,7 @@
     "defaultClientScopes" : [ "web-origins", "acr", "profile", "roles", "email" ],
     "optionalClientScopes" : [ "address", "phone", "offline_access", "microprofile-jwt" ]
   }, {
-    "id" : "c645f0f6-d809-4d6e-8966-fe318852a27e",
+    "id" : "e9cbfbf8-f6f4-464e-8cb7-0df606d827d6",
     "clientId" : "admin-cli",
     "name" : "${client_admin-cli}",
     "surrogateAuthRequired" : false,
@@ -2439,16 +2419,14 @@
     "publicClient" : true,
     "frontchannelLogout" : false,
     "protocol" : "openid-connect",
-    "attributes" : {
-      "post.logout.redirect.uris" : "+"
-    },
+    "attributes" : { },
     "authenticationFlowBindingOverrides" : { },
     "fullScopeAllowed" : false,
     "nodeReRegistrationTimeout" : 0,
     "defaultClientScopes" : [ "web-origins", "acr", "profile", "roles", "email" ],
     "optionalClientScopes" : [ "address", "phone", "offline_access", "microprofile-jwt" ]
   }, {
-    "id" : "dd955227-b7f9-4782-9992-8075e8531983",
+    "id" : "45f28962-fd00-4bfb-b3ce-2bce02449a6b",
     "clientId" : "broker",
     "name" : "${client_broker}",
     "surrogateAuthRequired" : false,
@@ -2467,16 +2445,14 @@
     "publicClient" : false,
     "frontchannelLogout" : false,
     "protocol" : "openid-connect",
-    "attributes" : {
-      "post.logout.redirect.uris" : "+"
-    },
+    "attributes" : { },
     "authenticationFlowBindingOverrides" : { },
     "fullScopeAllowed" : false,
     "nodeReRegistrationTimeout" : 0,
     "defaultClientScopes" : [ "web-origins", "acr", "profile", "roles", "email" ],
     "optionalClientScopes" : [ "address", "phone", "offline_access", "microprofile-jwt" ]
   }, {
-    "id" : "7d8e99ad-1f4a-4b26-804a-ef493aaf3302",
+    "id" : "544a2324-af1a-483c-aac6-f9ba001873d1",
     "clientId" : "realm-management",
     "name" : "${client_realm-management}",
     "surrogateAuthRequired" : false,
@@ -2495,16 +2471,14 @@
     "publicClient" : false,
     "frontchannelLogout" : false,
     "protocol" : "openid-connect",
-    "attributes" : {
-      "post.logout.redirect.uris" : "+"
-    },
+    "attributes" : { },
     "authenticationFlowBindingOverrides" : { },
     "fullScopeAllowed" : false,
     "nodeReRegistrationTimeout" : 0,
     "defaultClientScopes" : [ "web-origins", "acr", "profile", "roles", "email" ],
     "optionalClientScopes" : [ "address", "phone", "offline_access", "microprofile-jwt" ]
   }, {
-    "id" : "54b1e4ea-d66d-4037-bde2-d74e545923ae",
+    "id" : "235a521b-f0de-41ac-8f9f-ad446ab984ba",
     "clientId" : "security-admin-console",
     "name" : "${client_security-admin-console}",
     "rootUrl" : "${authAdminUrl}",
@@ -2533,7 +2507,7 @@
     "fullScopeAllowed" : false,
     "nodeReRegistrationTimeout" : 0,
     "protocolMappers" : [ {
-      "id" : "37952c00-92cf-4e7b-bffb-db492850f76a",
+      "id" : "4394a38d-c2d6-438a-9c81-0a957f9f1c26",
       "name" : "locale",
       "protocol" : "openid-connect",
       "protocolMapper" : "oidc-usermodel-attribute-mapper",
@@ -2550,11 +2524,11 @@
     "defaultClientScopes" : [ "web-origins", "acr", "profile", "roles", "email" ],
     "optionalClientScopes" : [ "address", "phone", "offline_access", "microprofile-jwt" ]
   }, {
-    "id" : "898ceebe-77d1-4e6d-88c1-25a9f73399de",
+    "id" : "36715eb1-58b2-44cb-ba55-8a561049cafa",
     "clientId" : "UI",
     "name" : "",
     "description" : "",
-    "rootUrl" : "http://localhost:3000/*",
+    "rootUrl" : "http://localhost:3000",
     "adminUrl" : "http://localhost:3000/*",
     "baseUrl" : "",
     "surrogateAuthRequired" : false,
@@ -2576,10 +2550,9 @@
     "attributes" : {
       "oidc.ciba.grant.enabled" : "false",
       "backchannel.logout.session.required" : "true",
-      "login_theme" : "base",
-      "post.logout.redirect.uris" : "+",
-      "display.on.consent.screen" : "false",
+      "login_theme" : "vuetify",
       "oauth2.device.authorization.grant.enabled" : "false",
+      "display.on.consent.screen" : "false",
       "backchannel.logout.revoke.offline.tokens" : "false"
     },
     "authenticationFlowBindingOverrides" : { },
@@ -2589,7 +2562,46 @@
     "optionalClientScopes" : [ "address", "phone", "offline_access", "microprofile-jwt" ]
   } ],
   "clientScopes" : [ {
-    "id" : "41db9c59-7fe7-4458-8221-db9d88f63a61",
+    "id" : "2318c7b3-2b89-42fc-9dbf-8f7f678a4909",
+    "name" : "web-origins",
+    "description" : "OpenID Connect scope for add allowed web origins to the access token",
+    "protocol" : "openid-connect",
+    "attributes" : {
+      "include.in.token.scope" : "false",
+      "display.on.consent.screen" : "false",
+      "consent.screen.text" : ""
+    },
+    "protocolMappers" : [ {
+      "id" : "b888e0c6-07a0-486a-be93-9b2709b12edd",
+      "name" : "allowed web origins",
+      "protocol" : "openid-connect",
+      "protocolMapper" : "oidc-allowed-origins-mapper",
+      "consentRequired" : false,
+      "config" : { }
+    } ]
+  }, {
+    "id" : "c93ee6c6-6947-4aee-be62-d6481c2bbc2d",
+    "name" : "role_list",
+    "description" : "SAML role list",
+    "protocol" : "saml",
+    "attributes" : {
+      "consent.screen.text" : "${samlRoleListScopeConsentText}",
+      "display.on.consent.screen" : "true"
+    },
+    "protocolMappers" : [ {
+      "id" : "a9ea540c-857b-4fd0-b8b8-2f4030f512fa",
+      "name" : "role list",
+      "protocol" : "saml",
+      "protocolMapper" : "saml-role-list-mapper",
+      "consentRequired" : false,
+      "config" : {
+        "single" : "false",
+        "attribute.nameformat" : "Basic",
+        "attribute.name" : "Role"
+      }
+    } ]
+  }, {
+    "id" : "59d4d71b-ae22-4947-9973-f69c584ca1bd",
     "name" : "email",
     "description" : "OpenID Connect built-in scope: email",
     "protocol" : "openid-connect",
@@ -2599,21 +2611,7 @@
       "consent.screen.text" : "${emailScopeConsentText}"
     },
     "protocolMappers" : [ {
-      "id" : "e2a2148d-d4c6-4f45-b6c8-5662f589ea50",
-      "name" : "email",
-      "protocol" : "openid-connect",
-      "protocolMapper" : "oidc-usermodel-attribute-mapper",
-      "consentRequired" : false,
-      "config" : {
-        "userinfo.token.claim" : "true",
-        "user.attribute" : "email",
-        "id.token.claim" : "true",
-        "access.token.claim" : "true",
-        "claim.name" : "email",
-        "jsonType.label" : "String"
-      }
-    }, {
-      "id" : "443ff88f-412a-456c-9ca5-d361a8cb5484",
+      "id" : "310bd149-8505-4774-8b56-8ee26ffc826d",
       "name" : "email verified",
       "protocol" : "openid-connect",
       "protocolMapper" : "oidc-usermodel-property-mapper",
@@ -2626,273 +2624,23 @@
         "claim.name" : "email_verified",
         "jsonType.label" : "boolean"
       }
-    } ]
-  }, {
-    "id" : "2b5bf483-830e-4e98-b443-43f67d9bedbe",
-    "name" : "web-origins",
-    "description" : "OpenID Connect scope for add allowed web origins to the access token",
-    "protocol" : "openid-connect",
-    "attributes" : {
-      "include.in.token.scope" : "false",
-      "display.on.consent.screen" : "false",
-      "consent.screen.text" : ""
-    },
-    "protocolMappers" : [ {
-      "id" : "21a96af5-9cdc-4da2-b34c-71ec7f2c02f5",
-      "name" : "allowed web origins",
-      "protocol" : "openid-connect",
-      "protocolMapper" : "oidc-allowed-origins-mapper",
-      "consentRequired" : false,
-      "config" : { }
-    } ]
-  }, {
-    "id" : "f8a4d438-a6c0-44c9-88e5-ba1d0f683366",
-    "name" : "acr",
-    "description" : "OpenID Connect scope for add acr (authentication context class reference) to the token",
-    "protocol" : "openid-connect",
-    "attributes" : {
-      "include.in.token.scope" : "false",
-      "display.on.consent.screen" : "false"
-    },
-    "protocolMappers" : [ {
-      "id" : "8e54a9b5-1bc9-4a1e-9c39-1d0735c5e59d",
-      "name" : "acr loa level",
-      "protocol" : "openid-connect",
-      "protocolMapper" : "oidc-acr-mapper",
-      "consentRequired" : false,
-      "config" : {
-        "id.token.claim" : "true",
-        "access.token.claim" : "true",
-        "userinfo.token.claim" : "true"
-      }
-    } ]
-  }, {
-    "id" : "5d4d0956-b1f8-414e-9326-984849f721a5",
-    "name" : "role_list",
-    "description" : "SAML role list",
-    "protocol" : "saml",
-    "attributes" : {
-      "consent.screen.text" : "${samlRoleListScopeConsentText}",
-      "display.on.consent.screen" : "true"
-    },
-    "protocolMappers" : [ {
-      "id" : "c001e059-4c5d-40e7-bdfc-f53e8d921d64",
-      "name" : "role list",
-      "protocol" : "saml",
-      "protocolMapper" : "saml-role-list-mapper",
-      "consentRequired" : false,
-      "config" : {
-        "single" : "false",
-        "attribute.nameformat" : "Basic",
-        "attribute.name" : "Role"
-      }
-    } ]
-  }, {
-    "id" : "3f9ab0fa-3736-4045-a601-b605cfa864a5",
-    "name" : "profile",
-    "description" : "OpenID Connect built-in scope: profile",
-    "protocol" : "openid-connect",
-    "attributes" : {
-      "include.in.token.scope" : "true",
-      "display.on.consent.screen" : "true",
-      "consent.screen.text" : "${profileScopeConsentText}"
-    },
-    "protocolMappers" : [ {
-      "id" : "c59fd547-0dfa-4b1e-b9f5-8386032619f7",
-      "name" : "profile",
+    }, {
+      "id" : "52597698-ccf5-40b6-bf5d-ca760c72bce5",
+      "name" : "email",
       "protocol" : "openid-connect",
       "protocolMapper" : "oidc-usermodel-attribute-mapper",
       "consentRequired" : false,
       "config" : {
         "userinfo.token.claim" : "true",
-        "user.attribute" : "profile",
+        "user.attribute" : "email",
         "id.token.claim" : "true",
         "access.token.claim" : "true",
-        "claim.name" : "profile",
-        "jsonType.label" : "String"
-      }
-    }, {
-      "id" : "2bbf8c4b-3047-49c1-830e-0e275c044540",
-      "name" : "family name",
-      "protocol" : "openid-connect",
-      "protocolMapper" : "oidc-usermodel-attribute-mapper",
-      "consentRequired" : false,
-      "config" : {
-        "userinfo.token.claim" : "true",
-        "user.attribute" : "lastName",
-        "id.token.claim" : "true",
-        "access.token.claim" : "true",
-        "claim.name" : "family_name",
-        "jsonType.label" : "String"
-      }
-    }, {
-      "id" : "cc981f4e-eb18-4b74-b418-be9c3ee1138f",
-      "name" : "middle name",
-      "protocol" : "openid-connect",
-      "protocolMapper" : "oidc-usermodel-attribute-mapper",
-      "consentRequired" : false,
-      "config" : {
-        "userinfo.token.claim" : "true",
-        "user.attribute" : "middleName",
-        "id.token.claim" : "true",
-        "access.token.claim" : "true",
-        "claim.name" : "middle_name",
-        "jsonType.label" : "String"
-      }
-    }, {
-      "id" : "55bd2985-85ce-4296-8667-344e9ccb15f4",
-      "name" : "nickname",
-      "protocol" : "openid-connect",
-      "protocolMapper" : "oidc-usermodel-attribute-mapper",
-      "consentRequired" : false,
-      "config" : {
-        "userinfo.token.claim" : "true",
-        "user.attribute" : "nickname",
-        "id.token.claim" : "true",
-        "access.token.claim" : "true",
-        "claim.name" : "nickname",
-        "jsonType.label" : "String"
-      }
-    }, {
-      "id" : "50646e9b-6aac-44e0-acf9-b658fcc81f6e",
-      "name" : "updated at",
-      "protocol" : "openid-connect",
-      "protocolMapper" : "oidc-usermodel-attribute-mapper",
-      "consentRequired" : false,
-      "config" : {
-        "userinfo.token.claim" : "true",
-        "user.attribute" : "updatedAt",
-        "id.token.claim" : "true",
-        "access.token.claim" : "true",
-        "claim.name" : "updated_at",
-        "jsonType.label" : "long"
-      }
-    }, {
-      "id" : "52d183ef-68c4-4b4e-92d5-cf51b05cbe7e",
-      "name" : "picture",
-      "protocol" : "openid-connect",
-      "protocolMapper" : "oidc-usermodel-attribute-mapper",
-      "consentRequired" : false,
-      "config" : {
-        "userinfo.token.claim" : "true",
-        "user.attribute" : "picture",
-        "id.token.claim" : "true",
-        "access.token.claim" : "true",
-        "claim.name" : "picture",
-        "jsonType.label" : "String"
-      }
-    }, {
-      "id" : "464761c6-9f50-4f18-ad3e-243e07ca9354",
-      "name" : "locale",
-      "protocol" : "openid-connect",
-      "protocolMapper" : "oidc-usermodel-attribute-mapper",
-      "consentRequired" : false,
-      "config" : {
-        "userinfo.token.claim" : "true",
-        "user.attribute" : "locale",
-        "id.token.claim" : "true",
-        "access.token.claim" : "true",
-        "claim.name" : "locale",
-        "jsonType.label" : "String"
-      }
-    }, {
-      "id" : "04f5c54d-b709-4254-b638-ac84ac67fd34",
-      "name" : "website",
-      "protocol" : "openid-connect",
-      "protocolMapper" : "oidc-usermodel-attribute-mapper",
-      "consentRequired" : false,
-      "config" : {
-        "userinfo.token.claim" : "true",
-        "user.attribute" : "website",
-        "id.token.claim" : "true",
-        "access.token.claim" : "true",
-        "claim.name" : "website",
-        "jsonType.label" : "String"
-      }
-    }, {
-      "id" : "905b88f3-fc6b-4958-a1e7-a403defdbe10",
-      "name" : "birthdate",
-      "protocol" : "openid-connect",
-      "protocolMapper" : "oidc-usermodel-attribute-mapper",
-      "consentRequired" : false,
-      "config" : {
-        "userinfo.token.claim" : "true",
-        "user.attribute" : "birthdate",
-        "id.token.claim" : "true",
-        "access.token.claim" : "true",
-        "claim.name" : "birthdate",
-        "jsonType.label" : "String"
-      }
-    }, {
-      "id" : "e5cb75ba-c8c9-4802-94ed-aa8f3874a339",
-      "name" : "zoneinfo",
-      "protocol" : "openid-connect",
-      "protocolMapper" : "oidc-usermodel-attribute-mapper",
-      "consentRequired" : false,
-      "config" : {
-        "userinfo.token.claim" : "true",
-        "user.attribute" : "zoneinfo",
-        "id.token.claim" : "true",
-        "access.token.claim" : "true",
-        "claim.name" : "zoneinfo",
-        "jsonType.label" : "String"
-      }
-    }, {
-      "id" : "8d4bfb26-c9b6-4305-8a3e-5cab9487df24",
-      "name" : "username",
-      "protocol" : "openid-connect",
-      "protocolMapper" : "oidc-usermodel-attribute-mapper",
-      "consentRequired" : false,
-      "config" : {
-        "userinfo.token.claim" : "true",
-        "user.attribute" : "username",
-        "id.token.claim" : "true",
-        "access.token.claim" : "true",
-        "claim.name" : "preferred_username",
-        "jsonType.label" : "String"
-      }
-    }, {
-      "id" : "186725c3-f3b4-4af7-939f-6df9491bf27d",
-      "name" : "full name",
-      "protocol" : "openid-connect",
-      "protocolMapper" : "oidc-full-name-mapper",
-      "consentRequired" : false,
-      "config" : {
-        "id.token.claim" : "true",
-        "access.token.claim" : "true",
-        "userinfo.token.claim" : "true"
-      }
-    }, {
-      "id" : "bea94aae-86a3-49b6-849b-06e42d9d47c5",
-      "name" : "given name",
-      "protocol" : "openid-connect",
-      "protocolMapper" : "oidc-usermodel-attribute-mapper",
-      "consentRequired" : false,
-      "config" : {
-        "userinfo.token.claim" : "true",
-        "user.attribute" : "firstName",
-        "id.token.claim" : "true",
-        "access.token.claim" : "true",
-        "claim.name" : "given_name",
-        "jsonType.label" : "String"
-      }
-    }, {
-      "id" : "70636b10-8a6a-4119-bd0e-aa3b10b4527d",
-      "name" : "gender",
-      "protocol" : "openid-connect",
-      "protocolMapper" : "oidc-usermodel-attribute-mapper",
-      "consentRequired" : false,
-      "config" : {
-        "userinfo.token.claim" : "true",
-        "user.attribute" : "gender",
-        "id.token.claim" : "true",
-        "access.token.claim" : "true",
-        "claim.name" : "gender",
+        "claim.name" : "email",
         "jsonType.label" : "String"
       }
     } ]
   }, {
-    "id" : "9e379b2a-e07d-4650-bf79-3878335c2146",
+    "id" : "34b4e621-03ee-49ed-a4fa-2ef16942aca9",
     "name" : "phone",
     "description" : "OpenID Connect built-in scope: phone",
     "protocol" : "openid-connect",
@@ -2902,7 +2650,7 @@
       "consent.screen.text" : "${phoneScopeConsentText}"
     },
     "protocolMappers" : [ {
-      "id" : "8a149e1d-d40d-4c56-8005-f8888534262e",
+      "id" : "bfcf4cfb-34f4-4c0d-bd4f-fab18a67fdb7",
       "name" : "phone number verified",
       "protocol" : "openid-connect",
       "protocolMapper" : "oidc-usermodel-attribute-mapper",
@@ -2916,7 +2664,7 @@
         "jsonType.label" : "boolean"
       }
     }, {
-      "id" : "f91a8e01-8945-48d1-94ff-7c7b27425013",
+      "id" : "6ec89940-ceca-4fc3-aec8-0b5f9e638e00",
       "name" : "phone number",
       "protocol" : "openid-connect",
       "protocolMapper" : "oidc-usermodel-attribute-mapper",
@@ -2931,17 +2679,206 @@
       }
     } ]
   }, {
-    "id" : "434c7797-95e0-4a68-b80a-def9c680b4d3",
-    "name" : "microprofile-jwt",
-    "description" : "Microprofile - JWT built-in scope",
+    "id" : "a8d6f90d-a8d7-4ba0-a218-7275eab14293",
+    "name" : "offline_access",
+    "description" : "OpenID Connect built-in scope: offline_access",
+    "protocol" : "openid-connect",
+    "attributes" : {
+      "consent.screen.text" : "${offlineAccessScopeConsentText}",
+      "display.on.consent.screen" : "true"
+    }
+  }, {
+    "id" : "10049b38-24b0-4ea2-bdec-57627789a608",
+    "name" : "profile",
+    "description" : "OpenID Connect built-in scope: profile",
     "protocol" : "openid-connect",
     "attributes" : {
       "include.in.token.scope" : "true",
-      "display.on.consent.screen" : "false"
+      "display.on.consent.screen" : "true",
+      "consent.screen.text" : "${profileScopeConsentText}"
     },
     "protocolMappers" : [ {
-      "id" : "6feb8ceb-5cc7-4f43-943b-f1d8a3594383",
-      "name" : "upn",
+      "id" : "28760581-8852-40cb-92e6-e5543d30ca7b",
+      "name" : "locale",
+      "protocol" : "openid-connect",
+      "protocolMapper" : "oidc-usermodel-attribute-mapper",
+      "consentRequired" : false,
+      "config" : {
+        "userinfo.token.claim" : "true",
+        "user.attribute" : "locale",
+        "id.token.claim" : "true",
+        "access.token.claim" : "true",
+        "claim.name" : "locale",
+        "jsonType.label" : "String"
+      }
+    }, {
+      "id" : "cf597061-e8b9-4aba-b39a-3468e8ba17b2",
+      "name" : "website",
+      "protocol" : "openid-connect",
+      "protocolMapper" : "oidc-usermodel-attribute-mapper",
+      "consentRequired" : false,
+      "config" : {
+        "userinfo.token.claim" : "true",
+        "user.attribute" : "website",
+        "id.token.claim" : "true",
+        "access.token.claim" : "true",
+        "claim.name" : "website",
+        "jsonType.label" : "String"
+      }
+    }, {
+      "id" : "e2748bc6-216a-4a0d-90d7-ed8d2e50529f",
+      "name" : "full name",
+      "protocol" : "openid-connect",
+      "protocolMapper" : "oidc-full-name-mapper",
+      "consentRequired" : false,
+      "config" : {
+        "id.token.claim" : "true",
+        "access.token.claim" : "true",
+        "userinfo.token.claim" : "true"
+      }
+    }, {
+      "id" : "9bfe0883-a02b-4927-8826-f655506e94c5",
+      "name" : "birthdate",
+      "protocol" : "openid-connect",
+      "protocolMapper" : "oidc-usermodel-attribute-mapper",
+      "consentRequired" : false,
+      "config" : {
+        "userinfo.token.claim" : "true",
+        "user.attribute" : "birthdate",
+        "id.token.claim" : "true",
+        "access.token.claim" : "true",
+        "claim.name" : "birthdate",
+        "jsonType.label" : "String"
+      }
+    }, {
+      "id" : "741d6f05-b638-410e-a003-c74891fdb1d4",
+      "name" : "updated at",
+      "protocol" : "openid-connect",
+      "protocolMapper" : "oidc-usermodel-attribute-mapper",
+      "consentRequired" : false,
+      "config" : {
+        "userinfo.token.claim" : "true",
+        "user.attribute" : "updatedAt",
+        "id.token.claim" : "true",
+        "access.token.claim" : "true",
+        "claim.name" : "updated_at",
+        "jsonType.label" : "long"
+      }
+    }, {
+      "id" : "8d18132e-73d9-4c98-9e86-2abbfc5e0cb7",
+      "name" : "family name",
+      "protocol" : "openid-connect",
+      "protocolMapper" : "oidc-usermodel-attribute-mapper",
+      "consentRequired" : false,
+      "config" : {
+        "userinfo.token.claim" : "true",
+        "user.attribute" : "lastName",
+        "id.token.claim" : "true",
+        "access.token.claim" : "true",
+        "claim.name" : "family_name",
+        "jsonType.label" : "String"
+      }
+    }, {
+      "id" : "c16deb93-cb18-450b-811b-d33a2dcf6c80",
+      "name" : "zoneinfo",
+      "protocol" : "openid-connect",
+      "protocolMapper" : "oidc-usermodel-attribute-mapper",
+      "consentRequired" : false,
+      "config" : {
+        "userinfo.token.claim" : "true",
+        "user.attribute" : "zoneinfo",
+        "id.token.claim" : "true",
+        "access.token.claim" : "true",
+        "claim.name" : "zoneinfo",
+        "jsonType.label" : "String"
+      }
+    }, {
+      "id" : "2e9ae5a0-981d-429e-9b45-b0f69c4b9ef9",
+      "name" : "gender",
+      "protocol" : "openid-connect",
+      "protocolMapper" : "oidc-usermodel-attribute-mapper",
+      "consentRequired" : false,
+      "config" : {
+        "userinfo.token.claim" : "true",
+        "user.attribute" : "gender",
+        "id.token.claim" : "true",
+        "access.token.claim" : "true",
+        "claim.name" : "gender",
+        "jsonType.label" : "String"
+      }
+    }, {
+      "id" : "803572af-e22d-4ccc-b90a-cbfdc9acd0f3",
+      "name" : "nickname",
+      "protocol" : "openid-connect",
+      "protocolMapper" : "oidc-usermodel-attribute-mapper",
+      "consentRequired" : false,
+      "config" : {
+        "userinfo.token.claim" : "true",
+        "user.attribute" : "nickname",
+        "id.token.claim" : "true",
+        "access.token.claim" : "true",
+        "claim.name" : "nickname",
+        "jsonType.label" : "String"
+      }
+    }, {
+      "id" : "8da79341-a795-47c3-9d04-e2c220365062",
+      "name" : "given name",
+      "protocol" : "openid-connect",
+      "protocolMapper" : "oidc-usermodel-attribute-mapper",
+      "consentRequired" : false,
+      "config" : {
+        "userinfo.token.claim" : "true",
+        "user.attribute" : "firstName",
+        "id.token.claim" : "true",
+        "access.token.claim" : "true",
+        "claim.name" : "given_name",
+        "jsonType.label" : "String"
+      }
+    }, {
+      "id" : "eb661f09-cf00-4e22-9a3f-a2dde736e34f",
+      "name" : "middle name",
+      "protocol" : "openid-connect",
+      "protocolMapper" : "oidc-usermodel-attribute-mapper",
+      "consentRequired" : false,
+      "config" : {
+        "userinfo.token.claim" : "true",
+        "user.attribute" : "middleName",
+        "id.token.claim" : "true",
+        "access.token.claim" : "true",
+        "claim.name" : "middle_name",
+        "jsonType.label" : "String"
+      }
+    }, {
+      "id" : "1771692b-2177-4901-80cc-d3cbc263653f",
+      "name" : "picture",
+      "protocol" : "openid-connect",
+      "protocolMapper" : "oidc-usermodel-attribute-mapper",
+      "consentRequired" : false,
+      "config" : {
+        "userinfo.token.claim" : "true",
+        "user.attribute" : "picture",
+        "id.token.claim" : "true",
+        "access.token.claim" : "true",
+        "claim.name" : "picture",
+        "jsonType.label" : "String"
+      }
+    }, {
+      "id" : "6138cae5-e63b-4344-88f7-5dc900bafe3b",
+      "name" : "profile",
+      "protocol" : "openid-connect",
+      "protocolMapper" : "oidc-usermodel-attribute-mapper",
+      "consentRequired" : false,
+      "config" : {
+        "userinfo.token.claim" : "true",
+        "user.attribute" : "profile",
+        "id.token.claim" : "true",
+        "access.token.claim" : "true",
+        "claim.name" : "profile",
+        "jsonType.label" : "String"
+      }
+    }, {
+      "id" : "808ffc6c-917f-4d04-9581-5042c20aa4a2",
+      "name" : "username",
       "protocol" : "openid-connect",
       "protocolMapper" : "oidc-usermodel-attribute-mapper",
       "consentRequired" : false,
@@ -2950,27 +2887,12 @@
         "user.attribute" : "username",
         "id.token.claim" : "true",
         "access.token.claim" : "true",
-        "claim.name" : "upn",
-        "jsonType.label" : "String"
-      }
-    }, {
-      "id" : "667078fc-f01a-4474-8e5a-4d1562e09109",
-      "name" : "groups",
-      "protocol" : "openid-connect",
-      "protocolMapper" : "oidc-usermodel-realm-role-mapper",
-      "consentRequired" : false,
-      "config" : {
-        "multivalued" : "true",
-        "userinfo.token.claim" : "true",
-        "user.attribute" : "foo",
-        "id.token.claim" : "true",
-        "access.token.claim" : "true",
-        "claim.name" : "groups",
+        "claim.name" : "preferred_username",
         "jsonType.label" : "String"
       }
     } ]
   }, {
-    "id" : "a06b11f3-4b41-4a2b-a14f-1d88439e469e",
+    "id" : "59512ecf-03c2-4bc9-a3d7-ddf978ee44bd",
     "name" : "address",
     "description" : "OpenID Connect built-in scope: address",
     "protocol" : "openid-connect",
@@ -2980,7 +2902,7 @@
       "consent.screen.text" : "${addressScopeConsentText}"
     },
     "protocolMappers" : [ {
-      "id" : "b34ba61b-0cfe-4cb8-b18f-0f2a27a28be6",
+      "id" : "9a3f7be3-668b-4b86-a664-833ab6f86aa4",
       "name" : "address",
       "protocol" : "openid-connect",
       "protocolMapper" : "oidc-address-mapper",
@@ -2998,7 +2920,65 @@
       }
     } ]
   }, {
-    "id" : "f7ce4f6f-f6f8-4e28-bac6-3ff853a58d6b",
+    "id" : "1e6204fb-3416-431b-92fa-4b961e4b8749",
+    "name" : "microprofile-jwt",
+    "description" : "Microprofile - JWT built-in scope",
+    "protocol" : "openid-connect",
+    "attributes" : {
+      "include.in.token.scope" : "true",
+      "display.on.consent.screen" : "false"
+    },
+    "protocolMappers" : [ {
+      "id" : "c23c3f38-efe4-43b6-96d5-bc17fcb4c14f",
+      "name" : "groups",
+      "protocol" : "openid-connect",
+      "protocolMapper" : "oidc-usermodel-realm-role-mapper",
+      "consentRequired" : false,
+      "config" : {
+        "multivalued" : "true",
+        "user.attribute" : "foo",
+        "id.token.claim" : "true",
+        "access.token.claim" : "true",
+        "claim.name" : "groups",
+        "jsonType.label" : "String"
+      }
+    }, {
+      "id" : "04d8a0ae-98c3-4347-8581-29c19bb6214a",
+      "name" : "upn",
+      "protocol" : "openid-connect",
+      "protocolMapper" : "oidc-usermodel-attribute-mapper",
+      "consentRequired" : false,
+      "config" : {
+        "userinfo.token.claim" : "true",
+        "user.attribute" : "username",
+        "id.token.claim" : "true",
+        "access.token.claim" : "true",
+        "claim.name" : "upn",
+        "jsonType.label" : "String"
+      }
+    } ]
+  }, {
+    "id" : "22748ae9-b45d-4f23-985d-5a07ab9bb674",
+    "name" : "acr",
+    "description" : "OpenID Connect scope for add acr (authentication context class reference) to the token",
+    "protocol" : "openid-connect",
+    "attributes" : {
+      "include.in.token.scope" : "false",
+      "display.on.consent.screen" : "false"
+    },
+    "protocolMappers" : [ {
+      "id" : "07784a54-e3d2-4a83-9455-fafaf794a20f",
+      "name" : "acr loa level",
+      "protocol" : "openid-connect",
+      "protocolMapper" : "oidc-acr-mapper",
+      "consentRequired" : false,
+      "config" : {
+        "id.token.claim" : "true",
+        "access.token.claim" : "true"
+      }
+    } ]
+  }, {
+    "id" : "042e6a00-338d-436c-a733-149098ea3bc2",
     "name" : "roles",
     "description" : "OpenID Connect scope for add user roles to the access token",
     "protocol" : "openid-connect",
@@ -3008,7 +2988,20 @@
       "consent.screen.text" : "${rolesScopeConsentText}"
     },
     "protocolMappers" : [ {
-      "id" : "9bd94caa-9bd2-45fa-950f-1d64a1aad34d",
+      "id" : "cacb6a48-c4da-4d9f-a377-4c690d29d75d",
+      "name" : "realm roles",
+      "protocol" : "openid-connect",
+      "protocolMapper" : "oidc-usermodel-realm-role-mapper",
+      "consentRequired" : false,
+      "config" : {
+        "user.attribute" : "foo",
+        "access.token.claim" : "true",
+        "claim.name" : "realm_access.roles",
+        "jsonType.label" : "String",
+        "multivalued" : "true"
+      }
+    }, {
+      "id" : "3e9e4527-c957-4b61-ac58-7276e98ef2c8",
       "name" : "client roles",
       "protocol" : "openid-connect",
       "protocolMapper" : "oidc-usermodel-client-role-mapper",
@@ -3021,35 +3014,13 @@
         "multivalued" : "true"
       }
     }, {
-      "id" : "c92c6d7f-9e5f-4ed8-a4e7-b3daf6382e1b",
+      "id" : "10bdf599-b6c2-4913-9604-c8caa13967ac",
       "name" : "audience resolve",
       "protocol" : "openid-connect",
       "protocolMapper" : "oidc-audience-resolve-mapper",
       "consentRequired" : false,
       "config" : { }
-    }, {
-      "id" : "7ba2d98d-95a7-4328-b2d5-feb2d62dfa5c",
-      "name" : "realm roles",
-      "protocol" : "openid-connect",
-      "protocolMapper" : "oidc-usermodel-realm-role-mapper",
-      "consentRequired" : false,
-      "config" : {
-        "user.attribute" : "foo",
-        "access.token.claim" : "true",
-        "claim.name" : "realm_access.roles",
-        "jsonType.label" : "String",
-        "multivalued" : "true"
-      }
     } ]
-  }, {
-    "id" : "5986bd32-bae2-43af-ad25-7cc43d0814ff",
-    "name" : "offline_access",
-    "description" : "OpenID Connect built-in scope: offline_access",
-    "protocol" : "openid-connect",
-    "attributes" : {
-      "consent.screen.text" : "${offlineAccessScopeConsentText}",
-      "display.on.consent.screen" : "true"
-    }
   } ],
   "defaultDefaultClientScopes" : [ "role_list", "profile", "email", "roles", "web-origins", "acr" ],
   "defaultOptionalClientScopes" : [ "offline_access", "address", "phone", "microprofile-jwt" ],
@@ -3073,23 +3044,16 @@
   "identityProviderMappers" : [ ],
   "components" : {
     "org.keycloak.services.clientregistration.policy.ClientRegistrationPolicy" : [ {
-      "id" : "d6e56270-b5ae-4db3-a517-8bd0f268b82b",
-      "name" : "Full Scope Disabled",
-      "providerId" : "scope",
-      "subType" : "anonymous",
-      "subComponents" : { },
-      "config" : { }
-    }, {
-      "id" : "beb3df1b-9816-4598-b6af-9b949bad5ae0",
-      "name" : "Max Clients Limit",
-      "providerId" : "max-clients",
-      "subType" : "anonymous",
+      "id" : "d413323c-2575-42c2-a879-b1646dadba89",
+      "name" : "Allowed Client Scopes",
+      "providerId" : "allowed-client-templates",
+      "subType" : "authenticated",
       "subComponents" : { },
       "config" : {
-        "max-clients" : [ "200" ]
+        "allow-default-scopes" : [ "true" ]
       }
     }, {
-      "id" : "a5ecd525-e69f-4929-81da-ff6d6b2d2dbd",
+      "id" : "35804e47-7895-4fde-b476-8bb49e479bcd",
       "name" : "Trusted Hosts",
       "providerId" : "trusted-hosts",
       "subType" : "anonymous",
@@ -3099,97 +3063,98 @@
         "client-uris-must-match" : [ "true" ]
       }
     }, {
-      "id" : "546339b5-d0a9-4b93-9d6b-143e19ab5f54",
-      "name" : "Allowed Client Scopes",
-      "providerId" : "allowed-client-templates",
-      "subType" : "authenticated",
-      "subComponents" : { },
-      "config" : {
-        "allow-default-scopes" : [ "true" ]
-      }
-    }, {
-      "id" : "989a51f9-1529-4ac1-a478-408e06747e6c",
-      "name" : "Allowed Client Scopes",
-      "providerId" : "allowed-client-templates",
+      "id" : "2136773d-a646-4e38-82ca-c83ab5430ba3",
+      "name" : "Allowed Protocol Mapper Types",
+      "providerId" : "allowed-protocol-mappers",
       "subType" : "anonymous",
       "subComponents" : { },
       "config" : {
-        "allow-default-scopes" : [ "true" ]
+        "allowed-protocol-mapper-types" : [ "oidc-full-name-mapper", "saml-user-attribute-mapper", "saml-user-property-mapper", "oidc-sha256-pairwise-sub-mapper", "saml-role-list-mapper", "oidc-address-mapper", "oidc-usermodel-property-mapper", "oidc-usermodel-attribute-mapper" ]
       }
     }, {
-      "id" : "1d3b5a98-4ceb-452c-a58e-9f9680ca6316",
+      "id" : "3f876f68-f77f-4a53-b8e6-e1b70a90a4e0",
       "name" : "Consent Required",
       "providerId" : "consent-required",
       "subType" : "anonymous",
       "subComponents" : { },
       "config" : { }
     }, {
-      "id" : "32a7f264-7e66-45a0-b8f0-f577030d9951",
+      "id" : "5f5eef8f-b99d-4386-8b9c-57ad97caf75e",
+      "name" : "Allowed Client Scopes",
+      "providerId" : "allowed-client-templates",
+      "subType" : "anonymous",
+      "subComponents" : { },
+      "config" : {
+        "allow-default-scopes" : [ "true" ]
+      }
+    }, {
+      "id" : "d802e31f-f7bd-422e-8295-8be9a1771225",
+      "name" : "Full Scope Disabled",
+      "providerId" : "scope",
+      "subType" : "anonymous",
+      "subComponents" : { },
+      "config" : { }
+    }, {
+      "id" : "b71cc26b-b02d-4cd7-8951-0e126201a2dc",
+      "name" : "Max Clients Limit",
+      "providerId" : "max-clients",
+      "subType" : "anonymous",
+      "subComponents" : { },
+      "config" : {
+        "max-clients" : [ "200" ]
+      }
+    }, {
+      "id" : "96ce59b3-1bbd-4b90-9aa2-318ba94470a8",
       "name" : "Allowed Protocol Mapper Types",
       "providerId" : "allowed-protocol-mappers",
       "subType" : "authenticated",
       "subComponents" : { },
       "config" : {
-        "allowed-protocol-mapper-types" : [ "oidc-address-mapper", "saml-user-property-mapper", "oidc-usermodel-attribute-mapper", "oidc-sha256-pairwise-sub-mapper", "saml-user-attribute-mapper", "oidc-full-name-mapper", "saml-role-list-mapper", "oidc-usermodel-property-mapper" ]
+        "allowed-protocol-mapper-types" : [ "saml-user-attribute-mapper", "saml-role-list-mapper", "oidc-usermodel-attribute-mapper", "saml-user-property-mapper", "oidc-usermodel-property-mapper", "oidc-full-name-mapper", "oidc-sha256-pairwise-sub-mapper", "oidc-address-mapper" ]
       }
-    }, {
-      "id" : "28b21416-8a80-4d05-b1b1-4be82edd191e",
-      "name" : "Allowed Protocol Mapper Types",
-      "providerId" : "allowed-protocol-mappers",
-      "subType" : "anonymous",
-      "subComponents" : { },
-      "config" : {
-        "allowed-protocol-mapper-types" : [ "oidc-full-name-mapper", "oidc-address-mapper", "oidc-usermodel-attribute-mapper", "oidc-usermodel-property-mapper", "saml-user-property-mapper", "saml-user-attribute-mapper", "saml-role-list-mapper", "oidc-sha256-pairwise-sub-mapper" ]
-      }
-    } ],
-    "org.keycloak.userprofile.UserProfileProvider" : [ {
-      "id" : "be7e458a-d70e-469f-86c5-4af171697f80",
-      "providerId" : "declarative-user-profile",
-      "subComponents" : { },
-      "config" : { }
     } ],
     "org.keycloak.keys.KeyProvider" : [ {
-      "id" : "43a50663-1cfe-43ad-8c65-daca97fa03a0",
-      "name" : "hmac-generated",
-      "providerId" : "hmac-generated",
-      "subComponents" : { },
-      "config" : {
-        "kid" : [ "e9e44bfc-b0b8-4559-a2ea-582d587049db" ],
-        "secret" : [ "c2SlEpZjr5GyTz4z9LtHRyBRl5J-Bews_up3MBM4FI11WWxK26QErjNaGDAuto1RXtoN_bJWR0xo9eI8nRYhUA" ],
-        "priority" : [ "100" ],
-        "algorithm" : [ "HS256" ]
-      }
-    }, {
-      "id" : "0be50a7d-4ed3-48c0-8d90-93d93e4b63c0",
+      "id" : "38e07ace-8e16-450f-96aa-8a60c3632859",
       "name" : "aes-generated",
       "providerId" : "aes-generated",
       "subComponents" : { },
       "config" : {
-        "kid" : [ "21d4b561-2997-4d6b-9989-6ce8c63fd18c" ],
-        "secret" : [ "x0Ik_xzPfi9ReqBuGjuFOw" ],
+        "kid" : [ "0dbbfdff-fb40-4970-8c1c-7bbb86804744" ],
+        "secret" : [ "2c7fo9JFaSCRXCC11dEJWQ" ],
         "priority" : [ "100" ]
       }
     }, {
-      "id" : "10ed9c2e-998a-49b6-bd04-8dab79a828a5",
+      "id" : "e6431b43-cd4f-470b-82df-0580661ac2bb",
+      "name" : "hmac-generated",
+      "providerId" : "hmac-generated",
+      "subComponents" : { },
+      "config" : {
+        "kid" : [ "9be83c76-6f76-4df4-9d17-88a1f8f1dd23" ],
+        "secret" : [ "Ryz98B1ZJz7tg5bhXIrJHpBOWStDJcq9rNfl7E0L4x31dIZgchK8BBwxKWKsXR4TXZ8EdylUrGqCG7dMFpi3uA" ],
+        "priority" : [ "100" ],
+        "algorithm" : [ "HS256" ]
+      }
+    }, {
+      "id" : "b8013e05-80a4-4832-bc2f-4396a1412a29",
       "name" : "rsa-enc-generated",
       "providerId" : "rsa-enc-generated",
       "subComponents" : { },
       "config" : {
-        "privateKey" : [ "MIIEpQIBAAKCAQEAmijxRybV7d1ff6Gmhi8L4G/EmwJwbCBbEvMFEkcEm/3mdq1M2j2tgAbROwv6Ua1jlvfsrbgoVpn3N5qgIYDtGVu4JqdMStzyuV/dLopKcylHvPPl0osGnOq2L8XKf6nODdz0RP3fANcJCtCklDUECVMlJwANjKxFb/hTHF9FoVxo1jQHHRbXHu+uPjMMzQGWgw+7m4s9JBn/ERQqSFfWTDRO5CPAc5Ii54C38cmHGClKv+KzqxCnrfBw7qypN6N24aJODZLiKOcUbzQOvyKzgXcoY+oq1uwLF2GuS/2b/4KAr/BAlMFmqVzWrvfiSisxBILUzR1uhtB19wXtVLKBvQIDAQABAoIBACAfV+dTmFAwSK33qRNcykTCBV2nbHWbaF7SdMQSOEuo5FTmV5VCNNzwjriXDlnmn1Hd51trfDxPaMwVVDim/MDD8+NaCPOwhoNKDnScLFdCysf8qm7suTwJTF04AbIIV/9bgyq9G7K5HBE82I5pXaXzxVITGL+vRejG/cpzr7anj/QbPY/ZB5ZcdB3eGTmwGx2kB2h+0a97Fo/bftTzh4vqje1lZm6dd2KEqKvMg/BnSc3Ym7+YdsYLgrBywis7zGWOgZYsljpmgxZO+Os4xDTix+bmnEWAkr6LXSfLLMvVwFXySpanTGJ7jt4hhLt9M7bz5y4HH+IFaKmhks3zawECgYEAzxyFyi4s+GxNiksK5U+b0sTjyLg08DKycIP4HubFTGTQl4WB/n1ygjum7FWZ2zNt5OGWiJEz8EbBHDy8KFE3k0/4OtHj0W3hS43mONkq0zYjmbLbftEsDSvgo0jA1LkSLE0OiQwqtkMRdNR8gtPhkW5HbJKM5DWZd1hZN7q0xqkCgYEAvoyhKMd/ZruOTD+Zsvdy3zrQONbsOvp2lzG9IzfWF1YtsTjG4O4aHb9Fah7dCuH42DMivx5IRqct96OXEmjIuk05Kcp9fhQELp6trmo1+YiIjqj8nbK5sEBsRxd6LixyM3ktl5JziflETuzrzBjRz8ytuEbk3O38J+E4P7vEkvUCgYEAvaN4PbAaLT29oiskRuOl4k+14kwI7Qb+rFeqEWFsto55EMSGSufCucy1AyE+R5/HuBN3KoUJ8bBXketqvd/f61sGB5W37EOYTv4XF2aB9/NSlaFXqb8NfuH2RoyPRDhRk47bCFHDqi+vBDKr737iw68eZyOpLiyF4Olch9LFREECgYEApndpG50dufxElmxBtE3lNwvEeMOaYPQKwo+bcrcG/CA3jsnRRRP+ENrWo50O8sDzir0xr9Gexsqqp9ts0ZJlOgzY0Z+q/ogyFyBdDzCOss8KrccH2iUXf9joPztNbCU8J6fHotE4yuLPQDxOy2EreuSPJ5wXuMLYNWbWoydA1jkCgYEAllwzUOki9PzUHx4+3mzD08TMU/k4913oImdzC48SNFS2VNobh19XQ/nFKph2DK0tkO9mjK9QF3GLhqDh5xYWT1vx2Gt1eqXsbEEZNAZb8qvvwv346P3MwxW6cDxvDydoaJ7zud192kxv2hsMvW+65aHsWOOre0SKBqyZXOYJU78=" ],
+        "privateKey" : [ "MIIEogIBAAKCAQEAtLeC/peKuPf6mIMmAzNwc8HJLt3w+uHn0bh4VD+sAPuy2EgrbpNnrP6fVUkiqTt/y3EOeDn7E+Gf8XfL0lgOV0dinXwuP+/nq3T3wf6IbjeoakGsVwR4IfwfFux64VVWk1cHSALwqe1rv+oRVxHL9gkHSCBdFhUw8rF7cQ5dCyUkv7SNRanxUEu8AEYLBmjFKh6FmYBQU+c/O3Rf7ioVKhh7PYlpHrFm5ZijFSNbQp2yW6Upd5HbljI03rZiPJdJQfVkDaqE0fJT0uhozu5OsTXXFouQXlAICYlVI7P8nFZ1Rukhj4qqYfJ+ouHx88GMfeXferF8B2ZKp+SI9/Lh2wIDAQABAoIBADQ6BMWHDjQ+llGVNVsfdpQ9oOLGiWo390MIyN2wOQlftGQFF2gxeXjpbSq8pCO8akZlOgVM3F72ib7DHEiB4kMfAkT5KnSX5KAMgb2yzcLsmuN6b1AGnqFTt7hsR2bvvsF+GUCaeOrjDoy8HJ7JKeTE3zHdCInlPewllsMpn4IkkYb46w0LtksfC3MEJbwQxCHhbfOw2rlyDmdBpatgPi371+ckQpuz7NgwUGaL6UedGhGgx/G7E0qMgLizJjbmH8ZeL59o7HSnvOtrs7bEcXfUMQ3kKze8iYulcOGOs4ayiWjLMVsah3z/YKYfem5aG0SQNz3kVhFqSEV49nOrWqECgYEA3UTtZaUkmz6q8jekDiTz+1fi9YKx/01xxgZxqY+JgaqlczmKt7I9N2htYVJWX4rMYG5X/n5rOPiLuyPrnmKTbaSc9E1o0C0Swgmi0yDcXWGm91Zvb8eaDJzaQJMFckOkPDiokIq60w4oCnF+bLFA/YDm6blIO5bUUS7AsC1hVo8CgYEA0RUaEFoyyYOwKYF88VyjOlmJlOLBy3PSoVwnP4UYlJpmkhzPCaiz3gK/xEpWsLxTtATV4NDG+sZPcKFiDg5Ks5l69Rvj52PiTjc7ikr3SQBUatUtyq4SCc2w6VOKFeyzFiNwD5vtKeRE49Fd4+dXLTOpwWRDFQBhL0WLfcphxfUCgYBkf1froLQdprrxxH/IxNPjxqkYpUG/GSehr2+UedMUh7MZwHrWsCfJsK5tU35TarEk4zkoJ7b/azPbzZbImzEmzWtUMox2cOJiKwo/Jl+wMhgpoqJ+fIPlUqB2T9Bbc4l2qK026SutjHJ3O9EWAPPpr9AxO6wpFHpeXQO7gQEC1QKBgHeewg2u/TWLkSL+AXS5km2UwoEbBtMWzeAhsBbIWBrVB2/66XzWNyoCmqJ8AYMWDDGHPrJj4COjh9mhi08NYDHG0rEfJtHAtL4ZHYhugXITrTh+BLfbxVg0hU3IzMzkYkV9OuTDSfnYro1EwJneRmMHFs0dRr/iOrfn6vmp6yxtAoGAIP/cJacKdlFDRNoAVmZNc4ElDvg81gNuWOrJk7lGtLPmeuLOgNqziyvnz7ZW1c11M595pw+rlXsygIr8BJhd6HIhIoCLJCW6DyByOj0kg6UzJcUu6XvPrfbSHpAV0CXCyJDv0QepMrPJkyUf/tES/l7mIPUmUl6OE2DL70J9HNE=" ],
         "keyUse" : [ "ENC" ],
-        "certificate" : [ "MIICkzCCAXsCBgGKvR8lKTANBgkqhkiG9w0BAQsFADANMQswCQYDVQQDDAJ1aTAeFw0yMzA5MjIxMzM5MDlaFw0zMzA5MjIxMzQwNDlaMA0xCzAJBgNVBAMMAnVpMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmijxRybV7d1ff6Gmhi8L4G/EmwJwbCBbEvMFEkcEm/3mdq1M2j2tgAbROwv6Ua1jlvfsrbgoVpn3N5qgIYDtGVu4JqdMStzyuV/dLopKcylHvPPl0osGnOq2L8XKf6nODdz0RP3fANcJCtCklDUECVMlJwANjKxFb/hTHF9FoVxo1jQHHRbXHu+uPjMMzQGWgw+7m4s9JBn/ERQqSFfWTDRO5CPAc5Ii54C38cmHGClKv+KzqxCnrfBw7qypN6N24aJODZLiKOcUbzQOvyKzgXcoY+oq1uwLF2GuS/2b/4KAr/BAlMFmqVzWrvfiSisxBILUzR1uhtB19wXtVLKBvQIDAQABMA0GCSqGSIb3DQEBCwUAA4IBAQBUmFU/nxojLiD7vhm6hS5drQ5Pzx/INT954+KEesN/bO/Lp99eYnHMjcp7ZZTaIMgIiGzvQd4ub5EzZiPtFHGluA+Rg4wtoVRJcEbfISwsbPQ/S0CriPZxQsUeIH00Yr97KTy0qtHWGAVNjkdUY3TAE00HzHy/dRh1bmA3r2OkW0tb85vGOsKGyVvc09lwzH0nddIMbD8mhRh0RIwB1BvOG9KDNrozOIo9ciiQ7ctYiMtM0yybcc5peavvouFTwJEgEcR9eyYU146SJnWLcm8Tah2ou7J8ixM742VaXeuJOF/p8O57WEsoE5Okf9JAu4Mc75NEpcoGS5qG5Y0X2el4" ],
+        "certificate" : [ "MIIClTCCAX0CBgGK6rCxrTANBgkqhkiG9w0BAQsFADAOMQwwCgYDVQQDDANBcHAwHhcNMjMxMDAxMTAwMTAyWhcNMzMxMDAxMTAwMjQyWjAOMQwwCgYDVQQDDANBcHAwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC0t4L+l4q49/qYgyYDM3Bzwcku3fD64efRuHhUP6wA+7LYSCtuk2es/p9VSSKpO3/LcQ54OfsT4Z/xd8vSWA5XR2KdfC4/7+erdPfB/ohuN6hqQaxXBHgh/B8W7HrhVVaTVwdIAvCp7Wu/6hFXEcv2CQdIIF0WFTDysXtxDl0LJSS/tI1FqfFQS7wARgsGaMUqHoWZgFBT5z87dF/uKhUqGHs9iWkesWblmKMVI1tCnbJbpSl3kduWMjTetmI8l0lB9WQNqoTR8lPS6GjO7k6xNdcWi5BeUAgJiVUjs/ycVnVG6SGPiqph8n6i4fHzwYx95d96sXwHZkqn5Ij38uHbAgMBAAEwDQYJKoZIhvcNAQELBQADggEBAKDOJ1vePkn8AcwwBgvrdj7q209bG2LsjzbpaqYNvB8NIfb58QaOZe1LTXhC16RqZ7r9TCUDGrL5lE0rl+34A/orkm7FYou+r7rYv8Hn0mld3ZKqYDHcA94VaIyUWTWByjDe9FIEuZdQpYBrIRGbVawEuXb2C1iXqKFJNH+uVlgzIauvNSuZxvqqJ3SdegH76fauXzcFSnhQ0zmGt5yyQ2O8DoIlOkDAiOCJS+7540RxiczNxXCQfgta/E+q63mQ0rKRTe2jradeHEHW1yGIoeK3F20sf44DsEexDWJtq/vsQbhq9N4DdrZxIHDkRIBn0rI8iQpzJGczQYOd1XM7YUU=" ],
         "priority" : [ "100" ],
         "algorithm" : [ "RSA-OAEP" ]
       }
     }, {
-      "id" : "61be33fa-722a-4281-8c56-b25931613004",
+      "id" : "c17a9e05-49f9-4146-a0f6-c1527178c312",
       "name" : "rsa-generated",
       "providerId" : "rsa-generated",
       "subComponents" : { },
       "config" : {
-        "privateKey" : [ "MIIEpAIBAAKCAQEAwPypvyY5KHqky29tAFbbEClUr6JB8fLbC6+4Lgz8JtxMKEnLScSDfA003JqCp757UqIrHMg2xq/f1y669CUiHUuWliToqJDDxXdqYvy3jQGz1wzh37KTsMvPgya6PGqk3JQrie0k3nWiskQj8x95tpYjCzo7Iyw/ijSlDbpqJ5y2WeoddGWzEgsjj23S+ykXWilmyASHaKxErqF3RVLQKf3O3uTpLpcWKIkxbJjekmmr95EzmWp0skKVl/8w+j2bLYgnbgT7a3ZO9Y4Diftd2ZmhWq3aSCknf85qJKZEDfjB1LuIY4SbGQpK3X00OPZQL/xjvM7f5tUKEhkRwbCNAwIDAQABAoIBABhR/wZSx9M9GXV1tlPbnkG8I6r6lLrr8wTXASv0gPZYvtQ48IB8XmGMvIOsiRignaP9Qdeft590XI4emnrYDyOH+hMz1YogrDs/YE3XMT5433QTcIejVo9qL92ETOX+PoZ5ub7o/sN2KamzgqBJ8Cm9Y+8vSHKXSe6d0csYGfahxiII/FDMgL7AnTxc2Qu+Ct5eCIkytWmogiAhau8kCT7dZQoXR1mc8e1hefyzpsRmCAZ4TwcMiSZlg5CgM0Qr3cSE04FxTUnsw5c7rYx+Tac/axARupGbRXe4IXcvt87MnZviRJfxF8EYByPmXN5/nqWzFClq8MSRxyRn3P5BBCECgYEA5Himt3Ny4a8bqGdxfHBc71pbPONRvaLiHAIvrx9L2UBHm4feqz80t01a87EHDQYVnOvnD5YXlh11ibzZQ8NuFvoFr+BtVwAEIIwJngLGT2dIZPSbkHdeWzHuk+6pP+0pFtnfP9KZ9UIFlKfyaTXy8aaoxl/wslVu7hMRE5YYijECgYEA2D15Yiq01s2NYKeoWxyCXZxHVPinDXUjpwbISoChgELuRrKb8PljERNtPt/A8x2laVKi30Bua06yg7cTVQKD8uiifFF3EsKbREPJPx5B+jhCOViQPQDvR1RddbWAkL5CnwfiAMWO8EmmcbWKxOjmIpRO0IXHsyWjXgtGUH5KyXMCgYEAtjzypnPlF9VoF0zjveGWj6kgC5I62iu5daPcyzAIfTMDqzCWUTwqXWfLe4QiXqYSyUd11/3dtHStE3/aQW36O0OVE7PNI080+40YAryt2BpHKZffGj3Muqs6ZS9CO2Z9lueUZsEi4vmVn/zSpE9PCKfqCcnvISB6SlZVEa1wx5ECgYBBE4cTNv0DZAr3Gp29BcBqAZ0qAkbr8uPO4Winmzx/SCVDW384ryTUP79x247K25IrNzZS76YLXzy0DQWhYMdq8/3qYe3u1Gg7zBaliyqZ7hJoBbIq2bwpAEe8I+pUJR4RlCK8zresss2HjPX9OoX/xBhQAuLNlDctF0GK+ebx5wKBgQCQb3pxU5MySZ2+WnM6PXYk54yuzOS4H7hboZzGuXB1+5tQdEAkhILhtayO7qTGN2xfc4+MsSx4SjbKzqSHcivDVTpc/+r8EHZbm9lXzs6uGGeI8p4Auy2jfhEwXfZzLU2xxYJjDD2zLewXYy8PgipNqdXXkLaq0IXY5BL4jrr9uw==" ],
+        "privateKey" : [ "MIIEowIBAAKCAQEAowkRIQKt6yhq9C2NX2rAJS9WLvpYfDzrrYabfoKujXMTBzxT3reBp70ElRfTLAwffpD8Ph1DZZQL9m6xtfAQF6Zmwym9W9izYzSD3lotyC0jJN17ltGGhM+oHgF2cCmo50nrStcXjiqd576+8t2PSw+FzqmPZAD60k3GHA2TSm7I3zs0HXSSCs3AGTMbgPIVXkoCPv6gd/SdEZOXXY16cnRd9pOppBTPxFIBygytwn79buO71BbuBa3/sNHL3N9wvlCcnJsJMaKs78r6jmb4hT2/D6UWCtkB1spwt6adg5HiKGvJhzBIu8E2hK8XnAk75huBvjYgYQTaKofnOCqXxwIDAQABAoIBAC2QfyUGpqyuIxYTFQuxvfmmfSOr+8bdD9Dzacm1pCsMGilPhvEbwDSs8vboLbCFwteQla6WZxuggKdi0G/Uo+q4Ksgohi+BJMF5D9G4ykrDsqq+66d+72V207lvFzbJrdbWJdhIvOCSsIbwHFWr7jxAHllfsh901qSn79IvSRbn5Spt2RHaBEl3Vmr75eaWmB2fKjDVXcx/hX9qDfgL26QHDnk8RexKHL/29BKbVnDBm+5u59WOqR12ZDGfMMyYBD8tT1wixLwSfFL1dT15ViIljoP9oyNlsV986DvZg0dEZWEJyo86ScYQ2Ll0CMeB8QlNf7cr4zh78kPIztsX1AECgYEA0RjJ4hcC+amLjtCzjzNFp9gt9F6+ulSJ8HGqlzoDBSAnmEqtxiXbB8qW04SZIscgNZFh/awUVi8uwFlWKJuX/SDZhfT35xNfBZHlXX0A/pZDt06tuQ2R/1BykfUZ4TsgkTM4FDe24AOFMmZq2wXL4ijmil9qzkRJXA9KWY5JZoECgYEAx5s9cgIm0TBmlwCRplJOk9FCWngZrWwT7x0JhPIJiknR9uv8Q2wceJ0nFN4WOAOWgsNbv/6o4Vq5l3Oc7LhoCKzuBiRWP5j97oRHyL8fXujUyWU4Vv4pCGDoyTmbrMklYoxxb4YVfRCksRBHcrYuP3kh1OwFmUb0QY/88YP+KkcCgYEAzu8EZS+27xRfHGDpQ3BPoFOu7yiRA2DE/uPPG0j7UihHZ02I+w/d27EgYYbZ8vQ0qS8PVnjly4F4eD4xqZCK86V+ATe128dtA9smrsYWpN5bd99yyDBo689XA6IZEbFtgqW4+zFEWCDDwmRfnhD3fQRTXGAgGLC2FVjAkS7i74ECgYAta6zqwYSVu37Mw6tg/n+08Tw5G/Uz2lEa6y+cWftDxZKKrp5jtTkxVQlsnTDPJDnenZfGM6u4RA3RYdSGpVu/BaLQMPqTVDwMR3uSObNoxHCPN4I/gWxS5MJz77D1+3uPVkgFyawgHmZriDnJ55zUgrrpGaAYheXU+W/kgVWXxwKBgF5+L7KEKFx+ieCyzaXv+ULeQp3svlgIU82/DFQd+3SdI05vQR5pbIjt+nZ+hsFCtE881JVNOJ14+kT4S591hz5N4a1XjObi2YoLGm9srEIGPSowTRWjIMpK2xITz0W39xF3YbWL6D2v4zzM57sybIqLcush2IW7OG7geIH4h+1Z" ],
         "keyUse" : [ "SIG" ],
-        "certificate" : [ "MIICkzCCAXsCBgGKvR8kdTANBgkqhkiG9w0BAQsFADANMQswCQYDVQQDDAJ1aTAeFw0yMzA5MjIxMzM5MDlaFw0zMzA5MjIxMzQwNDlaMA0xCzAJBgNVBAMMAnVpMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwPypvyY5KHqky29tAFbbEClUr6JB8fLbC6+4Lgz8JtxMKEnLScSDfA003JqCp757UqIrHMg2xq/f1y669CUiHUuWliToqJDDxXdqYvy3jQGz1wzh37KTsMvPgya6PGqk3JQrie0k3nWiskQj8x95tpYjCzo7Iyw/ijSlDbpqJ5y2WeoddGWzEgsjj23S+ykXWilmyASHaKxErqF3RVLQKf3O3uTpLpcWKIkxbJjekmmr95EzmWp0skKVl/8w+j2bLYgnbgT7a3ZO9Y4Diftd2ZmhWq3aSCknf85qJKZEDfjB1LuIY4SbGQpK3X00OPZQL/xjvM7f5tUKEhkRwbCNAwIDAQABMA0GCSqGSIb3DQEBCwUAA4IBAQBEE6wbSM/5Y34NEI4AZQkE5C/rExvH6/icgBZis4VTAFLz7nNPp5I+Q+ciHhzKbD3WqyU/BSoUywAUJ1e9+mttDPu8OTd+R0OOHmePfCBpozzI1qR+1UpxHRqKGAAUMBcW/FjwrwraUAe5p3d6oammmb0WG5OQEoyhALdv4BfvfI3pi0nvVPyjBF5gtPF3Bq0L3kcULqv3sXdK1VBJfF9QVjKtWnTE/18ozHx3t3DkPJi+XJ7lp7zv87Z1zYQdHzNhvSZhEQ5N9PzTwk8L64+TEt5RVWzfNzHyz5Tbw2ETejm03kjaeLFyQrWy3dhzm+aZNwLYMDQBDTEchSS4ZPZ4" ],
+        "certificate" : [ "MIIClTCCAX0CBgGK6rCwUTANBgkqhkiG9w0BAQsFADAOMQwwCgYDVQQDDANBcHAwHhcNMjMxMDAxMTAwMTAyWhcNMzMxMDAxMTAwMjQyWjAOMQwwCgYDVQQDDANBcHAwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCjCREhAq3rKGr0LY1fasAlL1Yu+lh8POuthpt+gq6NcxMHPFPet4GnvQSVF9MsDB9+kPw+HUNllAv2brG18BAXpmbDKb1b2LNjNIPeWi3ILSMk3XuW0YaEz6geAXZwKajnSetK1xeOKp3nvr7y3Y9LD4XOqY9kAPrSTcYcDZNKbsjfOzQddJIKzcAZMxuA8hVeSgI+/qB39J0Rk5ddjXpydF32k6mkFM/EUgHKDK3Cfv1u47vUFu4Frf+w0cvc33C+UJycmwkxoqzvyvqOZviFPb8PpRYK2QHWynC3pp2DkeIoa8mHMEi7wTaErxecCTvmG4G+NiBhBNoqh+c4KpfHAgMBAAEwDQYJKoZIhvcNAQELBQADggEBAFUiCqyWIvivZIubzzBJp5dCCyF0q9sACJlcn/+FSr/9pzp6Adm6I70NE5Swt2ytpWjNbIDUo9Qp+iQn/wHpZuC4ZRysKv7TfG49JRToZ+uqCvKfHCkXSWQUpXr75tNejXKGaDjJOtSqbPfw9ccpg1yCFA1yBCDnNtfAu4lFHdUaEDYT3gQwybVEscJLpUDsMqA3CEycumM2Jt1gthnuIghhShJmoiCriFUOHzwQNIoKu9ADaY1bc7EiqUl8Tq6Ami+jH0zFJ4bYlhjyfQNhDjnPDc3JdzE2lJuMDAE4igW0fITQzn/n2xkkvC9M37ac/IuaMCreXZtU48sjibz2pJM=" ],
         "priority" : [ "100" ]
       }
     } ]
@@ -3197,7 +3162,7 @@
   "internationalizationEnabled" : false,
   "supportedLocales" : [ ],
   "authenticationFlows" : [ {
-    "id" : "e14bf400-919c-4d30-8432-d8382f00d765",
+    "id" : "9eed084f-2161-4ad2-acba-7ddad041ab25",
     "alias" : "Account verification options",
     "description" : "Method with which to verity the existing account",
     "providerId" : "basic-flow",
@@ -3219,7 +3184,7 @@
       "userSetupAllowed" : false
     } ]
   }, {
-    "id" : "c53a9990-a6d7-4d88-8560-8aa2c2d4e4bf",
+    "id" : "e3356351-12b1-4ed9-95d5-d4982e312645",
     "alias" : "Browser - Conditional OTP",
     "description" : "Flow to determine if the OTP is required for the authentication",
     "providerId" : "basic-flow",
@@ -3241,7 +3206,7 @@
       "userSetupAllowed" : false
     } ]
   }, {
-    "id" : "d4edf5e1-a232-4f93-ba20-51d92b918718",
+    "id" : "c5680395-b3ca-45e2-b086-3b26f4c2684c",
     "alias" : "Direct Grant - Conditional OTP",
     "description" : "Flow to determine if the OTP is required for the authentication",
     "providerId" : "basic-flow",
@@ -3263,7 +3228,7 @@
       "userSetupAllowed" : false
     } ]
   }, {
-    "id" : "46e0c63b-b399-44c4-878a-7e6d870997e0",
+    "id" : "fb9d5e73-500a-4e98-b45a-d9f86b96636e",
     "alias" : "First broker login - Conditional OTP",
     "description" : "Flow to determine if the OTP is required for the authentication",
     "providerId" : "basic-flow",
@@ -3285,7 +3250,7 @@
       "userSetupAllowed" : false
     } ]
   }, {
-    "id" : "bbf34468-b82d-4130-9e56-8acb4e09a164",
+    "id" : "c05afb5a-1e6f-4cc0-9e20-840dd4daaa56",
     "alias" : "Handle Existing Account",
     "description" : "Handle what to do if there is existing account with same email/username like authenticated identity provider",
     "providerId" : "basic-flow",
@@ -3307,7 +3272,7 @@
       "userSetupAllowed" : false
     } ]
   }, {
-    "id" : "d23632b6-3a1d-4c21-bd90-f2bd56f7ee0e",
+    "id" : "453f7e57-6733-4c6e-9a54-781a8af08367",
     "alias" : "Reset - Conditional OTP",
     "description" : "Flow to determine if the OTP should be reset or not. Set to REQUIRED to force.",
     "providerId" : "basic-flow",
@@ -3329,7 +3294,7 @@
       "userSetupAllowed" : false
     } ]
   }, {
-    "id" : "fd504450-0e10-42f6-adad-d6f3716de116",
+    "id" : "17b704f4-c737-4495-986f-6b8d9a52c8d7",
     "alias" : "User creation or linking",
     "description" : "Flow for the existing/non-existing user alternatives",
     "providerId" : "basic-flow",
@@ -3352,7 +3317,7 @@
       "userSetupAllowed" : false
     } ]
   }, {
-    "id" : "829644ec-cb8e-4bcd-993d-c9cf7977083e",
+    "id" : "5a953b6b-86b2-4e76-93b7-75e2a4550a1b",
     "alias" : "Verify Existing Account by Re-authentication",
     "description" : "Reauthentication of existing account",
     "providerId" : "basic-flow",
@@ -3374,7 +3339,7 @@
       "userSetupAllowed" : false
     } ]
   }, {
-    "id" : "5a5abc98-9060-4f03-8f3a-ff6a60ff7e12",
+    "id" : "7a02c9ff-bcdf-4ce1-a77e-ce822b6337da",
     "alias" : "browser",
     "description" : "browser based authentication",
     "providerId" : "basic-flow",
@@ -3410,7 +3375,7 @@
       "userSetupAllowed" : false
     } ]
   }, {
-    "id" : "73248edd-5b1c-4e0b-8b49-5e45f8193fed",
+    "id" : "32d0bf10-ca70-41d7-83dc-2bd61cfe36a0",
     "alias" : "clients",
     "description" : "Base authentication for clients",
     "providerId" : "client-flow",
@@ -3446,7 +3411,7 @@
       "userSetupAllowed" : false
     } ]
   }, {
-    "id" : "a6f1b42f-43c0-495a-ac51-33b2ba72bd66",
+    "id" : "ede5f4ae-b6e2-4074-9347-b2ab972b7f7b",
     "alias" : "direct grant",
     "description" : "OpenID Connect Resource Owner Grant",
     "providerId" : "basic-flow",
@@ -3475,7 +3440,7 @@
       "userSetupAllowed" : false
     } ]
   }, {
-    "id" : "352b59d1-89d4-407a-a5cc-81e842fbb30f",
+    "id" : "73734ed2-9d68-4cee-a4c9-ed00b970526a",
     "alias" : "docker auth",
     "description" : "Used by Docker clients to authenticate against the IDP",
     "providerId" : "basic-flow",
@@ -3490,7 +3455,7 @@
       "userSetupAllowed" : false
     } ]
   }, {
-    "id" : "6bda037b-a514-49f9-bb42-6451ca823bc2",
+    "id" : "3c600139-0812-4a2c-a542-cc47df63893f",
     "alias" : "first broker login",
     "description" : "Actions taken after first broker login with identity provider account, which is not yet linked to any Keycloak account",
     "providerId" : "basic-flow",
@@ -3513,7 +3478,7 @@
       "userSetupAllowed" : false
     } ]
   }, {
-    "id" : "6e77ae04-ec83-4809-971e-ac911c75cba7",
+    "id" : "96cdcf35-68da-44fd-98ed-067504c9f203",
     "alias" : "forms",
     "description" : "Username, password, otp and other auth forms.",
     "providerId" : "basic-flow",
@@ -3535,7 +3500,7 @@
       "userSetupAllowed" : false
     } ]
   }, {
-    "id" : "f8a20ded-b269-432b-bc06-3fe16b24f957",
+    "id" : "9ee6c1bd-c489-4f07-b443-b3212d82c4c3",
     "alias" : "registration",
     "description" : "registration flow",
     "providerId" : "basic-flow",
@@ -3551,7 +3516,7 @@
       "userSetupAllowed" : false
     } ]
   }, {
-    "id" : "d03d7a41-dd10-4ccb-948a-07ea06473ebb",
+    "id" : "b1c49c9f-9d77-48d0-8f09-f0c618e13ce4",
     "alias" : "registration form",
     "description" : "registration form",
     "providerId" : "form-flow",
@@ -3587,7 +3552,7 @@
       "userSetupAllowed" : false
     } ]
   }, {
-    "id" : "57309045-f1bc-4238-9a45-0748ddb9837b",
+    "id" : "81a541a5-b239-4fa5-b48a-6cd2594c08c9",
     "alias" : "reset credentials",
     "description" : "Reset credentials for a user if they forgot their password or something",
     "providerId" : "basic-flow",
@@ -3623,7 +3588,7 @@
       "userSetupAllowed" : false
     } ]
   }, {
-    "id" : "fe7e414d-01ce-41de-9661-83d42af926c6",
+    "id" : "1aa18c02-17af-4c13-9e72-d101e4a25f6f",
     "alias" : "saml ecp",
     "description" : "SAML ECP Profile Authentication Flow",
     "providerId" : "basic-flow",
@@ -3639,13 +3604,13 @@
     } ]
   } ],
   "authenticatorConfig" : [ {
-    "id" : "b2486f3d-36f7-4023-b675-cf07ad2976aa",
+    "id" : "583d873c-38e8-4308-90b8-c85eb99ba160",
     "alias" : "create unique user config",
     "config" : {
       "require.password.update.after.registration" : "false"
     }
   }, {
-    "id" : "8a68871e-d820-4ae1-9726-47668e6acf7b",
+    "id" : "80fe664b-f8cf-4308-a173-5311d9e461db",
     "alias" : "review profile config",
     "config" : {
       "update.profile.on.first.login" : "missing"
@@ -3732,19 +3697,17 @@
   "dockerAuthenticationFlow" : "docker auth",
   "attributes" : {
     "cibaBackchannelTokenDeliveryMode" : "poll",
-    "cibaAuthRequestedUserHint" : "login_hint",
-    "clientOfflineSessionMaxLifespan" : "0",
-    "oauth2DevicePollingInterval" : "5",
-    "clientSessionIdleTimeout" : "0",
-    "clientOfflineSessionIdleTimeout" : "0",
-    "cibaInterval" : "5",
-    "realmReusableOtpCode" : "false",
     "cibaExpiresIn" : "120",
+    "cibaAuthRequestedUserHint" : "login_hint",
     "oauth2DeviceCodeLifespan" : "600",
+    "oauth2DevicePollingInterval" : "5",
+    "clientOfflineSessionMaxLifespan" : "0",
+    "clientSessionIdleTimeout" : "0",
     "parRequestUriLifespan" : "60",
     "clientSessionMaxLifespan" : "0",
-    "frontendUrl" : "",
-    "acr.loa.map" : "{}"
+    "clientOfflineSessionIdleTimeout" : "0",
+    "cibaInterval" : "5",
+    "realmReusableOtpCode" : "false"
   },
   "keycloakVersion" : "22.0.3",
   "userManagedAccessAllowed" : false,

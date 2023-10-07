@@ -16,6 +16,7 @@ import { registerPlugins } from '@/plugins'
 import VueApexCharts from 'vue3-apexcharts'
 import axios from 'axios'
 import Keycloak from 'keycloak-js'
+import lodash from 'lodash';
 
 const keycloakConfig = {
     url: 'http://localhost:8080',
@@ -48,6 +49,7 @@ const app = createApp(App)
 app.config.globalProperties.$axios = axios
 app.config.globalProperties.$keycloak = keycloak
 app.config.globalProperties.$user = await keycloak.loadUserProfile()
+app.config.globalProperties.$lodash = lodash;
 
 registerPlugins(app)
 

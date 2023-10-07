@@ -113,7 +113,7 @@ services:
         condition: "service_started"
 
   keycloak:
-    image: quay.io/keycloak/keycloak:latest
+    image: quay.io/keycloak/keycloak:22.0
     container_name: "keycloak"
     restart: unless-stopped
     command:
@@ -137,6 +137,7 @@ services:
       - KC_LOG_GELF_PORT=12201
     volumes:
       - ./import:/opt/keycloak/data/import
+      - ./themes:/opt/keycloak/themes
     networks:
       - internal
     depends_on:

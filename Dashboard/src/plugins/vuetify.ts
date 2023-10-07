@@ -19,9 +19,9 @@ export default createVuetify({
       dark: {
         colors: {
           text: '#EEE5E3',
-          bg: '#160F0E',
+          bg: '#121212',
           primary: '#43a4b7',
-          secondary: '#302C2B',
+          secondary: '#212121',
           accent: '#5EA0AF'
         },
       },

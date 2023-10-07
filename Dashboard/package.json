@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "vite",
+    "host": "vite --host",
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview",
     "lint": "eslint . --fix --ignore-path .gitignore"
@@ -16,6 +17,7 @@
     "dotenv": "^16.3.1",
     "graylog2": "^0.2.1",
     "keycloak-js": "^22.0.1",
+    "lodash": "^4.17.21",
     "momentjs": "^2.0.0",
     "mongodb": "^5.6.0",
     "roboto-fontface": "*",

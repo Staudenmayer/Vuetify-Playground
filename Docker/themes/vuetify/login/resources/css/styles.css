@@ -1,0 +1,73 @@
+html {
+    height: 100%;
+}
+body {
+    height: 100%;
+    background-color: #121212;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+body > * {
+    color: #EEE5E3;
+}
+#kc-header {
+    display: none;
+}
+
+body > div {
+    background-color: #212121;
+    padding: 50px;
+    border: 2px solid #212121;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+a {
+    color: #43a4b7;
+}
+#kc-form-login > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+
+}
+#kc-form-login > div > * {
+    width: 200px;
+    text-align: center;
+}
+#kc-registration {
+    text-align: center;
+}
+label {
+    padding: 5px;
+}
+#kc-page-title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#kc-reset-password-form > div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+#kc-info {
+    display: none;
+}
+/*
+#kc-page-title {
+    text-align: center
+}
+#kc-content {
+    text-align: center
+}*/
