@@ -2,21 +2,17 @@ const gql = require("graphql-tag");
 
 const typeDefs = gql`
   type Query {
-    hello: String
-    welcome(name: String): String
-    students: [Student] #return array of students
-    student(id: ID): Student #return student by id
+    users: [User] #return array of users
+    user(uuid: String): User #return user by id
   }
-  type Student {
-    id: ID
-    firstName: String
-    lastName: String
+  type User {
+    uuid: String
     age: Int
   }
   type Mutation {
-    create(firstName: String, lastName: String, age: Int): Student
-    update(id: ID, firstName: String, lastName: String, age: Int): Student
-    delete(id: ID): Student
+    create(uuid: String, age: Int): User
+    update(uuid: String, age: Int): User
+    delete(uuid: String): User
   }
 `;
 

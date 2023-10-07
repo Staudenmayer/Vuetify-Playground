@@ -4,12 +4,13 @@ const mongoose = require("mongoose");
 const { resolvers } = require("./resolvers.js");
 const { typeDefs } = require("./models/typeDefs.js");
 const graylog2 = require('graylog2');
+
 const logger = new graylog2.graylog({
   servers: [{ host: 'localhost', port: 12201 }], // Replace the "host" per your Graylog domain
   facility: "GraphQL"
 });
 
-const MONGO_URI = "mongodb://localhost:27017/student-register";
+const MONGO_URI = "mongodb://localhost:27017/App";
 
 // Database connection
 mongoose
