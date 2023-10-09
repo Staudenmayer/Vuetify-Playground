@@ -3,20 +3,28 @@
     <template v-slot:prepend>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
     </template>
-
     <v-app-bar-title>{{ $route.name }}</v-app-bar-title>
-
     <template v-slot:append>
       <v-menu width="500">
         <template v-slot:activator="{ props }">
-          <v-btn v-bind="props" icon="mdi-account"></v-btn>
+          <v-btn v-bind="props" class="pa-0 ma-0">
+            <v-avatar size="30">
+              <v-img :src="profile" cover width="30" height="30">
+                <template v-slot:placeholder>
+                  <div class="d-flex align-center justify-center fill-height">
+                    <v-icon icon="mdi-account-circle" size="30"></v-icon>
+                  </div>
+                </template>
+              </v-img>
+            </v-avatar>
+          </v-btn>
         </template>
         <template v-slot:default="{ isActive }">
           <v-card title="Account" class="bg-secondary elevation-15">
               <v-list density="compact" nav class="bg-secondary elevation-15">
                 <v-list-item class="d-flex justify-center">
                   <v-avatar size="150px">
-                    <v-img src="">
+                    <v-img :src="profile" cover>
                       <template v-slot:placeholder>
                         <div class="d-flex align-center justify-center fill-height">
                           <v-icon icon="mdi-account-circle" size="150px"></v-icon>
@@ -53,7 +61,6 @@
 </template>
 
 <script lang="ts">
-import { getDefaultHighWaterMark } from 'stream';
 import { defineComponent } from 'vue'
 import { useTheme } from 'vuetify/lib/framework.mjs'
 
@@ -63,6 +70,15 @@ export default defineComponent({
     return {
       drawer: false,
       theme: useTheme()
+    }
+  },
+  computed: {
+    profile: function(): String{
+      let res = "";
+      if (this.$user?.img && this.$user?.imgFormat) {
+        res = `data:image/${this.$user.imgFormat};base64, ${this.$user.img}`
+      }
+      return res;
     }
   },
   methods: {

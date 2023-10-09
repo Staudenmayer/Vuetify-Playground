@@ -43,7 +43,7 @@ const routes = [
         component: () => import(/* webpackChunkName: "home" */ '@/views/Workout.vue'),
       },
     ],
-  },
+  }
 ]
 
 const router = createRouter({

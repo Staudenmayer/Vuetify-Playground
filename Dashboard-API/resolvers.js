@@ -34,14 +34,16 @@ const resolvers = {
   },
   Mutation: {
     create: async (parent, args) => {
-      const { uuid, age } = args;
+      const { uuid, age, img, imgFormat } = args;
       if (!uuidValidator(uuid)) {
         logger.warn(`Failed to create User because of invalid UUID ${uuid}`, parseUser(args))
         throw new Error(`Failed to create User because of invalid UUID ${uuid}`);
       }
       const newUser = new User({
         uuid,
-        age
+        age,
+        img,
+        imgFormat
       }).save();
       if (!newUser) {
         logger.warn("Failed to create User", parseUser(args));
@@ -74,7 +76,7 @@ const resolvers = {
       let deleteUser = await User.findOneAndDelete(args);
       if (!deleteUser) {
         logger.warn("Failed to delete User", parseUser(args));
-        throw new Error(`Student with ID ${id} not found`);
+        throw new Error(`Student with ID ${uuid} not found`);
       }
       deleteUser = await User.findOne({uuid: uuid});
       logger.log("Deleted User", parseUser(deleteUser));
