@@ -1,10 +1,10 @@
 <template>
-  <div class="d-flex flex-column justify-center align-center">
-    <v-card height="30%" width="30%" class="pa-5 d-flex justify-center">
-    <a href="https://dribbble.com/shots/20021494-Bonds-My-Account-Page" target=”_blank”>Template</a>
-  </v-card>
+  <div class="d-flex flex-column justify-center align-center pa-5">
+    <v-card height="30%" width="30%" class="d-flex justify-center pa-5">
+      <Profile size="150px" :hover="true"></Profile>
+    </v-card>
   </div>
-    <v-table class="d-none">
+  <v-table class="d-none">
     <tbody>
       <tr>
         <td>Username:</td>
@@ -21,7 +21,13 @@
       <tr>
         <td>Email:</td>
         <td>
-            {{ this.$user.email }}
+          {{ this.$user.email }}
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>
+          <a href="https://dribbble.com/shots/20021494-Bonds-My-Account-Page" target=”_blank”>Template</a>
         </td>
       </tr>
     </tbody>
@@ -29,20 +35,21 @@
 </template>
   
 <script lang="ts" setup>
+import Profile from '@/components/Profile.vue'
 </script>
 <script lang="ts">
 export default {
-    data() {
-        return {
-        }
-    },
-    beforeCreate() {
-    },
-    beforeUnmount() {
-    },
-    mounted() {
-    },
-    methods: {
+  data() {
+    return {
     }
+  },
+  beforeCreate() {
+  },
+  beforeUnmount() {
+  },
+  mounted() {
+  },
+  methods: {
+  }
 }
 </script>

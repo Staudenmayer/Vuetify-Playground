@@ -8,43 +8,30 @@
       <v-menu width="500">
         <template v-slot:activator="{ props }">
           <v-btn v-bind="props" class="pa-0 ma-0">
-            <v-avatar size="30">
-              <v-img :src="profile" cover width="30" height="30">
-                <template v-slot:placeholder>
-                  <div class="d-flex align-center justify-center fill-height">
-                    <v-icon icon="mdi-account-circle" size="30"></v-icon>
-                  </div>
-                </template>
-              </v-img>
-            </v-avatar>
+            <Profile size="30"></Profile>
           </v-btn>
         </template>
         <template v-slot:default="{ isActive }">
           <v-card title="Account" class="bg-secondary elevation-15">
-              <v-list density="compact" nav class="bg-secondary elevation-15">
-                <v-list-item class="d-flex justify-center">
-                  <v-avatar size="150px">
-                    <v-img :src="profile" cover>
-                      <template v-slot:placeholder>
-                        <div class="d-flex align-center justify-center fill-height">
-                          <v-icon icon="mdi-account-circle" size="150px"></v-icon>
-                        </div>
-                      </template>
-                    </v-img>
-                  </v-avatar>
-                </v-list-item>
-                <v-list-item class="d-flex justify-center">
-                  {{ $user.username }}
-                </v-list-item>
-                <v-divider></v-divider>
-                <v-list-item prepend-icon="mdi-account"               title="My Account"  @click="$keycloak.accountManagement()"></v-list-item>
-                <router-link class="drawer-link" to="/settings">
-                  <v-list-item prepend-icon="mdi-cog"                   title="Settings"    @click=""></v-list-item>
-                </router-link>
-                <v-list-item prepend-icon="mdi-weather-sunny"         title="Light Mode"  @click="toggleTheme()" v-if="this.theme.global.current.dark"></v-list-item>
-                <v-list-item prepend-icon="mdi-moon-waning-crescent"  title="Dark Mode"   @click="toggleTheme()" v-else></v-list-item>
-                <v-list-item prepend-icon="mdi-logout"                title="Logout"      @click="$keycloak.logout()"></v-list-item>
-              </v-list>
+            <v-list density="compact" nav class="bg-secondary elevation-15">
+              <v-list-item class="d-flex justify-center">
+                <Profile size="150px"></Profile>
+              </v-list-item>
+              <v-list-item class="d-flex justify-center">
+                {{ $user.username }}
+              </v-list-item>
+              <v-divider></v-divider>
+              <v-list-item prepend-icon="mdi-account" title="My Account"
+                @click="$keycloak.accountManagement()"></v-list-item>
+              <router-link class="drawer-link" to="/settings">
+                <v-list-item prepend-icon="mdi-cog" title="Settings" @click=""></v-list-item>
+              </router-link>
+              <v-list-item prepend-icon="mdi-weather-sunny" title="Light Mode" @click="toggleTheme()"
+                v-if="this.theme.global.current.dark"></v-list-item>
+              <v-list-item prepend-icon="mdi-moon-waning-crescent" title="Dark Mode" @click="toggleTheme()"
+                v-else></v-list-item>
+              <v-list-item prepend-icon="mdi-logout" title="Logout" @click="$keycloak.logout()"></v-list-item>
+            </v-list>
           </v-card>
         </template>
       </v-menu>
@@ -60,9 +47,13 @@
   </v-navigation-drawer>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 import { defineComponent } from 'vue'
 import { useTheme } from 'vuetify/lib/framework.mjs'
+import Profile from '@/components/Profile.vue'
+</script>
+
+<script lang="ts">
 
 export default defineComponent({
   // type inference enabled
@@ -73,7 +64,7 @@ export default defineComponent({
     }
   },
   computed: {
-    profile: function(): String{
+    profile: function (): String {
       let res = "";
       if (this.$user?.img && this.$user?.imgFormat) {
         res = `data:image/${this.$user.imgFormat};base64, ${this.$user.img}`
@@ -82,7 +73,7 @@ export default defineComponent({
     }
   },
   methods: {
-    toggleTheme () {
+    toggleTheme() {
       this.theme.global.name = this.theme.global.current.dark ? 'light' : 'dark';
     }
   }
@@ -98,5 +89,4 @@ export default defineComponent({
 .drawer-link:hover {
   text-decoration: none;
   color: rgb(var(--v-theme-primary));
-}
-</style>
+}</style>
