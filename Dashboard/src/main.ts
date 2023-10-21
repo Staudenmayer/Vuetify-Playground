@@ -41,7 +41,7 @@ try {
     if(keycloak.refreshToken) localStorage.setItem("vue-refresh-token", keycloak.refreshToken)
 
     setInterval(async () =>{
-        let refreshed = await keycloak.updateToken(70)
+        const refreshed = await keycloak.updateToken(70)
         if(refreshed) console.log('Token refreshed')
         else console.log(`Token not refreshed, valid for ${Math.round((keycloak?.tokenParsed?.exp || 0) - (keycloak?.timeSkew || 0) - new Date().getTime() / 1000)}s`)
       }, 60000)

@@ -26,7 +26,7 @@ export default {
         }
     },
     computed: {
-        profile: function (): String {
+        profile: function (): string {
             let res = "";
             if (this.$user?.img && this.$user?.imgFormat && !this.isHovering) {
                 res = `data:image/${this.$user.imgFormat};base64, ${this.$user.img}`
@@ -37,7 +37,7 @@ export default {
     created() {
     },
 
-    destroyed() {
+    unmounted() {
     },
     mounted() {
     },
@@ -49,7 +49,7 @@ export default {
         },
         onClick () {
             if (this.hover) {
-                
+                console.log("asd")
             }
         }
     }

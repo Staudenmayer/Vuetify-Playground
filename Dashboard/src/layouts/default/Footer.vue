@@ -14,7 +14,6 @@
   
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { useTheme } from 'vuetify/lib/framework.mjs'
 
 export default defineComponent({
     // type inference enabled

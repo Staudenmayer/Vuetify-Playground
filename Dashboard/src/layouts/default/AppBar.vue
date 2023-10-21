@@ -11,7 +11,7 @@
             <Profile size="30"></Profile>
           </v-btn>
         </template>
-        <template v-slot:default="{ isActive }">
+        <template>
           <v-card title="Account" class="bg-secondary elevation-15">
             <v-list density="compact" nav class="bg-secondary elevation-15">
               <v-list-item class="d-flex justify-center">
@@ -24,7 +24,7 @@
               <v-list-item prepend-icon="mdi-account" title="My Account"
                 @click="$keycloak.accountManagement()"></v-list-item>
               <router-link class="drawer-link" to="/settings">
-                <v-list-item prepend-icon="mdi-cog" title="Settings" @click=""></v-list-item>
+                <v-list-item prepend-icon="mdi-cog" title="Settings"></v-list-item>
               </router-link>
               <v-list-item prepend-icon="mdi-weather-sunny" title="Light Mode" @click="toggleTheme()"
                 v-if="this.theme.global.current.dark"></v-list-item>

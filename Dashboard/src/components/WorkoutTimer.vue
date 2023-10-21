@@ -24,7 +24,7 @@
     </div>
     <div v-if="false">
             <v-card class="d-flex flex-column overflow-auto ma-5" style="height: 60vh;"> <!-- Mobile mode-->
-                <v-btn v-for="(workout, idx) in workoutRoutine" :id="'exercise_'+idx" class="ma-2 pa-2" :color="idx == workoutExercise ? 'primary' : ''" @click.stop="idxExercise(idx)">
+                <v-btn v-for="(workout, idx) in workoutRoutine" :key="idx" :id="'exercise_'+idx" class="ma-2 pa-2" :color="idx == workoutExercise ? 'primary' : ''" @click.stop="idxExercise(idx)">
                     <v-icon v-if="workout.exercise == true" icon="mdi-dumbbell" :color="idx == workoutExercise ? $vuetify.theme.themes.dark.colors.background : ''"/>
                     <v-icon v-else icon="mdi-bed" :color="idx == workoutExercise ? $vuetify.theme.themes.dark.colors.background : ''"/>
                     <div class="pl-2" :style="{color: idx == workoutExercise ? $vuetify.theme.themes.dark.colors.background : ''}">
@@ -66,7 +66,7 @@ export default {
         window.addEventListener('resize', this.handleResize);
         this.handleResize();
     },
-    destroyed() {
+    unmounted() {
         window.removeEventListener('resize', this.handleResize);
         this.clearTimer();
     },
