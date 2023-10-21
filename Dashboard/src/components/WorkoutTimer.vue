@@ -143,7 +143,7 @@ export default {
             }
             document.getElementById("exercise_" + this.workoutExercise).scrollIntoView();
         },
-        idxExercise(idx){
+        idxExercise(idx: number){
             let timerActive = this.timerActive;
             this.workoutExercise = idx;
             this.workoutName = this.workoutRoutine[this.workoutExercise].name;

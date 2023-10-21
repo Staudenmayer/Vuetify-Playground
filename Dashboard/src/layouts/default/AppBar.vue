@@ -11,8 +11,8 @@
             <Profile size="30"></Profile>
           </v-btn>
         </template>
-        <template>
-          <v-card title="Account" class="bg-secondary elevation-15">
+        <template v-slot:default="{ isActive }">
+          <v-card v-if="isActive" title="Account" class="bg-secondary elevation-15">
             <v-list density="compact" nav class="bg-secondary elevation-15">
               <v-list-item class="d-flex justify-center">
                 <Profile size="150px"></Profile>
