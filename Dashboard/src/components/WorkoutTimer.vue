@@ -36,18 +36,24 @@
 </template>
 
 <script lang="ts" setup>
+
 </script>
 
 <script lang="ts">
+
+interface exercise {
+    name?: string | undefined;
+    exercise?: boolean;
+}
 
 export default {
     data() {
         return {
             workouts: {},
-            workoutName: "",
+            workoutName: "" as string | undefined,
             workoutExercise: 0,
             workoutLength: 0,
-            timer: '',
+            timer: undefined as ReturnType<typeof setInterval> | undefined,
             timerActive: false,
             setTime: 45,
             currTime: 0,
@@ -60,7 +66,10 @@ export default {
         }
     },
     props: {
-        workoutRoutine: Array,
+        workoutRoutine: {
+            type: Array<exercise>,
+            default: []
+        },
     },
     created() {
         window.addEventListener('resize', this.handleResize);
@@ -114,9 +123,9 @@ export default {
         },
         resetTimer(){
             this.workoutExercise = 0;
-            this.workoutName = this.workoutRoutine[this.workoutExercise].name;
+            this.workoutName = this.workoutRoutine[0].name;
             this.clearTimer();
-            document.getElementById("exercise_" + this.workoutExercise).scrollIntoView();
+            //document.getElementById("exercise_" + this.workoutExercise).scrollIntoView();
         },
         nextExercise(){
             let timerActive = this.timerActive;
@@ -130,7 +139,7 @@ export default {
                 this.workoutExercise = 0;
                 this.workoutName = this.workoutRoutine[this.workoutExercise].name;
             }
-            document.getElementById("exercise_" + this.workoutExercise).scrollIntoView();
+            //document.getElementById("exercise_" + this.workoutExercise).scrollIntoView();
         },
         prevExercise(){
             let timerActive = this.timerActive;
@@ -141,7 +150,7 @@ export default {
                 if(timerActive)
                     this.startTimer();
             }
-            document.getElementById("exercise_" + this.workoutExercise).scrollIntoView();
+            //document.getElementById("exercise_" + this.workoutExercise).scrollIntoView();
         },
         idxExercise(idx: number){
             let timerActive = this.timerActive;

@@ -1,7 +1,7 @@
 import type { App } from 'vue'
 import Axios from 'axios'
 
-let axios = {
+const axios = {
 
     async install(app: App) {
         //axios defaults
@@ -9,5 +9,12 @@ let axios = {
         app.config.globalProperties.$axios = Axios
     }
 };
+
+
+declare module '@vue/runtime-core' {
+  interface ComponentCustomProperties {
+    $axios: typeof Axios;
+  }
+}
 
 export default axios

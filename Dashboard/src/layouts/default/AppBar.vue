@@ -18,7 +18,7 @@
                 <Profile size="150px"></Profile>
               </v-list-item>
               <v-list-item class="d-flex justify-center">
-                {{ $user.username }}
+                {{ $user?.username }}
               </v-list-item>
               <v-divider></v-divider>
               <v-list-item prepend-icon="mdi-account" title="My Account"
@@ -27,7 +27,7 @@
                 <v-list-item prepend-icon="mdi-cog" title="Settings"></v-list-item>
               </router-link>
               <v-list-item prepend-icon="mdi-weather-sunny" title="Light Mode" @click="toggleTheme()"
-                v-if="this.theme.global.current.dark"></v-list-item>
+                v-if="theme === 'dark'"></v-list-item>
               <v-list-item prepend-icon="mdi-moon-waning-crescent" title="Dark Mode" @click="toggleTheme()"
                 v-else></v-list-item>
               <v-list-item prepend-icon="mdi-logout" title="Logout" @click="$keycloak.logout()"></v-list-item>
@@ -49,18 +49,18 @@
 
 <script lang="ts" setup>
 import { defineComponent } from 'vue'
-import { useTheme } from 'vuetify/lib/framework.mjs'
 import Profile from '@/components/Profile.vue'
 </script>
 
 <script lang="ts">
 
 export default defineComponent({
-  // type inference enabled
+  props: {
+    theme: String
+  },
   data() {
     return {
-      drawer: false,
-      theme: useTheme()
+      drawer: false
     }
   },
   computed: {
@@ -74,7 +74,7 @@ export default defineComponent({
   },
   methods: {
     toggleTheme() {
-      this.theme.global.name = this.theme.global.current.dark ? 'light' : 'dark';
+      this.$emit("v-change-theme", this.theme === 'dark' ? 'light' : 'dark');
     }
   }
 })

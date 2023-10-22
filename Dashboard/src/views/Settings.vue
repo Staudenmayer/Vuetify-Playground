@@ -8,20 +8,20 @@
     <tbody>
       <tr>
         <td>Username:</td>
-        <td>{{ this.$user.username }}</td>
+        <td>{{ $user?.username }}</td>
       </tr>
       <tr>
         <td>First Name:</td>
-        <td>{{ this.$user.firstName }}</td>
+        <td>{{ $user?.firstName }}</td>
       </tr>
       <tr>
         <td>Last Name:</td>
-        <td>{{ this.$user.lastName }}</td>
+        <td>{{ $user?.lastName }}</td>
       </tr>
       <tr>
         <td>Email:</td>
         <td>
-          {{ this.$user.email }}
+          {{ $user?.email }}
         </td>
       </tr>
       <tr>
