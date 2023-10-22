@@ -1,5 +1,5 @@
 <template>
-    <div class="d-flex justify-center mb-6 flex-wrap" style="height: 60vh">
+    <div class="d-flex justify-center mb-6 flex-wrap">
         <div class="d-flex justify-center flex-column flex-grow-1">
             <div style="font-size: 5vw;">
                 <div class="text-center pa-5">

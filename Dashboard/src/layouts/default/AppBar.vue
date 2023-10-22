@@ -26,10 +26,6 @@
               <router-link class="drawer-link" to="/settings">
                 <v-list-item prepend-icon="mdi-cog" title="Settings"></v-list-item>
               </router-link>
-              <v-list-item prepend-icon="mdi-weather-sunny" title="Light Mode" @click="toggleTheme()"
-                v-if="theme === 'dark'"></v-list-item>
-              <v-list-item prepend-icon="mdi-moon-waning-crescent" title="Dark Mode" @click="toggleTheme()"
-                v-else></v-list-item>
               <v-list-item prepend-icon="mdi-logout" title="Logout" @click="$keycloak.logout()"></v-list-item>
             </v-list>
           </v-card>
