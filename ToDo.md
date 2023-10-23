@@ -1,0 +1,5 @@
+- Add Login screen to autoredirect to for Mobile
+- Fix Workout timer format
+- Add voice countdown to Workout timer
+- Add second Circle for all Exercises
+- Add Mobile sensor data (just to try if it works)
