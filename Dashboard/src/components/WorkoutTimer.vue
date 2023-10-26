@@ -1,38 +1,27 @@
 <template>
     <div class="d-flex justify-center mb-6 flex-wrap">
         <div class="d-flex justify-center flex-column flex-grow-1">
-            <div style="font-size: 5vw;">
-                <div class="text-center pa-5">
-                    <v-progress-circular :rotate="360" :size="window.width > 750 ? window.width/4 : window.width/2" :width="window.width > 750 ? window.width/40 : window.width/20" :model-value="percent" color="primary">
-                        <div class="ma-2 pa-2 text-primary">{{ (currTime / 100).toFixed(0) }}s</div>
-                    </v-progress-circular>
-                </div>
+            <div style="font-size: 3em;">
                 <div v-if="workoutLength" class="d-flex justify-center">
                     <div class="ma-2 pa-2 text-primary">
                         {{ workoutName }}
                     </div>
                 </div>
-                <div v-if="workoutLength" class="d-flex justify-center mb-6">
-                    <v-btn width="100" height="50" v-if="timerActive || currTime != 0"  @click.stop="prevExercise"  class="ma-2 pa-2"><v-icon size="30" icon="mdi-skip-previous"  color="primary"></v-icon></v-btn>
-                    <v-btn width="100" height="50" v-if="!timerActive"                  @click.stop="startTimer"    class="ma-2 pa-2"><v-icon size="30" icon="mdi-play"           color="primary"></v-icon></v-btn>
-                    <v-btn width="100" height="50" v-if="timerActive"                   @click.stop="pauseTimer"    class="ma-2 pa-2"><v-icon size="30" icon="mdi-pause"          color="primary"></v-icon></v-btn>
-                    <v-btn width="100" height="50" v-if="timerActive || currTime != 0"  @click.stop="resetTimer"    class="ma-2 pa-2"><v-icon size="30" icon="mdi-replay"         color="primary"></v-icon></v-btn>
-                    <v-btn width="100" height="50" v-if="timerActive || currTime != 0"  @click.stop="nextExercise"  class="ma-2 pa-2"><v-icon size="30" icon="mdi-skip-next"      color="primary"></v-icon></v-btn>
+                <div class="text-center pa-5">
+                    <v-progress-circular :rotate="360" :size="(window.width > window.height ? window.width/4 : window.width-50)" :width="(window.width > window.height ? window.width : window.height)/80" :model-value="percent" color="primary">
+                        <div class="ma-2 pa-2 text-primary">{{ (currTime / 100).toFixed(0) }}s</div>
+                    </v-progress-circular>
+                </div>
+                <div v-if="workoutLength" class="d-flex justify-center pa-5 ma-5">
+                    <v-btn width="50" height="50" v-if="timerActive || currTime != 0"  @click.stop="prevExercise"  class="ma-2 pa-2"><v-icon size="30" icon="mdi-skip-previous"  color="primary"></v-icon></v-btn>
+                    <v-btn width="50" height="50" v-if="!timerActive"                  @click.stop="startTimer"    class="ma-2 pa-2"><v-icon size="30" icon="mdi-play"           color="primary"></v-icon></v-btn>
+                    <v-btn width="50" height="50" v-if="timerActive"                   @click.stop="pauseTimer"    class="ma-2 pa-2"><v-icon size="30" icon="mdi-pause"          color="primary"></v-icon></v-btn>
+                    <v-btn width="50" height="50" v-if="timerActive || currTime != 0"  @click.stop="resetTimer"    class="ma-2 pa-2"><v-icon size="30" icon="mdi-replay"         color="primary"></v-icon></v-btn>
+                    <v-btn width="50" height="50" v-if="timerActive || currTime != 0"  @click.stop="nextExercise"  class="ma-2 pa-2"><v-icon size="30" icon="mdi-skip-next"      color="primary"></v-icon></v-btn>
                 </div>
             </div>
         </div>
     </div>
-    <div v-if="false">
-            <v-card class="d-flex flex-column overflow-auto ma-5" style="height: 60vh;"> <!-- Mobile mode-->
-                <v-btn v-for="(workout, idx) in workoutRoutine" :key="idx" :id="'exercise_'+idx" class="ma-2 pa-2" :color="idx == workoutExercise ? 'primary' : ''" @click.stop="idxExercise(idx)">
-                    <v-icon v-if="workout.exercise == true" icon="mdi-dumbbell" :color="idx == workoutExercise ? $vuetify.theme.themes.dark.colors.background : ''"/>
-                    <v-icon v-else icon="mdi-bed" :color="idx == workoutExercise ? $vuetify.theme.themes.dark.colors.background : ''"/>
-                    <div class="pl-2" :style="{color: idx == workoutExercise ? $vuetify.theme.themes.dark.colors.background : ''}">
-                        {{ workout.name }}
-                    </div>
-                </v-btn>
-            </v-card>
-        </div>
 </template>
 
 <script lang="ts" setup>

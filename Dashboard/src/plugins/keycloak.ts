@@ -84,10 +84,11 @@ const keycloak = {
         }
         const keycloak = new Keycloak(keycloakConfig);
         try {
-            const auth = await keycloak.init({ onLoad: 'login-required', checkLoginIframe: false })
-            if (!auth) window.location.reload()
-            else console.log("Authenticated")
-
+            let auth:boolean = false;
+            while(!auth){
+                auth = await keycloak.init({ onLoad: 'login-required', checkLoginIframe: false })
+            }
+            console.log("Authenticated")
             if (keycloak.token) localStorage.setItem('vue-token', keycloak.token)
             if (keycloak.refreshToken) localStorage.setItem("vue-refresh-token", keycloak.refreshToken)
 
