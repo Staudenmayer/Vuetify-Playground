@@ -29,7 +29,7 @@
 </script>
 
 <script lang="ts">
-
+import beep from '@/media/beep.wav';
 interface exercise {
     name?: string | undefined;
     exercise?: boolean;
@@ -66,7 +66,7 @@ export default {
     },
     unmounted() {
         window.removeEventListener('resize', this.handleResize);
-        this.clearTimer();
+        this.clearTimer(true);
     },
     async mounted() {
         await this.getWorkouts();
@@ -105,10 +105,14 @@ export default {
             clearInterval(this.timer);
             this.timerActive=false;
         },
-        clearTimer(){
+        clearTimer(noSound:boolean = false){
             this.pauseTimer();
             this.currTime = 0;
             this.percent = 0;
+            if(!noSound){
+                const audio: HTMLAudioElement = new Audio(beep);
+                audio.play();
+            }
         },
         resetTimer(){
             this.workoutExercise = 0;
