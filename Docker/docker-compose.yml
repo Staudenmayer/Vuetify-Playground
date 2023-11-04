@@ -62,7 +62,7 @@ services:
       - internal
 
   graylog:
-    image: graylog/graylog:5.1
+    image: graylog/graylog:5.2
     container_name: graylog
     restart: unless-stopped
     ports:
