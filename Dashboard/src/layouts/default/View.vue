@@ -1,6 +1,6 @@
 <template>
     <default-bar/>
-    <v-main v-if="$keycloak" class="h-100">
+    <v-main class="h-100">
       <router-view/>
     </v-main>
     <default-footer/>
