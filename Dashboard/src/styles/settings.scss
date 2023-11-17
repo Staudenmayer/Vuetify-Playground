@@ -8,3 +8,13 @@
 // @use 'vuetify' with (
 //   $color-pack: false
 // );
+
+.drawer-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.drawer-link:hover {
+  text-decoration: none;
+  color: rgb(var(--v-theme-primary));
+}

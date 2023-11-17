@@ -3,7 +3,9 @@
     <template v-slot:prepend>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
     </template>
-    <v-app-bar-title>{{ $route.name }}</v-app-bar-title>
+    <v-app-bar-title>
+      <slot name="title">{{ $route.name }}</slot>
+    </v-app-bar-title>
     <template v-slot:append>
       <v-menu>
         <template v-slot:activator="{ props }">
@@ -78,14 +80,3 @@ export default defineComponent({
   }
 })
 </script>
-
-<style scoped>
-.drawer-link {
-  text-decoration: none;
-  color: inherit;
-}
-
-.drawer-link:hover {
-  text-decoration: none;
-  color: rgb(var(--v-theme-primary));
-}</style>

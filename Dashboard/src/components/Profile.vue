@@ -49,7 +49,7 @@ export default {
         },
         onClick () {
             if (this.hover) {
-                console.log("asd")
+                
             }
         }
     }

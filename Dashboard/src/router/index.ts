@@ -32,7 +32,7 @@ const routes = [
   },
   {
     path: '/workout',
-    component: () => import('@/layouts/default/Default.vue'),
+    component: () => import('@/layouts/bread/Default.vue'),
     children: [
       {
         path: '',

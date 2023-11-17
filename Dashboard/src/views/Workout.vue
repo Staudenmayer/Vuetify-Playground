@@ -1,60 +1,27 @@
 <template>
-    <WorkoutTimer :workoutRoutine="workoutRoutine"/>
+    <WorkoutRoutines v-if="!workoutRoutine" @selectRoutine="selectRoutine"></WorkoutRoutines>
+    <WorkoutTimer v-else :workoutRoutine="workoutRoutine.exercises" />
 </template>
 
 <script lang="ts" setup>
-  import WorkoutTimer from '@/components/WorkoutTimer.vue'
+import WorkoutRoutines, { routine } from '@/components/WorkoutRoutines.vue'
+import WorkoutTimer from '@/components/WorkoutTimer.vue'
 </script>
 
 <script lang="ts">
- export default {
+export default {
     data() {
         return {
-            workoutRoutine: [
-                {name: "Burpee", time: 45, exercise: true},
-                {name: "Pause", time: 15},
-                {name: "Pike Push Up", time: 45, exercise: true},
-                {name: "Pause", time: 15},
-                {name: "Burpee", time: 45, exercise: true},
-                {name: "Pause", time: 15},
-                {name: "Pike Push Up", time: 45, exercise: true},
-                {name: "Pause", time: 15},
-                {name: "Burpee", time: 45, exercise: true},
-                {name: "Pause", time: 15},
-                {name: "Pike Push Up", time: 45, exercise: true},
-                {name: "Pause", time: 15},
-                {name: "Burpee", time: 45, exercise: true},
-                {name: "Pause", time: 15},
-                {name: "Pike Push Up", time: 45, exercise: true},
-                {name: "Pause", time: 15},
-                {name: "Burpee", time: 45, exercise: true},
-                {name: "Pause", time: 15},
-                {name: "Pike Push Up", time: 45, exercise: true},
-                {name: "Pause", time: 15},
-                {name: "Burpee", time: 45, exercise: true},
-                {name: "Pause", time: 15},
-                {name: "Pike Push Up", time: 45, exercise: true},
-                {name: "Pause", time: 15},
-                {name: "Burpee", time: 45, exercise: true},
-                {name: "Pause", time: 15},
-                {name: "Pike Push Up", time: 45, exercise: true},
-                {name: "Pause", time: 15},
-                {name: "Burpee", time: 45, exercise: true},
-                {name: "Pause", time: 15},
-                {name: "Pike Push Up", time: 45, exercise: true},
-                {name: "Pause", time: 15},
-                {name: "Burpee", time: 45, exercise: true},
-                {name: "Pause", time: 15},
-                {name: "Pike Push Up", time: 45, exercise: true},
-                {name: "Pause", time: 15},
-            ],
+            workoutRoutine: null as null | routine,
         }
-    },
-    beforeUnmount() {
     },
     mounted() {
     },
     methods: {
+        selectRoutine(el: routine) {
+            this.workoutRoutine = el;
+            this.$emit("updateCrumbs", [{title: this.$route.name,disabled: false,href: '/workout'}, {title: el.name, disabled: true,}])
+        }
     }
 }
 
