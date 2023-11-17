@@ -5,7 +5,7 @@ const axios = {
 
     async install(app: App) {
         //axios defaults
-        Axios.defaults.baseURL = 'http://localhost:19199'
+        Axios.defaults.baseURL = `${process.env.API_PATH}:${process.env.API_PORT}`
         app.config.globalProperties.$axios = Axios
     }
 };
