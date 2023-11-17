@@ -91,7 +91,6 @@ const keycloak = {
             console.log("Authenticated")
             if (keycloak.token) localStorage.setItem('vue-token', keycloak.token)
             if (keycloak.refreshToken) localStorage.setItem("vue-refresh-token", keycloak.refreshToken)
-
             setInterval(async () => {
                 const refreshed = await keycloak.updateToken(70)
                 if (refreshed) console.log('Token refreshed')

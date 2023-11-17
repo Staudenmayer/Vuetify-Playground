@@ -8,7 +8,6 @@
 import { loadFonts } from './webfontloader'
 import vuetify from './vuetify'
 import axios from './axios'
-import keycloak from './keycloak'
 import plugins from './plugins'
 import router from '../router'
 
@@ -20,7 +19,6 @@ export function registerPlugins (app: App) {
   app
     .use(vuetify)
     .use(axios)
-    .use(keycloak)
     .use(plugins)
     .use(router)
 }
