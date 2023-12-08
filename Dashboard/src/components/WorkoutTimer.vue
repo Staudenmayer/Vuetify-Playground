@@ -30,8 +30,14 @@
 <script lang="ts">
 import beep from '@/media/beep.wav';
 interface exercise {
-    name?: string | undefined;
-    exercise?: boolean;
+    name: string
+    exercise?: boolean
+    time: number
+}
+
+interface window {
+    width: number
+    height: number
 }
 
 export default {
@@ -39,18 +45,17 @@ export default {
         return {
             workouts: {},
             workoutName: "" as string | undefined,
-            workoutExercise: 0,
-            workoutLength: 0,
+            workoutExercise: 0 as number,
+            workoutLength: 0 as number,
             timer: undefined as ReturnType<typeof setInterval> | undefined,
-            timerActive: false,
-            setTime: 45,
-            currTime: 0,
-            percent: 0,
+            timerActive: false as boolean,
+            currTime: 0 as number,
+            percent: 0 as number,
             window: {
-                width: 0,
-                height: 0
-            },
-            progressSize: 0
+                width: 0 as number,
+                height: 0 as number
+            } as window,
+            progressSize: 0 as number
         }
     },
     props: {
@@ -83,15 +88,17 @@ export default {
             this.workoutLength = this.workoutRoutine.length;
         },
         timerFunction() {
-            if (this.currTime === this.setTime * 100) {
+            if (this.currTime === this.workoutRoutine[this.workoutExercise].time * 100) {
                 this.currTime = 0;
                 this.percent = 0;
                 if(this.workoutExercise === this.workoutLength-1)
                     return this.clearTimer();
                 this.workoutExercise++;
                 this.workoutName = this.workoutRoutine[this.workoutExercise].name;
+                const audio: HTMLAudioElement = new Audio(beep);
+                audio.play();
             }
-            if (this.currTime % this.setTime === 0)
+            if (this.currTime % this.workoutRoutine[this.workoutExercise].time === 0)
                 this.percent++;
             this.currTime++;
             this.timerActive=true;

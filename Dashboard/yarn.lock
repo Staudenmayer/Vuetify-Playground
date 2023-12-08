@@ -270,6 +270,11 @@
   "resolved" "https://registry.npmjs.org/@types/slice-ansi/-/slice-ansi-4.0.0.tgz"
   "version" "4.0.0"
 
+"@types/web-bluetooth@^0.0.20":
+  "integrity" "sha512-g9gZnnXVq7gM7v3tJCWV/qw7w+KeOlSHAhgF9RytFyifW6AF61hdT2ucrYhPq9hLs5JIryeupHV3qGk95dH9ow=="
+  "resolved" "https://registry.npmjs.org/@types/web-bluetooth/-/web-bluetooth-0.0.20.tgz"
+  "version" "0.0.20"
+
 "@types/webfontloader@^1.6.35":
   "integrity" "sha512-IJlrsiDWq6KghQ7tPlL5tcwSUyOxLDceT+AFUY7Ylj0Fcv3/h3QkANqQxZ0B5mEpEKxhTw76vDmvrruSMV9n9Q=="
   "resolved" "https://registry.npmjs.org/@types/webfontloader/-/webfontloader-1.6.35.tgz"
@@ -531,6 +536,28 @@
   dependencies:
     "find-cache-dir" "^3.3.2"
     "upath" "^2.0.1"
+
+"@vueuse/core@^10.6.1":
+  "integrity" "sha512-Pc26IJbqgC9VG1u6VY/xrXXfxD33hnvxBnKrLlA2LJlyHII+BSrRoTPJgGYq7qZOu61itITFUnm6QbacwZ4H8Q=="
+  "resolved" "https://registry.npmjs.org/@vueuse/core/-/core-10.6.1.tgz"
+  "version" "10.6.1"
+  dependencies:
+    "@types/web-bluetooth" "^0.0.20"
+    "@vueuse/metadata" "10.6.1"
+    "@vueuse/shared" "10.6.1"
+    "vue-demi" ">=0.14.6"
+
+"@vueuse/metadata@10.6.1":
+  "integrity" "sha512-qhdwPI65Bgcj23e5lpGfQsxcy0bMjCAsUGoXkJ7DsoeDUdasbZ2DBa4dinFCOER3lF4gwUv+UD2AlA11zdzMFw=="
+  "resolved" "https://registry.npmjs.org/@vueuse/metadata/-/metadata-10.6.1.tgz"
+  "version" "10.6.1"
+
+"@vueuse/shared@10.6.1":
+  "integrity" "sha512-TECVDTIedFlL0NUfHWncf3zF9Gc4VfdxfQc8JFwoVZQmxpONhLxFrlm0eHQeidHj4rdTPL3KXJa0TZCk1wnc5Q=="
+  "resolved" "https://registry.npmjs.org/@vueuse/shared/-/shared-10.6.1.tgz"
+  "version" "10.6.1"
+  dependencies:
+    "vue-demi" ">=0.14.6"
 
 "@xmldom/xmldom@^0.8.8":
   "integrity" "sha512-2WALfTl4xo2SkGCYRt6rDTFfk9R1czmBvUQy12gK2KuRKIpWEhcbbzy8EZXtz/jkRqHX8bFEc6FC1HjX4TUWYw=="
@@ -2209,6 +2236,11 @@
   optionalDependencies:
     "fsevents" "~2.3.2"
 
+"vue-demi@>=0.14.6":
+  "integrity" "sha512-8QA7wrYSHKaYgUxDA5ZC24w+eHm3sYCbp0EzcDwKqN3p6HqtTCGR/GVsPyZW92unff4UlcSh++lmqDWN3ZIq4w=="
+  "resolved" "https://registry.npmjs.org/vue-demi/-/vue-demi-0.14.6.tgz"
+  "version" "0.14.6"
+
 "vue-eslint-parser@^9.1.1", "vue-eslint-parser@^9.3.0":
   "integrity" "sha512-Clr85iD2XFZ3lJ52/ppmUDG/spxQu6+MAeHXjjyI4I1NUYZ9xmenQp4N0oaHJhrA8OOxltCVxMRfANGa70vU0g=="
   "resolved" "https://registry.npmjs.org/vue-eslint-parser/-/vue-eslint-parser-9.3.1.tgz"
@@ -2246,7 +2278,7 @@
     "@vue/typescript" "1.8.3"
     "semver" "^7.3.8"
 
-"vue@^3.0.0", "vue@^3.2.0", "vue@^3.2.13", "vue@^3.2.25", "vue@> 3.0.0", "vue@3.3.4":
+"vue@^3.0.0", "vue@^3.0.0-0 || ^2.6.0", "vue@^3.2.0", "vue@^3.2.13", "vue@^3.2.25", "vue@> 3.0.0", "vue@3.3.4":
   "integrity" "sha512-VTyEYn3yvIeY1Py0WaYGZsXnz3y5UnGi62GjVEqvEGPl6nxbOrCXbVOTQWBEJUqAyTUk2uJ5JLVnYJ6ZzGbrSw=="
   "resolved" "https://registry.npmjs.org/vue/-/vue-3.3.4.tgz"
   "version" "3.3.4"

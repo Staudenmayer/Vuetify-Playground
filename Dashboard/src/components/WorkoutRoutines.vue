@@ -11,7 +11,20 @@
                     {{ el.name }}
                 </template>
                 <template v-slot:append>
-                    <v-btn size="small" variant="text" icon="mdi-dots-vertical" @click.stop="openContext(idx)"></v-btn>
+                    <v-menu>
+                        <template v-slot:activator="{ props }">
+                            <v-btn size="small" variant="text" icon="mdi-dots-vertical" v-bind="props"></v-btn>
+                        </template>
+                        <v-list>
+                            <v-list-item v-for="(item, index) in contextOptions" :key="index" :value="index" @click="openContext(idx, item)">
+                                <template v-slot:prepend>
+                                    <v-icon :icon="item.icon"></v-icon>
+                                </template>
+                                <v-list-item-title>{{ item.title }}</v-list-item-title>
+                            </v-list-item>
+                        </v-list>
+                    </v-menu>
+
                 </template>
             </v-list-item>
         </v-list>
@@ -24,14 +37,20 @@
 <script lang="ts">
 
 export interface exercise {
-    name: string,
-    time: number,
+    name: string
+    time: number
     exercise?: boolean
 }
 
 export interface routine {
-    name: string,
+    name: string
     exercises?: Array<exercise>
+}
+
+interface ContextOption {
+    title: string
+    icon: string
+    action: string
 }
 
 export default {
@@ -59,17 +78,30 @@ export default {
                         { name: "Pause", time: 15 }
                     ]
                 }
-            ] as Array<routine>
+            ] as Array<routine>,
+            contextOptions: [
+                { 
+                    title: 'Edit',
+                    icon: 'mdi-pencil',
+                    action: 'edit'
+                },
+                { 
+                    title: 'Delete',
+                    icon: 'mdi-delete',
+                    action: 'delete'
+                },
+            ] as Array<ContextOption>,
         }
     },
     mounted() {
     },
     methods: {
         selectRoutine: function (idx: number) {
-            this.$emit('selectRoutine', this.routines[idx]);
+            this.$router.push('/workout/'+this.routines[idx].name.toLowerCase())
         },
-        openContext: function (idx: number) {
-
+        openContext: function (routine_idx: number, option: ContextOption) {
+            if(option.action === "delete")
+                this.routines.splice(routine_idx,1);
         }
     }
 }

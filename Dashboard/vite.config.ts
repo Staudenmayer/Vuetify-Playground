@@ -5,9 +5,8 @@ import vuetify, { transformAssetUrls } from "vite-plugin-vuetify";
 // Utilities
 import { defineConfig } from "vite";
 import { fileURLToPath, URL } from "node:url";
-import dotenv from 'dotenv'
-
-dotenv.config() // load env vars from .env
+import { config } from 'dotenv'
+config();
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -23,7 +22,14 @@ export default defineConfig({
       },
     }),
   ],
-  define: { "process.env": {...process.env} },
+  define: { 
+    process: {
+      env: {
+        API_PATH: process.env.API_PATH,
+        API_PORT: process.env.API_PORT
+      }
+    }
+  },
   resolve: {
     alias: {
       "@": fileURLToPath(new URL("./src", import.meta.url)),

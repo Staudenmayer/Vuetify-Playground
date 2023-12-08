@@ -23,13 +23,13 @@
                 {{ $user?.username }}
               </v-list-item>
               <v-divider></v-divider>
-              <a class="drawer-link" :href="$keycloak.createAccountUrl()">
+              <a class="drawer-link" :href="$keycloak?.createAccountUrl()">
                 <v-list-item prepend-icon="mdi-account" title="My Account"></v-list-item>
               </a>
               <router-link class="drawer-link" to="/settings">
                 <v-list-item prepend-icon="mdi-cog" title="Settings"></v-list-item>
               </router-link>
-              <a class="drawer-link" :href="$keycloak.createLogoutUrl()">
+              <a class="drawer-link" :href="$keycloak?.createLogoutUrl()">
                 <v-list-item prepend-icon="mdi-logout" title="Logout"></v-list-item>
               </a>
             </v-list>

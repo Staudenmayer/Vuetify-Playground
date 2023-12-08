@@ -32,7 +32,7 @@ const routes = [
   },
   {
     path: '/workout',
-    component: () => import('@/layouts/bread/Default.vue'),
+    component: () => import('@/layouts/default/Default.vue'),
     children: [
       {
         path: '',
@@ -42,6 +42,11 @@ const routes = [
         // which is lazy-loaded when the route is visited.
         component: () => import(/* webpackChunkName: "home" */ '@/views/Workout.vue'),
       },
+      {
+        path: ':uuid',
+        name: 'Workout ',
+        component: () => import('@/views/WorkoutTimer.vue')
+      }
     ],
   }
 ]
