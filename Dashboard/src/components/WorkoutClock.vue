@@ -16,7 +16,7 @@
                     <v-btn width="50" height="50" v-if="timerActive || currTime != 0"  @click.stop="prevExercise"  class="ma-2 pa-2"><v-icon size="30" icon="mdi-skip-previous"  color="primary"></v-icon></v-btn>
                     <v-btn width="50" height="50" v-if="!timerActive"                  @click.stop="startTimer"    class="ma-2 pa-2"><v-icon size="30" icon="mdi-play"           color="primary"></v-icon></v-btn>
                     <v-btn width="50" height="50" v-if="timerActive"                   @click.stop="pauseTimer"    class="ma-2 pa-2"><v-icon size="30" icon="mdi-pause"          color="primary"></v-icon></v-btn>
-                    <v-btn width="50" height="50" v-if="timerActive || currTime != 0"  @click.stop="resetTimer"    class="ma-2 pa-2"><v-icon size="30" icon="mdi-replay"         color="primary"></v-icon></v-btn>
+                    <v-btn width="50" height="50" v-if="false && (timerActive || currTime != 0)"  @click.stop="resetTimer"    class="ma-2 pa-2"><v-icon size="30" icon="mdi-replay"         color="primary"></v-icon></v-btn>
                     <v-btn width="50" height="50" v-if="timerActive || currTime != 0"  @click.stop="nextExercise"  class="ma-2 pa-2"><v-icon size="30" icon="mdi-skip-next"      color="primary"></v-icon></v-btn>
                 </div>
             </div>
@@ -29,6 +29,8 @@
 
 <script lang="ts">
 import beep from '@/media/beep.wav';
+import { Haptics, ImpactStyle } from '@capacitor/haptics';
+
 interface exercise {
     name: string
     exercise?: boolean
@@ -76,6 +78,11 @@ export default {
         await this.getWorkouts();
     },
     methods: {
+        async notify(){
+            const audio: HTMLAudioElement = new Audio(beep);
+            audio.play();
+            await Haptics.vibrate();
+        },
         handleResize() {
             this.window.width = window.innerWidth;
             this.window.height = window.innerHeight;
@@ -95,8 +102,7 @@ export default {
                     return this.clearTimer();
                 this.workoutExercise++;
                 this.workoutName = this.workoutRoutine[this.workoutExercise].name;
-                const audio: HTMLAudioElement = new Audio(beep);
-                audio.play();
+                this.notify();
             }
             if (this.currTime % this.workoutRoutine[this.workoutExercise].time === 0)
                 this.percent++;
@@ -116,8 +122,7 @@ export default {
             this.currTime = 0;
             this.percent = 0;
             if(!noSound){
-                const audio: HTMLAudioElement = new Audio(beep);
-                audio.play();
+                this.notify();
             }
         },
         resetTimer(){
