@@ -6,7 +6,7 @@
     <v-app-bar-title>
       <slot name="title">{{ $route.name }}</slot>
     </v-app-bar-title>
-    <template v-slot:append>
+    <template v-slot:append v-if="$user">
       <v-menu>
         <template v-slot:activator="{ props }">
           <v-btn v-bind="props" class="pa-0 ma-0">
@@ -40,10 +40,9 @@
   </v-app-bar>
   <v-navigation-drawer theme="dark" v-model="drawer" temporary>
     <v-list color="transparent">
-      <router-link class="drawer-link" to="/"><v-list-item prepend-icon="mdi-home"
-          title="Home"></v-list-item></router-link>
-      <router-link class="drawer-link" to="/workout"><v-list-item prepend-icon="mdi-dumbbell"
-          title="Workout"></v-list-item></router-link>
+      <router-link v-for="drawerItem in drawerItems" class="drawer-link" :to="drawerItem.to">
+        <v-list-item :prepend-icon="(drawerItem.icon)" :title="drawerItem.title"></v-list-item>
+      </router-link>
     </v-list>
   </v-navigation-drawer>
 </template>
@@ -55,13 +54,23 @@ import Profile from '@/components/Profile.vue'
 
 <script lang="ts">
 
+interface DrawerItem {
+  to: string,
+  icon: string,
+  title: string
+}
+
 export default defineComponent({
   props: {
     theme: String
   },
   data() {
     return {
-      drawer: false
+      drawer: false,
+      drawerItems: [
+        {to: '/', icon: 'mdi-home', title: 'Home'},
+        {to: '/workout', icon: 'mdi-dumbbell', title: 'Workout'}
+      ] as Array<DrawerItem>
     }
   },
   computed: {

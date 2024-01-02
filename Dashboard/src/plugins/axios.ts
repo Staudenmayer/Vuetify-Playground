@@ -5,7 +5,7 @@ const axios = {
 
     async install(app: App) {
         //axios defaults
-        Axios.defaults.baseURL = `${process.env.API_PATH}:${process.env.API_PORT}`
+        Axios.defaults.baseURL = `${import.meta.env.VITE_API_PATH}:${import.meta.env.VITE_API_PORT}`
         app.config.globalProperties.$axios = Axios
     }
 };

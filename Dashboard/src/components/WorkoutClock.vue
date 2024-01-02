@@ -28,8 +28,7 @@
 </script>
 
 <script lang="ts">
-import beep from '@/media/beep.wav';
-import { Haptics, ImpactStyle } from '@capacitor/haptics';
+import beep from '/beep.wav';
 
 interface exercise {
     name: string
@@ -81,7 +80,6 @@ export default {
         async notify(){
             const audio: HTMLAudioElement = new Audio(beep);
             audio.play();
-            await Haptics.vibrate();
         },
         handleResize() {
             this.window.width = window.innerWidth;
